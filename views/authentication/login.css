@@ -1,0 +1,159 @@
+/* CSS Document */
+/* ---------- FONTAWESOME ---------- */
+/* ---------- https://fortawesome.github.com/Font-Awesome/ ---------- */
+/* ---------- http://weloveiconfonts.com/ ---------- */
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+/* ---------- ERIC MEYER'S RESET CSS ---------- */
+/* ---------- https://meyerweb.com/eric/tools/css/reset/ ---------- */
+@import url(https://meyerweb.com/eric/tools/css/reset/reset.css);
+/* ---------- FONTAWESOME ---------- */
+[class*="fontawesome-"]:before {
+font-family: 'FontAwesome', sans-serif;
+}
+/* ---------- GENERAL ---------- */
+html {
+	background: #fff !important;
+}
+
+header{
+  background:#ffffff;
+  color:#ffffff;
+  padding-top:15spx;
+  /*min-height:70px;*/
+  padding-bottom:20px;
+  border-bottom:#000000 1px solid;
+}
+
+/*link : women men kid*/
+.nav-link {
+	padding-top: 20px;
+    padding-right: 1rem;
+	padding-left: 1rem;
+	font-size:20px; 
+	/*font-weight:bold; */
+	color: #000000;
+}
+
+.nav-link:hover {
+	color: #4F4F4F;
+}
+
+body {
+	background: #ffffff;
+	color: #606468;
+	font: 87.5%/1.5em 'Open Sans', sans-serif;
+	margin: 0;
+	overflow-y:auto !important;
+	overflow-x:hidden !important;
+}
+
+a {
+	color: #eee;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+input {
+	border: none;
+	font-family: 'Open Sans', Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5em;
+	padding: 0;
+	-webkit-appearance: none;
+}
+
+p {
+	line-height: 1.5em;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+.clearfix:before, .clearfix:after {
+	content: ' ';
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.container {
+	left: 50%;
+	position:absolute;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+/* ---------- LOGIN ---------- */
+#login {
+	padding-top:60px;
+	width: 280px;
+}
+
+#login form span {
+	background-color: #363b41;
+	border-radius: 3px 0px 0px 3px;
+	color: #606468;
+	display: block;
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	width: 50px;
+}
+#login form input {
+	height: 50px;
+}
+#login form input[type="text"], input[type="password"] {
+	background-color: #FFFFFF;
+	border-radius: 0px 3px 3px 0px;
+	color: #606468;
+	margin-bottom: 1em;
+	padding: 0 16px;
+	width: 230px;
+}
+#login form input[type="submit"] {
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background-color: #000000;
+	color: #eee;
+	font-weight: bold;
+	margin-bottom: 2em;
+	text-transform: uppercase;
+	width: 280px;
+}
+#login form input[type="submit"]:hover {
+	background-color: #696969;
+}
+#login > p {
+	text-align: center;
+}
+#login > p span {
+	padding-left: 5px;
+}
+.bottom {
+	width:100%; 
+	margin:0 auto; 
+	text-align:center; 
+	padding:10px 0; 
+	height:100px; 
+	position:absolute;
+}
+.bottom h3 {
+	color:white; 
+	font-size:30px; 
+	font-weight:bold; 
+	margin-top:45px; 
+	padding-bottom:45px;
+}
+.red { 
+	color:#A52A2A;
+}

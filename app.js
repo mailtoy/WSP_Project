@@ -12,7 +12,7 @@ var users = require('./routes/users');
 
 var app = express();
 
-mongoose.connect('localhost:27017/shopping');
+mongoose.connect("mongodb://localhost:27017/shopping", { useNewUrlParser: true });
 
 // view engine setup
 app.engine('.hbs', expressHsb({ defaultLayout: 'layout', extname: '.hbs' }))

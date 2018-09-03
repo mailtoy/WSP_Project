@@ -4,8 +4,9 @@ var Product = require('../models/product')
 
 /* GET home page. */
 router.get('/', function (req, res) {
-  var products = Product.find();
-  res.render('shop/index', { title: 'Shopping Cart', products: products });
+  Product.find(function (err, docs) {
+    res.render('shop/index', { title: 'Shopping Cart', products: docs });
+  });
 });
 
 module.exports = router;

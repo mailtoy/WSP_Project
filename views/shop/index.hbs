@@ -1,55 +1,20 @@
 <div class="row">
-
+  {{# each products }}
   <div class="col-sm-6 col-md-4">
     <div class="card" style="width: 18rem; margin-top:20px">
-      <img class="card-img-top" src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.0-9/16684191_1431759500227788_4523539130141331084_n.jpg?_nc_cat=0&oh=bc2c631c3aaf6ee4f796ea6089c3e731&oe=5BF96937"
-        alt="Card image cap">
+      <img class="card-img-top" src="{{ imagePath }}" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <div class="float-left" style="padding-top:5px">25$</div>
-        <a href="#" class="btn btn-primary float-right">Go somewhere</a>
+        <h5 class="card-title">{{ title }}</h5>
+        <p class="content" style="overflow: hidden;
+  height: 3.6em;
+  line-height: 1.2em;
+  width: 200px;">{{ description }}</p>
+        <div class="float-left" style="padding-top:5px ">${{ price }}</div>
+        <a href="# " class="btn btn-success float-right ">Add to shopping cart</a>
       </div>
     </div>
   </div>
-
-  <div class="col-sm-6 col-md-4">
-    <div class="card" style="width: 18rem; margin-top:20px">
-      <img class="card-img-top" src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.0-9/1601234_616447308425682_921942241_n.jpg?_nc_cat=0&oh=ef9f3f676297be64e2d415eecf20cda4&oe=5C350C8D"
-        alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <div class="float-left" style="padding-top:5px">15$</div>
-        <a href="#" class="btn btn-primary float-right">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6 col-md-4">
-    <div class="card" style="width: 18rem; margin-top:20px">
-      <img class="card-img-top" src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.0-9/10934003_816450055092072_1906053053581759871_n.jpg?_nc_cat=0&oh=7e9d618511ec45bfebfd139114e5f952&oe=5BF83C63"
-        alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <div class="float-left" style="padding-top:5px">30$</div>
-        <a href="#" class="btn btn-primary float-right">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6 col-md-4">
-    <div class="card" style="width: 18rem; margin-top:20px">
-      <img class="card-img-top" src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.0-9/1488253_587652077971872_633961629_n.jpg?_nc_cat=0&oh=350eca776f2d486719731c9ebb62b0b2&oe=5BEF0AAC"
-        alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <div class="float-left" style="padding-top:5px">45$</div>
-        <a href="#" class="btn btn-primary float-right">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-
+  {{/each}}
 </div>
+
+<script type="text/javascript" src="/javascripts/shop/index.js"></script>

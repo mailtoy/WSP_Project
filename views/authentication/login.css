@@ -18,7 +18,7 @@ html {
 header{
   background:#ffffff;
   color:#ffffff;
-  padding-top:15spx;
+  padding-top:5px;
   /*min-height:70px;*/
   padding-bottom:20px;
   border-bottom:#000000 1px solid;
@@ -30,7 +30,6 @@ header{
     padding-right: 1rem;
 	padding-left: 1rem;
 	font-size:20px; 
-	/*font-weight:bold; */
 	color: #000000;
 }
 

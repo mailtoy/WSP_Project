@@ -1,12 +1,33 @@
 var express = require('express');
 var router = express.Router();
-var Product = require('../models/product')
+var Product = require('../models/product');
+var csrf = require('csurf');
+var passport = require('passport');
+
+var csrfProtection = csrf();
+router.use(csrfProtection)
 
 /* GET home page. */
 router.get('/', function (req, res) {
   Product.find(function (err, docs) {
     res.render('shop/index', { title: 'Shopping Cart', products: docs });
   });
+});
+
+router.get('/user/signup', function (req, res, next) {
+  var messages = req.flash('error');
+  res.render('user/signup', { csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 })
+});
+
+router.post('/user/signup', passport.authenticate('local.signup', {
+  successRedirect: '/user/profile',
+  failureFlash: true,
+  failureRedirect: '/user/signup'
+  // failureFlash: true
+}));
+
+router.get('/user/profile', function (req, res, next) {
+  res.render('user/profile');
 });
 
 module.exports = router;

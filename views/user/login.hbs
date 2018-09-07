@@ -1,0 +1,39 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/user/login.css">
+
+<div class="container">
+    <header>
+        <center>
+            <div class="Head">
+                <img src="/images/logo-mai.png">
+                <ul class="nav justify-content-end" style="padding-top: 30px">
+                    <div class="row">
+                        <div class="col-sm">
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">LADIES</a>
+                                <a class="nav-link disabled" href="#">MEN</a>
+                                <a class="nav-link disabled" href="#">KIDS</a>
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </center>
+    </header>
+    <center>
+        <!-- login -->
+        <div id="login">
+            <form method="post">
+                <fieldset class="clearfix">
+                    <p><span class="fontawesome-user"></span><input type="text" value="Username" onBlur="if(this.value == '') this.value = 'Username'"
+                            onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
+                    <p><span class="fontawesome-lock"></span><input type="password" value="Password" onBlur="if(this.value == '') this.value = 'Password'"
+                            onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+                    <p><input type="submit" value="Login"></p>
+                </fieldset>
+            </form>
+            <p>Not a member? <a href="#" class="red">Sign up now</a><span class="fontawesome-arrow-right"></span></p>
+        </div> <!-- end login -->
+
+    </center>
+
+</div>

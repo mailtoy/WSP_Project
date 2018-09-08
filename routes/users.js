@@ -44,6 +44,10 @@ router.post('/signin', passport.authenticate('local.signin', {
   failureFlash: true
 }));
 
+router.get('/register', function(req, res) {
+  res.render('user/regis')
+});
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();

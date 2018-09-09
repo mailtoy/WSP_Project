@@ -48,6 +48,10 @@ router.get('/register', function(req, res) {
   res.render('user/regis')
 });
 
+router.get('/epay', function(req, res) {
+  res.render('user/epayment')
+});
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();

@@ -1,0 +1,38 @@
+html {
+	background: #fff !important;
+}
+
+body {
+	background: #ffffff;
+	color: #606468;
+	font: 87.5%/1.5em 'Open Sans', sans-serif;
+	margin: 0;
+	overflow-y:auto !important;
+	overflow-x:hidden !important;
+}
+
+a {
+	color: #eee;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+input[type="submit"] {
+	text-align:center; 
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	background-color: #000000;
+	color: #eee;
+	font-weight: bold;
+	margin-bottom: 2em;
+	/*text-transform: uppercase;*/
+	width: 80px;
+} 
+
+input[type="submit"]:hover {
+	background-color: #696969;
+}

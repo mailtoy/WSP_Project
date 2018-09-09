@@ -1,17 +1,26 @@
 <link rel="stylesheet" href="/stylesheets/user/regis.css">
-<form>
+<script type="text/javascript" src="/javascripts/shop/index.js"></script>
+
+{{#if hasErrors}}
+<div class="alert alert-danger">
+    {{# each messages }}
+    <p>{{this}}</p>
+    {{/each}}
+</div>
+{{/if}}
+<form action="/user/register" method="post">
     <div class="form-row">
         <div class="col-md-3">
         </div>
         <div class="col-md-3">
             <label for="validationTooltip01">First name</label>
-            <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="" required>
+            <input name="firstName" type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="" required>
             <div class="valid-tooltip">
             </div>
         </div>
         <div class="col-md-3">
             <label for="validationTooltip02">Last name</label>
-            <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="" required>
+            <input name="lastName" type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="" required>
             <div class="valid-tooltip">
             </div>
         </div>
@@ -23,16 +32,16 @@
         </div>
         <div class="form-group col-md-2">
             <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+            <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email">
         </div>
         <div class="form-group col-md-2">
             <label for="inputPassword4">Password</label>
-            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+            <input name="password" type="password" class="form-control" id="inputPassword4" placeholder="Password">
         </div>
         <div class="col-md-2">
             <label for="validationTooltipUsername">Username</label>
             <div class="input-group">
-                <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend"
+                <input name="username" type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend"
                 required>
                 <div class="invalid-tooltip">
                     Please choose a unique and valid username.
@@ -47,7 +56,7 @@
         </div>
         <div class="form-group col-md-6">
             <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Your Address">
+            <input name="address" type="text" class="form-control" id="inputAddress" placeholder="Your Address">
         </div>
         <div class="form-group col-md-3">
         </div>
@@ -57,18 +66,18 @@
         </div>
         <div class="form-group col-md-3">
             <label for="inputCity">City</label>
-            <input type="text" class="form-control" id="inputCity">
+            <input name="city" type="text" class="form-control" id="inputCity">
         </div>
         <div class="form-group col-md-2">
             <label for="inputState">State</label>
-            <select id="inputState" class="form-control">
+            <select name="state" id="inputState" class="form-control">
                 <option selected>Choose...</option>
                 <option>...</option>
             </select>
         </div>
         <div class="form-group col-md-1">
             <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" id="inputZip">
+            <input name="zip" type="text" class="form-control" id="inputZip">
         </div>
         <div class="form-group col-md-3">
         </div>
@@ -77,7 +86,7 @@
         <div class="form-group col-md-3">
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <input name="checkbox" class="form-check-input" type="checkbox" id="gridCheck">
             <label class="form-check-label" for="gridCheck">
                 Check me out
             </label>
@@ -86,6 +95,7 @@
     <div class="form-row">
         <div class="form-group col-md-3">
         </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <input type="submit" class="btn btn-primary" id="submitBtn"></button>
     </div>
 </form>

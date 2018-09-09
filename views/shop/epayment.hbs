@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form action="/action_page.php">
+      <form action="/checkout" method="post">
 
         <div class="row">
           <div class="col-50">
@@ -68,18 +68,19 @@
 
   <div class="col-25">
     <div class="container">
-      <h4>Cart 
+      <h4>Cart
         <span class="price" style="color:black">
-          <i class="fa fa-shopping-cart"></i> 
+          <i class="fa fa-shopping-cart"></i>
           <b>4</b>
         </span>
       </h4>
-      <p><a href="#">Product 1</a> <span class="price">$0</span></p>
-      <p><a href="#">Product 2</a> <span class="price">$0</span></p>
-      <p><a href="#">Product 3</a> <span class="price">$0</span></p>
-      <p><a href="#">Product 4</a> <span class="price">$0</span></p>
+
+      {{#each products}}
+      <p><a href="#">{{this.item.title}} จำนวน: {{this.qty}}</a> <span class="price">${{this.price}}</span></p>
+      {{/each}}
+
       <hr>
-      <p>Total <span class="price" style="color:black"><b>$0</b></span></p>
+      <p>Total <span class="price" style="color:black"><b>${{totalPrice}}</b></span></p>
     </div>
   </div>
 </div>

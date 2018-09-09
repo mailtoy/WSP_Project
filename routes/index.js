@@ -22,6 +22,15 @@ router.get('/add-to-cart/:id', function (req, res, next) {
   });
 });
 
+router.get('/checkout', function (req, res, next) {
+  if (!req.session.cart) {
+    return res.redirect('/mycart');
+  }
+  var cart = new Cart(req.session.cart.items);
+  res.render('shop/epayment', { products: cart.generateArray(), totalPrice: cart.totalPrice })
+
+});
+
 router.get('/mycart', function (req, res, next) {
   if (!req.session.cart) {
     return res.render('shop/cart', { products: null });

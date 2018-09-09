@@ -8,4 +8,8 @@ $(document).ready(function(){/* to make sure the script runs after page load */
         }
     });
     
+    $('#gridCheck').click(function() {
+        $("#submitBtn").toggle(this.checked);
+    });
+    
 });

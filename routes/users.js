@@ -48,7 +48,7 @@ router.get('/register', function(req, res) {
   res.render('user/regis')
 });
 
-router.get('/epay', function(req, res) {
+router.get('/payment', function(req, res) {
   res.render('user/epayment')
 });
 

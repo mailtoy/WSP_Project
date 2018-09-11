@@ -9,7 +9,11 @@ $(document).ready(function(){/* to make sure the script runs after page load */
     });
     
     $('#gridCheck').click(function() {
-        $("#submitBtn").toggle(this.checked);
+        if ($(this).is(':checked')) {
+            $('#submitBtn').removeAttr('disabled');
+        } else {
+            $('#submitBtn').attr('disabled', 'disabled');
+        }
     });
     
 });

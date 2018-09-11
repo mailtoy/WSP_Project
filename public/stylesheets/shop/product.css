@@ -1,0 +1,35 @@
+body{
+    background: #fff !important;
+    /* background-color: #696969; */
+    /* border-radius: 3px; */
+    /* -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin-bottom: 2em; */
+}
+
+.split{
+    height: 100%;
+    width: 50%;
+    color: #606468;
+    font: 87.5%/1.5em 'Open Sans', sans-serif;
+
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+    left: 0;
+  }
+  
+  /* Control the right side */
+  .right {
+    right: 0;
+  }
+
+  .btnContainer {
+    border-top:#000000 1px solid;
+  }

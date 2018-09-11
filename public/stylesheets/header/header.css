@@ -20,3 +20,14 @@
     position: relative;
     z-index: 3000;
 }
+
+.flex-logo {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 50%;
+    z-index: 1;
+    align-self: center;
+    justify-content: space-around;
+    align-content: center;
+}

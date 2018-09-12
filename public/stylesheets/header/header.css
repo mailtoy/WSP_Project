@@ -1,0 +1,33 @@
+.topbar a{
+    font-size: 11px;
+    word-spacing: 0;
+    letter-spacing: 0;
+    font-family: HM Ampersand Regular,HelveticaNeue-Regular;
+}
+
+.topbar-left a li{
+  flex-direction: row;
+  flex-wrap: nowrap;
+  text-align: left;
+}
+
+.topbar ul {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.topbar-container {
+    position: relative;
+    z-index: 3000;
+}
+
+.flex-logo {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 50%;
+    z-index: 1;
+    align-self: center;
+    justify-content: space-around;
+    align-content: center;
+}

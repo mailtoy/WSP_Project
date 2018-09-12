@@ -44,13 +44,18 @@ router.post('/signin', passport.authenticate('local.signin', {
   failureFlash: true
 }));
 
-router.get('/register', function(req, res) {
-  res.render('user/regis')
+// Register Form
+router.get('/register', function (req, res, next) {
+  var messages = req.flash('error');
+  res.render('user/regis', { csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 })
 });
 
-router.get('/payment', function(req, res) {
-  res.render('user/epayment')
-});
+// Register Process
+router.post('/register', passport.authenticate('local.signup', {
+  successRedirect: '/user/profile',
+  failureFlash: true,
+  failureRedirect: '/user/register',
+}));
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {

@@ -8,4 +8,12 @@ $(document).ready(function(){/* to make sure the script runs after page load */
         }
     });
     
+    $('#gridCheck').click(function() {
+        if ($(this).is(':checked')) {
+            $('#submitBtn').removeAttr('disabled');
+        } else {
+            $('#submitBtn').attr('disabled', 'disabled');
+        }
+    });
+    
 });

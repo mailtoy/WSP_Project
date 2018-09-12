@@ -30,4 +30,8 @@ router.get('/mycart', function (req, res, next) {
   res.render('shop/cart', { products: cart.generateArray(), totalPrice: cart.totalPrice });
 });
 
+router.get('/shop', function(req, res) {
+  res.render('shop/shop')
+});
+
 module.exports = router;

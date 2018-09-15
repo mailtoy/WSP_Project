@@ -1,50 +1,82 @@
 <link rel="stylesheet" href="stylesheets/header/header.css">
 
-<div class="topbar-container js-topbar-container">
-<header class="topbar">
-	<ul class="topbar-left">
-			<li>
-				<a href="https://www.hm.com/th/customer-service">Customer Service</a>
-			</li>
-			<li>
-				<a href="https://www.hm.com/th/store-locator">Store Locator</a>
-			</li>
-        <span class="topbar-left-showMoreLinks">
-            <p></p>
-            <div class="topbar-dropdown">
-                <ul>
-                </ul>
-            </div>
-        </span>
-    </ul>
-    <ul class="topbar-right">
-            <li>
-                <a href="https://www.hm.com/th/login" class=" loginGroup">Log In                </a>
-            </li>
-            <li>
-                <a href="https://www.hm.com/th/my-hm" class=" ">My H&amp;M                </a>
-            </li>
-            <li>
-                <a href="https://www.hm.com/entrance.ahtml" class=" country_and_currency">ประเทศไทย | THB                </a>
-            </li>
-    </ul>
-</header>
-</div>
-<!-- <header>
+{{# if login }}
+								<header class="topbar">
+									<span class="topbar-left-showMoreLinks"></span>
+									<div class="row">
+										<div class="col-md-6 text-left">
+											<ul class="topbar-left">
+													<a href="">Customer Service</a>
+													<span class="topbar-left-showMoreLinks"></span>
+													<a href="">Store Locator</a>
+											</ul>
+										</div>
+										<div class="col-md-6 text-right">
+											<ul class="topbar-right">
+													<span class="username">Septima</span>
+													<span class="topbar-left-showMoreLinks"></span>
+													<a href="" class="loginGroup">Log Out</a>
+													<span class="topbar-left-showMoreLinks"></span>
+													<a href="" class=" ">My D'alessio</a>
+													<span class="topbar-left-showMoreLinks"></span>
+													<a href="" class=" country_and_currency">ประเทศไทย | THB</a>
+													<span class="topbar-left-showMoreLinks"></span>
+													<span class="topbar-left-showMoreLinks"></span>
+											</ul>
+										</div>
+									</div>
 
-            <div class="Head">
-            <a href="#" class="log">Log in</a><span class="fontawesome-arrow-right">
-                <img src="/images/logo-mai.png" class="flex-logo">
-                <ul class="nav justify-content-end" style="padding-top: 30px">
-                    <div class="row">
-                        <div class="col-sm">
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">LADIES</a>
-                                <a class="nav-link disabled" href="#">MEN</a>
-                                <a class="nav-link disabled" href="#">KIDS</a>
-                            </li>
-                        </div>
-                    </div>
-                </ul>
-            </div>
-    </header> -->
+									<div class="row">
+										<img src="/images/logo-mai.png" class="flex-logo">
+									</div>
+
+									<nav class="mega-menu">
+										<a class="nav-link disabled" href="#">LADIES</a>
+										<a class="nav-link disabled" href="#">MEN</a>
+										<a class="nav-link disabled" href="#">KIDS</a>
+									</nav>
+
+									<svg height="1" width="2000">
+									<line x1="0" y1="0" x2="2000" y2="0" class="line-style" />
+									</svg>
+								</header>
+      {{ else }}
+								<header class="topbar">
+									<!-- <span class="topbar-left-showMoreLinks"></span> -->
+									<div class="row">
+										<div class="col-md-6 text-left">
+											<ul class="topbar-left">
+													<a href="">Customer Service</a>
+													<span class="topbar-left-showMoreLinks"></span>
+													<a href="">Store Locator</a>
+											</ul>
+										</div>
+										<div class="col-md-6 text-right">
+											<ul class="topbar-right">
+													<a href="" class=" loginGroup">Log In</a>
+													<span class="topbar-left-showMoreLinks"></span>
+													<a href="" class="">My D'alessio</a>
+													<span class="topbar-left-showMoreLinks"></span>
+													<a href="" class="country_and_currency">ประเทศไทย | THB</a>
+													<span class="topbar-left-showMoreLinks"></span>
+													<span class="topbar-left-showMoreLinks"></span>
+											</ul>
+										</div>
+									</div>
+
+									<div class="row">
+										<img src="/images/logo-mai.png" class="flex-logo">
+									</div>
+
+									<nav class="mega-menu">
+										<a class="nav-link disabled" href="#">LADIES</a>
+										<a class="nav-link disabled" href="#">MEN</a>
+										<a class="nav-link disabled" href="#">KIDS</a>
+									</nav>
+
+									<svg height="1" width="2000">
+									<line x1="0" y1="0" x2="2000" y2="0" class="line-style" />
+									</svg>
+								</header>
+
+      {{/if}}

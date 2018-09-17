@@ -25,7 +25,9 @@
     align-self: center;
     justify-content: space-around;
     align-content: center;
-    margin-left: 520px;
+    margin: 0 auto;
+
+    /* margin-left: 520px; */
 }
 
 .mega-menu {
@@ -40,4 +42,9 @@
 .line-style{
   stroke:rgb(220,220,220);
   stroke-width:3;
+}
+
+.responsive-images {
+    width: 100%;
+    height: auto;
 }

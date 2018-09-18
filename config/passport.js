@@ -55,7 +55,6 @@ passport.use('local.signup', new LocalStrategy({
 }, function (req, email, password, done) {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
-    const username = req.body.username;
     const address = req.body.address;
     const city = req.body.city;
     const state = req.body.state;
@@ -64,7 +63,6 @@ passport.use('local.signup', new LocalStrategy({
     req.checkBody('lastName', 'Last name is required').notEmpty();
     req.checkBody('email', 'Invalid email').notEmpty().isEmail();
     req.checkBody('password', 'Invalid password').notEmpty().isLength({ min: 4 });
-    req.checkBody('username', 'Invalid username').notEmpty().isLength({ min: 4 });
     req.checkBody('address', 'Address is required').notEmpty();
     req.checkBody('city', 'City is required').notEmpty();
     req.checkBody('state', 'State is required').notEmpty();
@@ -78,21 +76,19 @@ passport.use('local.signup', new LocalStrategy({
         return done(null, false, req.flash('error', messages));
     }
 
-    User.findOne({$or: [
-        { 'email': email },
-        { 'username': username }
-    ]}).exec(function(err, user) {
+    User.findOne(
+        { 'email': email }
+    ).exec(function(err, user) {
         if (err) {
             return done(err);
         } else if (user) {
-            return done(null, false, { message: 'Email or username is already in use.' });
+            return done(null, false, { message: 'Email is already registered.' });
         }
         var newUser = new User();
         newUser.firstName = firstName;
         newUser.lastName = lastName;
         newUser.email = email;
         newUser.password = newUser.encryptPassword(password);
-        newUser.username = username;
         newUser.address = address;
         newUser.city = city;
         newUser.state = state;

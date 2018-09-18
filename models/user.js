@@ -20,11 +20,6 @@ var userSchema = new Schema({
       type: String,
       required: true
     },
-    username: {
-      type: String,
-      unique: true,
-      required: true
-    },
     address: {
       type: String,
       required: true

@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="stylesheets/header/header.css">
+<script type="text/javascript" src="/javascripts/shop/index.js"></script>
 
 <header class="topbar responsive-header">
 	<span class="topbar-left-showMoreLinks"></span>
@@ -6,7 +7,7 @@
 		<div class="col-md-12 text-right">
 			<ul class="topbar-right	">
 				{{# if login }}
-					<span class="username">คุณ {{ session.user.firstName }}</span>
+					<span class="username">{{ session.user.firstName }}</span>
 					<span class="topbar-left-showMoreLinks"></span>
 					<a href="http://localhost:3000/user/logout" class="loginGroup">Log Out</a>
 					<span class="topbar-left-showMoreLinks"></span>
@@ -22,15 +23,42 @@
 			</ul>
 		</div>
 	</div>
-
-	<div class="row">
+	<a href="http://localhost:3000/">
 		<img src="/images/logo-mai.png" class="flex-logo  responsive-images">
-	</div>
-
+	</a>
 	<nav class="mega-menu">
-		<a class="nav-link disabled" href="#">LADIES</a>
-		<a class="nav-link disabled" href="#">MEN</a>
-		<a class="nav-link disabled" href="#">KIDS</a>
+		<div class="row">
+			<div class="col-4">
+				<a class="ladies-btn" href="#">LADIES</a>
+				<div class="sub-menu">
+					<ul>
+						<li>Blah</li>
+						<li>Blah</li>
+						<li>Blah</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-4">
+				<a class="men-btn" href="#">MEN</a>
+				<div class="sub-menu">
+					<ul>
+						<li>Blah</li>
+						<li>Blah</li>
+						<li>Blah</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-4">
+				<a class="kids-btn" href="#">KIDS</a>
+				<div class="sub-menu">
+					<ul>
+						<li>Blah</li>
+						<li>Blah</li>
+						<li>Blah</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</nav>
 
 	<svg height="1" width="2000">

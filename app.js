@@ -15,7 +15,12 @@ var MongoStore = require('connect-mongo')(session);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+var exphbs = require('express-handlebars');
+var hbsHelpers = exphbs.create({
+    helpers: require("./public/helpers/handlebars.js").helpers,
+    defaultLayout: 'layout',
+    extname: '.hbs'
+});
 var app = express();
 
 mongoose.connect("mongodb://localhost:27017/shopping", { useNewUrlParser: true });
@@ -23,6 +28,7 @@ require('./config/passport')
 
 // view engine setup
 app.engine('.hbs', expressHsb({ defaultLayout: 'layout', extname: '.hbs' }))
+app.engine('.hbs', hbsHelpers.engine);
 app.set('view engine', 'hbs');
 
 app.use(favicon());

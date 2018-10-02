@@ -44,6 +44,7 @@ router.post('/signin', passport.authenticate('local.signin', {
   failureFlash: true
 }));
 
+
 // Register Form
 router.get('/register', function (req, res, next) {
   var messages = req.flash('error');

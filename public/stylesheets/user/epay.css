@@ -1,3 +1,9 @@
+
+.error-messages {
+  align-content: center;
+  margin-top: 100;
+}
+
 .row {
   display: -ms-flexbox; /* IE10 */
   display: flex;

@@ -17,10 +17,26 @@ router.get('/add-to-cart/:id', function (req, res, next) {
   Product.findById(productId, function (err, product) {
     cart.add(product, product.id);
     req.session.cart = cart;
-    console.log(req.session.cart)
+    console.log(req.session.cart);
     res.redirect('/');
   });
 });
+
+router.get('/remove-from-cart/:id', function(req, res) {
+  let query = {
+    _id: req.params.id
+  }
+  var cart = new Cart(req.session.cart.items); 
+  Product.findById(req.params.id, function(err, product) {
+    Product.remove(query, function(err) {
+      if (err) {
+        console.log(err);
+      }
+      cart.remove(req.params.id);
+      res.redirect('/mycart/');
+    })
+  })
+})
 
 router.get('/checkout', function (req, res, next) {
   if (!req.session.cart) {

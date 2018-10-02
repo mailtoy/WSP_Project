@@ -1,6 +1,3 @@
-.header-logo {
-    align-content: center;
-}
 .topbar a{
     font-size: 12px;
     word-spacing: 0;
@@ -34,6 +31,7 @@
 }
 
 .mega-menu {
+    padding-top: 10px;
     font-size: 18px;
     display: flex;
     flex-flow: row nowrap;

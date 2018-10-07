@@ -1,0 +1,33 @@
+.copyrights{
+    margin-top:25px;
+    }
+    
+    footer.container-fluid.text-center.foot {
+        background: white;
+    }
+    
+    .dark-line{
+        border-top: 1px solid #525252;
+    }
+
+    .white-txt{
+        color: black;
+        font-family: HM Ampersand Regular,HelveticaNeue-Regular;
+        font-size: 15px;
+    }
+    
+    a.link {
+        color: #008acc;
+        border: 1px #008acc solid;
+        padding: 5px;
+        text-decoration: none;
+    }
+    
+    a.link:hover {
+    background: #008acc;
+        color: #383838;
+    }
+    
+    .footimg{
+    width: 5rem;
+    }

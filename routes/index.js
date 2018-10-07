@@ -43,4 +43,8 @@ router.get('/shop', function(req, res) {
   res.render('shop/shop')
 });
 
+router.get('/home', function(req, res) {
+  res.render('shop/home')
+});
+
 module.exports = router;

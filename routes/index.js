@@ -26,7 +26,7 @@ router.get('/remove-from-cart/:id', function(req, res) {
   let query = {
     _id: req.params.id
   }
-  var cart = new Cart(req.session.cart.items); 
+  var cart = new Cart(req.session.cart.items);
   Product.findById(req.params.id, function(err, product) {
     Product.remove(query, function(err) {
       if (err) {
@@ -100,7 +100,7 @@ router.get('/shop', function(req, res) {
 
 router.get('/home', function(req, res) {
   res.render('shop/home')
-
+});
 router.get('/cart', function(req, res) {
   res.render('shop/shopping_cart')
 });

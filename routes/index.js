@@ -6,7 +6,7 @@ var Cart = require('../models/cart')
 /* GET home page. */
 router.get('/', function (req, res) {
   Product.find(function (err, docs) {
-    res.render('shop/index', { title: 'Shopping Cart', products: docs });
+    res.render('shop/shop', { title: 'Dlaessio', products: docs });
   });
 });
 
@@ -94,9 +94,9 @@ router.post('/checkout', function (req, res, next) {
   }
 });
 
-router.get('/shop', function(req, res) {
-  res.render('shop/shop')
-});
+// router.get('/shop', function(req, res) {
+//   res.render('shop/shop')
+// });
 
 router.get('/home', function(req, res) {
   res.render('shop/home')
@@ -106,8 +106,8 @@ router.get('/cart', function(req, res) {
   res.render('shop/shopping_cart')
 });
 
-router.get('/product', function(req, res) {
-  res.render('shop/product')
-});
+// router.get('/product', function(req, res) {
+//   res.render('shop/product')
+// });
 
 module.exports = router;

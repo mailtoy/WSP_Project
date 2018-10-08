@@ -6,31 +6,34 @@ mongoose.connect("mongodb://localhost:27017/shopping", { useNewUrlParser: true }
 
 var products = [
     new Product({
-        imagePath: 'https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.0-9/16684191_1431759500227788_4523539130141331084_n.jpg?_nc_cat=0&oh=bc2c631c3aaf6ee4f796ea6089c3e731&oe=5BF96937',
-        title: 'Picture 1',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec egestas dolor. Duis sodales, tellus id hendrerit semper, metus odio malesuada ante, a suscipit felis magna ut nulla. Nam dictum velit ultrices velit consequat, a luctus elit volutpat. Proin et mollis ipsum. Sed nec justo eu libero vulputate congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit interdum metus, nec convallis erat ultrices eu. In vehicula quis leo quis malesuada. Integer ultrices odio nulla, in fermentum arcu pulvinar ut.',
-        price: 10
+        title: 'Dress1',
+        description: 'D1',
+        price: 200,
+        imagePath_1: 'https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_948a4e6c319a3d047478f77274437b8efc44edfc.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D',
+        imagePath_2: 'https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_54f6dd0daafd05ca926b9c45db07cab3e8fc2abc.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D',
+        imagePath_3: 'https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_146fea53997894879f009f28244093622ab923d0.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D',
+        imagePath_4: 'https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_9bec1151352ff18c3e72fdb0bf3239c0fba1ff43.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D',
+        imagePath_5: 'https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200702650%20002%2099%20f2b456ce8ee2d882e716175965568992cd3cc967.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D',
     }),
     new Product({
-        imagePath: 'https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.0-9/1601234_616447308425682_921942241_n.jpg?_nc_cat=0&oh=ef9f3f676297be64e2d415eecf20cda4&oe=5C350C8D',
-        title: 'Picture 2',
-        description: 'Nam dignissim orci augue. Nullam sit amet molestie risus, id sodales ex. Morbi in magna eu ante consectetur placerat. Vestibulum sed mauris sed enim mollis tincidunt a vel tellus. ' ,
-        price: 10
-    }), new Product({
-        imagePath: 'https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.0-9/10934003_816450055092072_1906053053581759871_n.jpg?_nc_cat=0&oh=7e9d618511ec45bfebfd139114e5f952&oe=5BF83C63',
-        title: 'Picture 3',
-        description: 'Description 3',
-        price: 10
-    }), new Product({
-        imagePath: 'https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.0-9/16684191_1431759500227788_4523539130141331084_n.jpg?_nc_cat=0&oh=bc2c631c3aaf6ee4f796ea6089c3e731&oe=5BF96937',
-        title: 'Picture 4',
-        description: 'Description 4',
-        price: 10
-    }), new Product({
-        imagePath: 'https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.0-9/1488253_587652077971872_633961629_n.jpg?_nc_cat=0&oh=350eca776f2d486719731c9ebb62b0b2&oe=5BEF0AAC',
-        title: 'Picture 5',
-        description: 'Description 5',
-        price: 10
+        title: 'Dress2',
+        description: 'D2',
+        price: 150,
+        imagePath_1: 'https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_f597c4e91daf73af3e2bc0643f433fc49315de60.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D',
+        imagePath_2: 'https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_fda6db8dbd9bcfdfe6207f9b5bdf8434521a30ed.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D',
+        imagePath_3: 'https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_a4b712272e315181b5123f8d0cc0c24c8f5e1aa1.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D',
+        imagePath_4: 'https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_4e4c1a003ab6c3ac888a2ecd3787ac1587571900.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D',
+        imagePath_5: 'https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200690504%20001%2099%201a7a2db5e4fea92155d1f36863be4952937da4c1.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D',
+    }),
+    new Product({
+        title: 'Dress3',
+        description: 'D3',
+        price: 250,
+        imagePath_1: 'https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_4d8a3e6333f200bdb6cc742db192981606f44040.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D',
+        imagePath_2: 'https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_e0cde50ed855d11b5f79d5984a7f4cdfc2c1e999.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D',
+        imagePath_3: 'https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_7a5a31421395efde79243e81839be0465c4b42c2.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D',
+        imagePath_4: 'https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_c26622ea41fd083973df7178b904ffdfc2327d7e.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D',
+        imagePath_5: 'https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200721488%20001%2099%20e7f8afc50917f1273f07588da4b24dc82cb51fbd.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D',
     }),
 ];
 
@@ -47,3 +50,4 @@ for (var i = 0; i < products.length; i++) {
 function exit() {
     mongoose.disconnect();
 }
+

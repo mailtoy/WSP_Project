@@ -21,6 +21,21 @@ module.exports = function Cart(initItems) {
         this.totalPrice += storedItem.item.price;
     };
 
+    this.addByQty = function (item, id, qty) {
+        console.log(qty+"***")
+        var storedItem = this.items[id];
+        if (!storedItem) {
+            storedItem = this.items[id] = { id: id, qty: 0, item: item, price: 0 };
+        }
+        this.totalQty -= storedItem.qty
+        this.totalPrice -= storedItem.item.price;
+
+        storedItem.qty = qty
+        this.totalQty += storedItem.qty
+        storedItem.price = storedItem.item.price * storedItem.qty;
+        this.totalPrice += storedItem.item.price;
+    };
+
     this.remove = function(id) {
         var storedItem = this.items[id];
         storedItem.qty--;

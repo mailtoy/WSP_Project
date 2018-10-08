@@ -40,6 +40,10 @@
     margin: 0 auto;
 }
 
+.mega-menu .col-4 {
+    margin: 0 15px 0 15px;
+}
+
 .sub-menu {
     display: none;
     position: absolute;
@@ -59,6 +63,7 @@
 .responsive-images {
     width: 100%;
     height: auto;
+    margin-bottom: 2%;
 }
 
 svg {

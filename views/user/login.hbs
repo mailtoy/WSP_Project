@@ -1,37 +1,33 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/user/login.css">
 
-<div class="container">
-    <center>
-        <!-- login -->
-        <div id="login">
-            <form action="/user/signin" method="post">
-                <fieldset class="clearfix">
-                    <p>
-                        <span class="fontawesome-user"></span>
-                        <input class="form-control" type="text" value="Username"  name="email" onBlur="if(this.value == '') this.value = 'Username'"
-                            onFocus="if(this.value == 'Username') this.value = ''" required>
-                    </p>
-                    <p>
-                        <span class="fontawesome-lock"></span>
-                        <input class="form-control" type="password" value="Password" name="password" onBlur="if(this.value == '') this.value = 'Password'"
-                            onFocus="if(this.value == 'Password') this.value = ''" required>
-                    </p>
-                    <p>
-                        {{#if hasErrors}}
-                        <div class="alert alert-danger">
-                            {{# each messages }}
-                            <p>{{this}}</p>
-                            {{/each}}
-                        </div>
-                        {{/if}}
-                        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-                        <input type="submit" value="Login">
-                    </p>
-                </fieldset>
-            </form>
-            <p>Not a member? <a href="http://localhost:3000/user/register" class="red">Sign up now</a><span class="fontawesome-arrow-right"></span></p>
-        </div> <!-- end login -->
+<center>
+    <div id="login">
+        <form action="/user/signin" method="post">
+            <fieldset class="clearfix">
+                {{#if hasErrors}}
+                    <div class="alert alert-danger">
+                        {{# each messages }}
+                        <p>{{this}}</p>
+                        {{/each}}
+                    </div>
+                {{/if}}
+                <p>
+                    <span class="fontawesome-user"></span>
+                    <input class="form-control" type="text" value="Username"  name="email" onBlur="if(this.value == '') this.value = 'Username'"
+                        onFocus="if(this.value == 'Username') this.value = ''" required>
+                </p>
+                <p>
+                    <span class="fontawesome-lock"></span>
+                    <input class="form-control" type="password" value="Password" name="password" onBlur="if(this.value == '') this.value = 'Password'"
+                        onFocus="if(this.value == 'Password') this.value = ''" required>
+                </p>
+                <p>
+                    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                    <input type="submit" value="Login">
+                </p>
+            </fieldset>
+        </form>
+        <p>Not a member? <a href="http://localhost:3000/user/register" class="red">Sign up now</a><span class="fontawesome-arrow-right"></span></p>
+    </div>
+</center>
 
-    </center>
-
-</div>

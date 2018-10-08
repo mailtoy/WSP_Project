@@ -20,19 +20,7 @@ router.use('/', notLoggedIn, function (req, res, next) {
   next();
 });
 
-// for test.
-router.get('/signup', function (req, res, next) {
-  var messages = req.flash('error');
-  res.render('user/signup', { csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 })
-});
-
-// for test.
-router.post('/signup', passport.authenticate('local.signup', {
-  successRedirect: '/user/profile',
-  failureFlash: true,
-  failureRedirect: '/user/signup',
-}));
-
+// Signin 
 router.get('/signin', function (req, res, next) {
   var messages = req.flash('error');
   res.render('user/login', { csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 })

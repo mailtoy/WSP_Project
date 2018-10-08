@@ -26,33 +26,33 @@ router.get('/remove-from-cart/:id', function(req, res) {
   let query = {
     _id: req.params.id
   }
-  var cart = new Cart(req.session.cart.items); 
+  var cart = new Cart(req.session.cart.items);
   Product.findById(req.params.id, function(err, product) {
     Product.remove(query, function(err) {
       if (err) {
         console.log(err);
       }
       cart.remove(req.params.id);
-      res.redirect('/mycart/');
+      res.redirect('/cart/');
     })
   })
 })
 
 router.get('/checkout', function (req, res, next) {
   if (!req.session.cart) {
-    return res.redirect('/mycart');
+    return res.redirect('/cart');
   }
   var cart = new Cart(req.session.cart.items);
   res.render('shop/epayment', { products: cart.generateArray(), totalPrice: cart.totalPrice })
 
 });
 
-router.get('/mycart', function (req, res, next) {
+router.get('/cart', function (req, res, next) {
   if (!req.session.cart) {
-    return res.render('shop/cart', { products: null });
+    return res.render('shop/shopping_cart', { products: null });
   }
   var cart = new Cart(req.session.cart.items);
-  res.render('shop/cart', { products: cart.generateArray(), totalPrice: cart.totalPrice });
+  res.render('shop/shopping_cart', { products: cart.generateArray(), totalPrice: cart.totalPrice });
 });
 
 router.post('/checkout', function (req, res, next) {
@@ -104,6 +104,10 @@ router.get('/home', function(req, res) {
 
 router.get('/cart', function(req, res) {
   res.render('shop/shopping_cart')
+});
+
+router.get('/product', function(req, res) {
+  res.render('shop/product')
 });
 
 module.exports = router;

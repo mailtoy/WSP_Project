@@ -77,8 +77,30 @@ body {
   .colors {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1; }
+    -ms-flex-positive: 1;
+    flex-grow: 1; }
+
+  .action{
+    flex-grow: 15;
+  }
+
+  input[type="submit"]{
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: #000000;
+    color: #eee;
+    font-weight: bold;
+    margin-bottom: 2em;
+    margin-top: 0em;
+    text-transform: uppercase;
+    width: 100%;
+    height: 50px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #A52A2A;
+  }
   
   .product-title, .price, .sizes, .colors {
     text-transform: UPPERCASE;

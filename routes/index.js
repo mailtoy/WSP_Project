@@ -105,4 +105,8 @@ router.get('/cart', function(req, res) {
   res.render('shop/shopping_cart')
 });
 
+router.get('/product', function(req, res) {
+  res.render('shop/product')
+});
+
 module.exports = router;

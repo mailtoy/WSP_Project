@@ -100,6 +100,7 @@ router.get('/shop', function(req, res) {
 
 router.get('/home', function(req, res) {
   res.render('shop/home')
+});
 
 router.get('/cart', function(req, res) {
   res.render('shop/shopping_cart')

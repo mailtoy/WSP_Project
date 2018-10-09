@@ -43,7 +43,7 @@ router.get('/register', function (req, res, next) {
 router.post('/register', passport.authenticate('local.signup', {
   successRedirect: '/user/profile',
   failureFlash: true,
-  failureRedirect: '/user/register',
+  failureRedirect: '/user/regis',
 }));
 
 function isLoggedIn(req, res, next) {

@@ -5,9 +5,7 @@ var Cart = require('../models/cart')
 
 /* GET home page. */
 router.get('/', function (req, res) {
-  Product.find(function (err, docs) {
-    res.render('shop/shop', { title: 'Dlaessio', products: docs });
-  });
+  res.render('shop/home', { title: 'Dlaessio' })
 });
 
 router.get('/add-to-cart-qty/:id/:qty', function (req, res, next) {
@@ -107,13 +105,15 @@ router.post('/checkout', function (req, res, next) {
   }
 });
 
-// router.get('/shop', function(req, res) {
-//   res.render('shop/shop')
-// });
-
-router.get('/home', function(req, res) {
-  res.render('shop/home')
+router.get('/shop', function(req, res) {
+  Product.find(function (err, docs) {
+    res.render('shop/shop', { title: 'Dlaessio', products: docs });
+  });
 });
+
+// router.get('/home', function(req, res) {
+//   res.render('shop/home')
+// });
 
 router.get('/cart', function(req, res) {
   res.render('shop/shopping_cart')

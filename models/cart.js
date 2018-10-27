@@ -22,7 +22,6 @@ module.exports = function Cart(initItems) {
     };
 
     this.addByQty = function (item, id, qty) {
-        console.log(qty+"***")
         var storedItem = this.items[id];
         if (!storedItem) {
             storedItem = this.items[id] = { id: id, qty: 0, item: item, price: 0 };

@@ -230,3 +230,12 @@ img {
       -webkit-transform: scale(1);
               transform: scale(1); } }
     }
+
+    @media (max-width: 800px) {
+      .row {
+        flex-direction: row-reverse;
+      }
+      .col-25 {
+        margin-bottom: 20px;
+      }
+    }

@@ -14,8 +14,7 @@
         {{/each}}
       </div>
       {{/if}}
-      <form action="/checkout" method="post">
-
+      <form method="post">
         <div class="row">
           <div class="col-50">
             <h3>Billing Address</h3>
@@ -93,18 +92,9 @@
           <label>
             <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
           </label>
-
-          <input type="submit" value="Continue to checkout" class="btn">
-
-
+          <input formaction="/checkout" type="submit" value="Continue to checkout" class="btn">
+          <input formaction="/checkout-paypal" class="btn btn-warning" type="submit" value="Checkout with PayPal">
       </form>
-
-          <div class="container">
-            <form action="/checkout-paypal" method="post">
-              <input class="btn btn-warning" type="submit" value="Checkout with PayPal">
-            </form>
-          </div>
-
       </div>
 
     </div>

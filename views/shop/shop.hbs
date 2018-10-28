@@ -1,6 +1,31 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="/stylesheets/shop/shop.css">
 
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">Dress</a>
+  <a href="#">T-Shirt</a>
+  <a href="#">Jumper</a>
+  <a href="#">Jeans</a>
+</div>
+
+<span id="tab" style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776; Category</span>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "200px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+     
+</body>
+
+
 <div class="row">
   {{# each products }}
     <div class="col-sm-6 col-md-4">

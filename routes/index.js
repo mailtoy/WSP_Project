@@ -15,9 +15,8 @@ paypal.configure({
 
 /* GET home page. */
 router.get('/', function (req, res) {
-  var successMsg = req.flash('success')[0];
-  res.render('shop/home', { title: 'Dlaessio', successMsg: successMsg, noMessages: !successMsg })
-});
+  res.render('shop/home', { title: 'Dlaessio' });
+})
 
 router.get('/add-to-cart-qty/:id/:qty', function (req, res, next) {
   var productId = req.params.id;
@@ -75,9 +74,7 @@ router.get('/cart', function (req, res, next) {
     return res.render('shop/shopping_cart', { products: null });
   }
   var cart = new Cart(req.session.cart.items);
-  var messages = req.flash('error')[0];
   res.render('shop/shopping_cart', {
-    messages: messages, noMessages: !messages,
     products: cart.generateArray(), totalPrice: cart.totalPrice
   });
 });
@@ -102,11 +99,6 @@ router.post('/checkout-paypal', function (req, res, next) {
       quantity: items[i].qty
     })
   }
-  // console.log(req.body.address)
-  // console.log(req.body.firstname)
-  // console.log(req.body.city)
-  // console.log(req.body.zip)
-  // console.log(req.body.state)
 
   var create_payment_json = {
     "intent": "sale",
@@ -147,8 +139,6 @@ router.post('/checkout-paypal', function (req, res, next) {
       "description": "This is the payment description."
     }]
   };
-  req.session.name = req.body.firstname
-  req.session.address = req.body.address
   paypal.payment.create(create_payment_json, function (error, payment) {
     if (error) {
       throw error;
@@ -172,22 +162,26 @@ router.get('/success', (req, res) => {
     if (error) {
       console.error(JSON.stringify(error));
     } else {
-      // save address here!
-      console.log(payment.transactions.item_list)
-
+      var name = payment.transactions[0].item_list.shipping_address.recipient_name
+      var address = payment.transactions[0].item_list.shipping_address.line1
+        + " " + payment.transactions[0].item_list.shipping_address.line2
+        + " " + payment.transactions[0].item_list.shipping_address.city
+        + " " + payment.transactions[0].item_list.shipping_address.state
+        + " " + payment.transactions[0].item_list.shipping_address.postal_code
+        + " " + payment.transactions[0].item_list.shipping_address.country_code
       if (payment.state == 'approved') {
         console.log('payment completed successfully');
         var order = new Order({
           user: req.user,
           cart: cart,
-          address: req.session.address,
-          name: req.session.name,
+          address: address,
+          name: name,
           paymentId: paymentId
         });
         order.save(function (err, result) {
           if (err) {
             console.log("err " + err);
-          } req.flash('success', 'Successfully bought product!');
+          }
           req.session.cart = null;
           res.redirect('/');
         });

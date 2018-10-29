@@ -63,6 +63,7 @@ passport.use('local.signup', new LocalStrategy({
                 return done(err);
             }
             console.log("pass");
+            req.session.user = newUser;
             return done(null, newUser);
         });
     });

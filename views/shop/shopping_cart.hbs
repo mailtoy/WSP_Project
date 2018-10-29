@@ -1,63 +1,87 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="/stylesheets/shop/shopping_cart.css"> 
+<link rel="stylesheet" href="/stylesheets/shop/shopping_cart.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript"  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/javascripts/shop/cart_update.js"></script>
 
+
+<div id="charge-error" class="alert alert-danger {{#if noMessages}}hidden{{/if}}">
+	{{messages}}
+</div>
+
 {{# if this.products }}
-	<main class="page">
-		<section class="shopping-cart dark container content row">
-			<div class="col-md-12 col-lg-8">
-				<div class="items">
-					<div class="product">
-						<div class="row">
-							{{#each products}}
-								{{#ifCond qty '>=' 1}}
-									<div class="col-md-3">
-										<img class="img-fluid mx-auto d-block image" src="{{ this.item.imagePath_1 }}">
-									</div>
-									<div class="col-md-8 info row">
-										<div class="col-md-5 product-name">
-											<div class="product-name">
-												<h6>{{ this.item.title }}</h6>
-												<div class="product-info">
-													<div>Description: <span class="value">Dress</span></div>
-													<div>Color: <span class="value">White, Black</span></div>
-													<div>Size: <span class="value">S, M, L</span></div>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4">
-											<label for="quantity">Quantity:</label>
-											<input class="quantity" type="number" value ="{{ this.qty }}" min="1" class="form-control quantity-input"
-												field='{{ this.id }}'>
-										</div>
-											<span>$</span>
-											<span class="eachPrice" id="updates_{{ this.id }}">{{ this.price }}</span>
-											
-											<div class="col-md-3 price">
-												<span class="price">$	</span>
-											<span id="perPrice_{{ this.id }}">{{ this.item.price }}</span>
-											</div>
-									</div>
-								{{/ifCond}}
-							{{/each}}
+<main class="page">
+	<section class="shopping-cart dark container content row">
+		<div class="col-md-12 col-lg-8">
+			<div class="items">
+				<div class="product">
+					<div class="row">
+						{{#each products}} {{#ifCond qty '>=' 1}}
+						<div class="col-md-3">
+							<img class="img-fluid mx-auto d-block image" src="{{ this.item.imagePath_1 }}">
 						</div>
+						<div class="col-md-8 info row">
+							<div class="col-md-5 product-name">
+								<div class="product-name">
+									<h6>{{ this.item.title }}</h6>
+									<div class="product-info">
+										<div>Description:
+											<span class="value">Dress</span>
+										</div>
+										<div>Color:
+											<span class="value">White, Black</span>
+										</div>
+										<div>Size:
+											<span class="value">S, M, L</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<label for="quantity">Quantity:</label>
+								<input class="quantity" type="number" value="{{ this.qty }}" min="1" class="form-control quantity-input" field='{{ this.id }}'>
+							</div>
+							<span>$</span>
+							<span class="eachPrice" id="updates_{{ this.id }}">{{ this.price }}</span>
+
+							<div class="col-md-3 price">
+								<span class="price">$ </span>
+								<span id="perPrice_{{ this.id }}">{{ this.item.price }}</span>
+							</div>
+						</div>
+						{{/ifCond}} {{/each}}
 					</div>
 				</div>
 			</div>
-			<div class="col-md-12 col-lg-4">
-				<div class="summary">
-					<h3>Summary</h3>
-					<div class="summary-item"><span class="text">Subtotal</span><span class="price">$</span><span id="subtotal" class="price">{{ totalPrice }}</span></div>
-					<div class="summary-item"><span class="text">Discount</span><span class="price">$</span><span class="price">0</span></div>
-					<div class="summary-item"><span class="text">Shipping</span><span class="price">$</span><span class="price">0</span></div>
-					<div class="summary-item"><span class="text">Total</span><span class="price">$</span><span id="total" class="price">{{ totalPrice }}</span></div>
-					<input type="submit" class="checkout" value="Checkout" >
+		</div>
+		<div class="col-md-12 col-lg-4">
+			<div class="summary">
+				<h3>Summary</h3>
+				<div class="summary-item">
+					<span class="text">Subtotal</span>
+					<span class="price">$</span>
+					<span id="subtotal" class="price">{{ totalPrice }}</span>
 				</div>
+				<div class="summary-item">
+					<span class="text">Discount</span>
+					<span class="price">$</span>
+					<span class="price">0</span>
+				</div>
+				<div class="summary-item">
+					<span class="text">Shipping</span>
+					<span class="price">$</span>
+					<span class="price">0</span>
+				</div>
+				<div class="summary-item">
+					<span class="text">Total</span>
+					<span class="price">$</span>
+					<span id="total" class="price">{{ totalPrice }}</span>
+				</div>
+				<input type="submit" class="checkout" value="Checkout">
 			</div>
-		</section>
-	</main>
+		</div>
+	</section>
+</main>
 {{/if}}

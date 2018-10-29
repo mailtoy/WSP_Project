@@ -15,7 +15,7 @@ var MongoStore = require('connect-mongo')(session);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var products =  require('./routes/product');
+var products = require('./routes/product');
 var exphbs = require('express-handlebars');
 var hbsHelpers = exphbs.create({
     helpers: require("./public/helpers/handlebars.js").helpers,
@@ -23,6 +23,7 @@ var hbsHelpers = exphbs.create({
     extname: '.hbs'
 });
 var app = express();
+
 
 mongoose.connect("mongodb://localhost:27017/shopping", { useNewUrlParser: true });
 require('./config/passport')
@@ -51,6 +52,7 @@ app.use(flash())
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use(function (req, res, next) {
     res.locals.login = req.isAuthenticated();

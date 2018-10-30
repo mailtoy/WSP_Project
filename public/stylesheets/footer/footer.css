@@ -5,6 +5,11 @@
 .link-btn {
     margin: 2.5%;
 }
+
+.foot {
+   /* padding-left: 10%;*/
+    font-size:36px;
+}
     
 footer.container-fluid.text-center.foot {
     background: white;

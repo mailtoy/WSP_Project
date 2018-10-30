@@ -13,6 +13,7 @@ router.get('/profile', isLoggedIn, function (req, res, next) {
 
 router.get('/logout', isLoggedIn, function (req, res, next) {
   req.logout();
+  req.session.user = null;
   res.redirect('/');
 });
 
@@ -41,9 +42,9 @@ router.get('/register', function (req, res, next) {
 
 // Register Process
 router.post('/register', passport.authenticate('local.signup', {
-  successRedirect: '/user/profile',
+  successRedirect: '/user/signin',
   failureFlash: true,
-  failureRedirect: '/user/regis',
+  failureRedirect: '/user/register',
 }));
 
 function isLoggedIn(req, res, next) {

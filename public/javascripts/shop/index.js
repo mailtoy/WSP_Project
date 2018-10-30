@@ -18,4 +18,11 @@ $(document).ready(function(){/* to make sure the script runs after page load */
         }
     });
     
+    $('#saveBtn').hide();
+    $('#editBtn').click(function() {
+        $('#saveBtn').show();
+        $(this).attr('disabled', 'disabled');
+        var $this = $('.profile-info-value input');
+        $this.is(':disabled') ? $this.prop('disabled', false) : $this.prop('disabled', true);
+    })
 });

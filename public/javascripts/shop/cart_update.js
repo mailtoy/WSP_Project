@@ -1,22 +1,18 @@
-jQuery(document).ready(function(){
-
-
-    
-
-    $('.quantity').on('click', function(){
+jQuery(document).ready(function () {
+    $('.quantity').on('click', function () {
         fieldName = $(this).attr('field');
         // Get its current value
         var currentVal = parseInt($(this).val());
         // If is not undefined
         if (!isNaN(currentVal)) {
-            var price = ($('#perPrice_'+fieldName).text());
-            $('#updates_'+fieldName).text(price*currentVal);
+            var price = ($('#perPrice_' + fieldName).text());
+            $('#updates_' + fieldName).text(price * currentVal);
         }
 
-        var subtotal=0
-        jQuery('.eachPrice').each(function() {
+        var subtotal = 0
+        jQuery('.eachPrice').each(function () {
             var currentElement = $(this);
-            var value = parseInt(currentElement.text()); 
+            var value = parseInt(currentElement.text());
             subtotal += value
         });
         $('#subtotal').text(subtotal);
@@ -24,18 +20,18 @@ jQuery(document).ready(function(){
 
     });
 
-    $('.checkout').click(function(e) {
-        jQuery('.quantity').each(function() {
+    $('.checkout').click(function (e) {
+        jQuery('.quantity').each(function () {
             var currentElement = $(this);
-            var amount = parseInt(currentElement.val()); 
+            var amount = parseInt(currentElement.val());
             id = currentElement.attr('field');
             $.ajax({
                 type: "GET",
-                url: '/add-to-cart-qty/'+id+'/'+amount,
+                url: '/add-to-cart-qty/' + id + '/' + amount,
                 async: false
-              });
+            });
         });
 
-        window.location.href='/checkout'
+        window.location.href = '/checkout'
     })
 })

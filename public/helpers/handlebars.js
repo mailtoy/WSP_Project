@@ -1,8 +1,10 @@
 var handlebars = require('handlebars');
 var importHelper = require('handlebars-helper-import')(handlebars);
+var paginate = require('handlebars-paginate');
+
+handlebars.registerHelper('paginate', paginate);
 
 handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
-
     switch (operator) {
         case '==':
             return (v1 == v2) ? options.fn(this) : options.inverse(this);
@@ -28,3 +30,10 @@ handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
             return options.inverse(this);
     }
 });
+
+// handlebars.registerHelper('assign', function (varName, varValue, options) {
+//     if (!options.data.root) {
+//         options.data.root = {};
+//     }
+//     options.data.root[varName] = varValue;
+// });

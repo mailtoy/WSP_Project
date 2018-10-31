@@ -1,17 +1,18 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
 <link rel="stylesheet" href="/stylesheets/shop/shop.css">
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
 <div class="container">
-	<div class="row">
+    <div class="row">
         <div id="filter-panel" class="collapse filter-panel">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <form class="form-inline" role="form">
                         <div class="form-group">
-                          <!-- Concept --> 
+                            <!-- Concept -->
                             <label class="filter-col" style="margin-right:0;" for="pref-perpage">Concept:</label>
                             <select id="pref-perpage" class="form-control">
                                 <option>None</option>
@@ -19,24 +20,24 @@
                                 <option>Summer</option>
                                 <option>Winter</option>
                                 <option>Autumn</option>
-                            </select>   
-                          <!-- Category --> 
+                            </select>
+                            <!-- Category -->
                             <label class="filter-col" style="margin-right:0;" for="pref-perpage">Category:</label>
                             <select id="pref-perpage" class="form-control">
                                 <option>None</option>
                                 <option>Ladies</option>
                                 <option>Men</option>
                                 <option>Kids</option>
-                            </select>   
-                            <!-- Type --> 
+                            </select>
+                            <!-- Type -->
                             <label class="filter-col" style="margin-right:0;" for="pref-perpage">Type:</label>
                             <select id="pref-perpage" class="form-control">
                                 <option>None</option>
                                 <option>Dress</option>
                                 <option>Pant</option>
                                 <option>T-shirt</option>
-                            </select> 
-                          <!-- Size -->       
+                            </select>
+                            <!-- Size -->
                             <label class="filter-col" style="margin-right:0;" for="pref-perpage">Size:</label>
                             <select id="pref-perpage" class="form-control">
                                 <option>None</option>
@@ -44,8 +45,8 @@
                                 <option>M</option>
                                 <option>L</option>
                                 <option>XL</option>
-                            </select>   
-                          <!-- Color -->  
+                            </select>
+                            <!-- Color -->
                             <label class="filter-col" style="margin-right:0;" for="pref-perpage">Color:</label>
                             <select id="pref-perpage" class="form-control">
                                 <option>None</option>
@@ -54,43 +55,69 @@
                                 <option>Pink</option>
                                 <option>Blue</option>
                                 <option>Green</option>
-                            </select>    
-                         <!-- Order by -->  
+                            </select>
+                            <!-- Order by -->
                             <label class="filter-col" style="margin-right:0;" for="pref-orderby">Order by:</label>
                             <select id="pref-orderby" class="form-control">
                                 <option>None</option>
                                 <option>Low Price</option>
                                 <option>High Price</option>
-                            </select>    
-                        </div> 
-                        <!-- Confirm --> 
-                        <div class="form-group">   
+                            </select>
+                        </div>
+                        <!-- Confirm -->
+                        <div class="form-group">
                             <label class="filter-col" style="margin-right:0;" for="pref-orderby"></label>
                             <button type="submit" class="btn btn-success">
-                                <span class="glyphicon glyphicon-ok" ></span> Confirm
-                            </button>  
+                                <span class="glyphicon glyphicon-ok"></span> Confirm
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
-        </div>    
+        </div>
         <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
             <span class="glyphicon glyphicon-menu-hamburger"></span> Filter
         </button>
-	</div>
+    </div>
 </div>
 
 <div class="row">
-  {{# each products }}
+    {{# each products }}
     <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img src="{{ imagePath_1 }}">
-        <div class="caption">
-          <a href="/product/{{_id}}" class="title">{{ title }}<a>
-          <p class="price">฿{{ price }}</p>
-          <a href="/add-to-cart/{{_id}}" role="button">Add to cart</a>
+        <div class="thumbnail">
+            <img src="{{ imagePath_1 }}">
+            <div class="caption">
+                <a href="/product/{{_id}}" class="title">{{ title }}
+                    <a>
+                        <p class="price">฿{{ price }}</p>
+                        <a href="/add-to-cart/{{_id}}" role="button">Add to cart</a>
+            </div>
         </div>
-      </div>
     </div>
-  {{/each}}
+    {{/each}}
+</div>
+<div class="pagination center">
+    <ul class="pagination">
+        {{#paginate pagination type="first"}}
+        <li {{#if disabled}}class="page-item disabled" {{/if}}>
+            <a class="page-link" href="{{n}}">First</a>
+        </li>
+        {{/paginate}} {{#paginate pagination type="previous"}}
+        <li {{#if disabled}}class="page-item disabled" {{/if}}>
+            <a class="page-link" href="{{n}}">Prev</a>
+        </li>
+        {{/paginate}} {{#paginate pagination type="middle" limit="7"}}
+        <li {{#if active}}class="page-item active" {{/if}}>
+            <a class="page-link" href="{{n}}">{{n}}</a>
+        </li>
+        {{/paginate}} {{#paginate pagination type="next"}}
+        <li {{#if disabled}}class="page-item disabled" {{/if}}>
+            <a class="page-link" href="{{n}}">Next</a>
+        </li>
+        {{/paginate}} {{#paginate pagination type="last"}}
+        <li {{#if disabled}}class="page-item disabled" {{/if}}>
+            <a class="page-link" href="{{n}}">Last</a>
+        </li>
+        {{/paginate}}
+    </ul>
 </div>

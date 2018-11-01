@@ -37,7 +37,7 @@ router.get('/add-to-cart/:id', function (req, res, next) {
   Product.findById(productId, function (err, product) {
     cart.add(product, product.id);
     req.session.cart = cart;
-    res.redirect('/');
+    res.redirect('back');
   });
 });
 
@@ -63,7 +63,6 @@ router.get('/checkout', isLoggedIn, function (req, res, next) {
   }
   var cart = new Cart(req.session.cart.items);
   var errMsg = req.flash('error')[0];
-  // errMsg > 0 ไม่รู้ได้ป่าว
   res.render('shop/epayment', {
     messages: errMsg, hasErrors: errMsg > 0,
     products: cart.generateArray(), totalPrice: cart.totalPrice
@@ -100,7 +99,6 @@ router.post('/checkout-paypal', isLoggedIn, function (req, res, next) {
       quantity: items[i].qty
     })
   }
-
   var create_payment_json = {
     "intent": "sale",
     "payer": {

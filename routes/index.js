@@ -57,7 +57,7 @@ router.get('/remove-from-cart/:id', function (req, res) {
   })
 })
 
-router.get('/checkout', function (req, res, next) {
+router.get('/checkout', isLoggedIn, function (req, res, next) {
   if (!req.session.cart) {
     return res.redirect('/cart');
   }
@@ -81,12 +81,12 @@ router.get('/cart', function (req, res, next) {
 });
 
 // checkout ธรรมดา
-router.post('/checkout', function (req, res, next) {
+router.post('/checkout', isLoggedIn, function (req, res, next) {
   return res.redirect('/');
 }
 );
 
-router.post('/checkout-paypal', function (req, res, next) {
+router.post('/checkout-paypal', isLoggedIn, function (req, res, next) {
   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
   var items = cart.generateArray()
   var items_json = [];
@@ -215,3 +215,11 @@ router.get('/cart', function (req, res) {
 });
 
 module.exports = router;
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  req.session.oldUrl = req.url;
+  res.redirect('/user/login');
+}

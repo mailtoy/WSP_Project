@@ -93,9 +93,14 @@
             <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
           </label>
           <input formaction="/checkout" type="submit" value="Continue to checkout" class="btn">
-          <input formaction="/checkout-paypal" class="btn btn-warning" type="submit" value="Checkout with PayPal">
       </form>
       </div>
+
+      <form method="post">
+
+        <input formaction="/checkout-paypal" class="btn btn-warning" type="submit" value="Checkout with PayPal">
+
+      </form>
 
     </div>
 

@@ -16,8 +16,8 @@ paypal.configure({
 /* GET home page. */
 router.get('/', function (req, res) {
   var successMsg = req.flash('success')[0];
-  res.render('shop/home', { title: 'Dlaessio', successMsg: successMsg, noMessages: !successMsg })
-});
+  res.render('shop/home', { title: 'Dlaessio', successMsg: successMsg, noMessages: !successMsg });
+})
 
 router.get('/add-to-cart-qty/:id/:qty', function (req, res, next) {
   var productId = req.params.id;
@@ -37,7 +37,7 @@ router.get('/add-to-cart/:id', function (req, res, next) {
   Product.findById(productId, function (err, product) {
     cart.add(product, product.id);
     req.session.cart = cart;
-    res.redirect('/');
+    res.redirect('back');
   });
 });
 
@@ -57,13 +57,12 @@ router.get('/remove-from-cart/:id', function (req, res) {
   })
 })
 
-router.get('/checkout', function (req, res, next) {
+router.get('/checkout', isLoggedIn, function (req, res, next) {
   if (!req.session.cart) {
     return res.redirect('/cart');
   }
   var cart = new Cart(req.session.cart.items);
   var errMsg = req.flash('error')[0];
-  // errMsg > 0 ไม่รู้ได้ป่าว
   res.render('shop/epayment', {
     messages: errMsg, hasErrors: errMsg > 0,
     products: cart.generateArray(), totalPrice: cart.totalPrice
@@ -75,20 +74,18 @@ router.get('/cart', function (req, res, next) {
     return res.render('shop/shopping_cart', { products: null });
   }
   var cart = new Cart(req.session.cart.items);
-  var messages = req.flash('error')[0];
   res.render('shop/shopping_cart', {
-    messages: messages, noMessages: !messages,
     products: cart.generateArray(), totalPrice: cart.totalPrice
   });
 });
 
 // checkout ธรรมดา
-router.post('/checkout', function (req, res, next) {
+router.post('/checkout', isLoggedIn, function (req, res, next) {
   return res.redirect('/');
 }
 );
 
-router.post('/checkout-paypal', function (req, res, next) {
+router.post('/checkout-paypal', isLoggedIn, function (req, res, next) {
   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
   var items = cart.generateArray()
   var items_json = [];
@@ -102,12 +99,6 @@ router.post('/checkout-paypal', function (req, res, next) {
       quantity: items[i].qty
     })
   }
-  // console.log(req.body.address)
-  // console.log(req.body.firstname)
-  // console.log(req.body.city)
-  // console.log(req.body.zip)
-  // console.log(req.body.state)
-
   var create_payment_json = {
     "intent": "sale",
     "payer": {
@@ -121,24 +112,6 @@ router.post('/checkout-paypal', function (req, res, next) {
       "item_list": {
         "items":
           items_json,
-        // "shipping_address": {
-        //   "recipient_name": req.body.firstname,
-        //   "line1": req.body.address,
-        //   "city": req.body.city,
-        //   "country_code": "TH",
-        //   "postal_code": req.body.zip,
-        //   "phone": "0859732299",
-        //   "state": req.body.state
-        // },
-        // "shipping_address": {
-        //   "recipient_name": req.body.firstname,
-        //   "line1": req.body.address,
-        //   "city": "Bangkok",
-        //   "state": "CA",
-        //   "phone": "011862212345678",
-        //   "postal_code": "95131",
-        //   "country_code": "US"
-        // }
       },
       "amount": {
         "currency": "USD",
@@ -147,8 +120,6 @@ router.post('/checkout-paypal', function (req, res, next) {
       "description": "This is the payment description."
     }]
   };
-  req.session.name = req.body.firstname
-  req.session.address = req.body.address
   paypal.payment.create(create_payment_json, function (error, payment) {
     if (error) {
       throw error;
@@ -172,22 +143,26 @@ router.get('/success', (req, res) => {
     if (error) {
       console.error(JSON.stringify(error));
     } else {
-      // save address here!
-      console.log(payment.transactions.item_list)
-
+      var name = payment.transactions[0].item_list.shipping_address.recipient_name
+      var address = payment.transactions[0].item_list.shipping_address.line1
+        + " " + payment.transactions[0].item_list.shipping_address.line2
+        + " " + payment.transactions[0].item_list.shipping_address.city
+        + " " + payment.transactions[0].item_list.shipping_address.state
+        + " " + payment.transactions[0].item_list.shipping_address.postal_code
+        + " " + payment.transactions[0].item_list.shipping_address.country_code
       if (payment.state == 'approved') {
         console.log('payment completed successfully');
         var order = new Order({
           user: req.user,
           cart: cart,
-          address: req.session.address,
-          name: req.session.name,
+          address: address,
+          name: name,
           paymentId: paymentId
         });
         order.save(function (err, result) {
           if (err) {
             console.log("err " + err);
-          } req.flash('success', 'Successfully bought product!');
+          }
           req.session.cart = null;
           res.redirect('/');
         });
@@ -205,10 +180,32 @@ router.get('/cancel', function (req, res) {
   return res.redirect('/checkout');
 })
 
-router.get('/shop', function (req, res) {
-  Product.find(function (err, docs) {
-    res.render('shop/shop', { title: 'Dlaessio', products: docs });
-  });
+// router.get('/shop', function (req, res) {
+//   Product.find(function (err, docs) {
+//     res.render('shop/shop', { title: 'Dlaessio', products: docs });
+//   });
+// });
+
+router.get('/page/:page', function (req, res, next) {
+  var perPage = 6
+  var page = req.params.page || 1
+  Product
+    .find({})
+    .skip((perPage * page) - perPage)
+    .limit(perPage)
+    .exec(function (err, products) {
+      Product.count().exec(function (err, count) {
+        if (err) return next(err)
+        res.render('shop/shop', {
+          title: 'Dalessio',
+          products: products,
+          pagination: {
+            page: page,       // The current page the user is on
+            pageCount: Math.ceil(count / perPage)  // The total number of available pages
+          }
+        })
+      })
+    })
 });
 
 router.get('/cart', function (req, res) {
@@ -216,3 +213,11 @@ router.get('/cart', function (req, res) {
 });
 
 module.exports = router;
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  req.session.oldUrl = req.url;
+  res.redirect('/user/login');
+}

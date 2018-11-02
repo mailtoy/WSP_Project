@@ -23,10 +23,10 @@ passport.use('local.signup', new LocalStrategy({
     const city = req.body.city;
     const state = req.body.state;
     const zip = req.body.zip;
-    req.checkBody('firstName', 'First name is required').notEmpty();
-    req.checkBody('lastName', 'Last name is required').notEmpty();
     req.checkBody('email', 'Invalid email').notEmpty().isEmail();
     req.checkBody('password', 'Invalid password').notEmpty().isLength({ min: 4 });
+    req.checkBody('firstName', 'First name is required').notEmpty();
+    req.checkBody('lastName', 'Last name is required').notEmpty();
     req.checkBody('address', 'Address is required').notEmpty();
     req.checkBody('city', 'City is required').notEmpty();
     req.checkBody('state', 'State is required').notEmpty();
@@ -63,6 +63,7 @@ passport.use('local.signup', new LocalStrategy({
                 return done(err);
             }
             console.log("pass");
+            req.session.user = newUser;
             return done(null, newUser);
         });
     });
@@ -93,7 +94,7 @@ passport.use('local.signin', new LocalStrategy({
         if (!user.validPassword(password)) {
             return done(null, false, { message: 'Wrong password.' });
         }
-        console.log(req.session.user);
+        console.log("user " + req.session.user);
         req.session.user = user;
         return done(null, user);
     });

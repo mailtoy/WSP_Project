@@ -3,6 +3,8 @@ var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
 var User = require('../models/user');
+var Order = require('../models/order');
+var Cart = require('../models/cart');
 
 var csrfProtection = csrf();
 router.use(csrfProtection);
@@ -10,15 +12,32 @@ router.use(csrfProtection);
 // Edit profile
 router.get('/profile', isLoggedIn, function (req, res, next) {
   var messages = req.flash('error');
-  res.render('user/profile', {
-    csrfToken: req.csrfToken(),
-    messages: messages,
-    hasErrors: messages.length > 0,
-    title: 'User Profile | Dlaessio'
-   });
+  Order.find({ user: req.user }, function (err, orders) {
+    if (err) {
+      return res.write('Error!');
+    }
+    var cart;
+    orders.forEach(function (order) {
+      var cart = new Cart(order.cart ? order.cart.items : {});
+
+      order.items = cart.generateArray();
+    });
+    res.render('user/profile', {
+      orders: orders,
+      messages: messages,
+      hasErrors: messages.length > 0,
+      title: 'User Profile | Dlaessio'
+    });
+  });
+  // var messages = req.flash('error');
+  // res.render('user/profile', {
+  //   messages: messages,
+  //   hasErrors: messages.length > 0,
+  //   title: 'User Profile | Dlaessio'
+  // });
 });
 
-router.post('/profile', function(req, res, next) {
+router.post('/profile', function (req, res, next) {
   var updUser = new User(req.session.user ? req.session.user : {});
   updUser.firstName = req.body.firstName;
   updUser.lastName = req.body.lastName;
@@ -26,14 +45,14 @@ router.post('/profile', function(req, res, next) {
   updUser.city = req.body.city;
   updUser.state = req.body.state;
   updUser.zip = req.body.zip;
-  User.update({ _id: req.session.user.id }, updUser, function(err, done) {
-      if (err) {
-          return console.log("err");
-      } else {
-          console.log("pass");
-          req.session.user = updUser;
-          res.render('user/profile');
-      }
+  User.update({ _id: req.session.user.id }, updUser, function (err, done) {
+    if (err) {
+      return console.log("err");
+    } else {
+      console.log("pass");
+      req.session.user = updUser;
+      res.render('user/profile');
+    }
   })
 })
 
@@ -59,10 +78,17 @@ router.get('/login', function (req, res, next) {
 });
 
 router.post('/login', passport.authenticate('local.signin', {
-  successRedirect: '/user/profile',
   failureRedirect: '/user/login',
   failureFlash: true
-}));
+}), function (req, res, next) {
+  if (req.session.oldUrl) {
+    var oldUrl = req.session.oldUrl;
+    req.session.oldUrl = null;
+    res.redirect(oldUrl);
+  } else {
+    res.redirect('/user/profile');
+  }
+});
 
 
 // Register Form

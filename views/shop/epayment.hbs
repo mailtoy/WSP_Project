@@ -7,20 +7,26 @@
 <div class="row">
   <div class="col-75">
     <div class="container">
-      {{#if hasErrors}}
+      {{!-- {{#if hasErrors}}
       <div class="alert alert-danger">
         {{# each messages }}
         <p>{{this}}</p>
         {{/each}}
       </div>
-      {{/if}}
-      <form method="post">
+      {{/if}} --}}
+
+      <div id="charge-error" class="alert alert-danger {{#if noError}}hidden{{/if}}">
+        {{messages}}
+      </div>
+
+      <form method="post" action="/checkout" id="checkout-form">
         <div class="row">
           <div class="col-50">
             <h3>Billing Address</h3>
             <label for="fname">
               <i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" value="{{ session.user.firstName }} {{ session.user.lastName }}" required>
+            <input type="text" id="fname" name="firstname" value="{{ session.user.firstName }} {{ session.user.lastName }}"
+              required>
             <div class="valid-tooltip"></div>
 
             <label for="email">
@@ -67,7 +73,7 @@
             <div class="valid-tooltip"></div>
             <label for="ccnum">Credit card number</label>
             <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-              id="ccnum" name="cardnumber" maxlength="13" placeholder="xxxx-xxxx-xxxx-xxxx" value="" required>
+              id="ccnum" name="cardnumber" maxlength="16" placeholder="xxxx-xxxx-xxxx-xxxx" value="" required>
             <div class="valid-tooltip"></div>
             <label for="expmonth">Exp Month</label>
             <input type="text" id="expmonth" name="expmonth" placeholder="July" value="" required>
@@ -80,7 +86,7 @@
                   id="expyear" name="expyear" maxlength="4" placeholder="20xx" value="" required>
               </div>
               <div class="col-50">
-                <label for="cvv">CVV</label>
+                <label for="cvv">CVC</label>
                 <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                   id="cvv" name="cvv" maxlength="3" placeholder="xxx" value="" required>
                 <div class="valid-tooltip"></div>
@@ -92,35 +98,44 @@
           <label>
             <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
           </label>
-          <input formaction="/checkout" type="submit" value="Continue to checkout" class="btn">
-          <input formaction="/checkout-paypal" class="btn btn-warning" type="submit" value="Checkout with PayPal">
+          <button type="submit" class="btn btn-success">Buy now</button>
+          {{!-- <input type="submit" value="Continue to checkout" class="btn"> --}}
       </form>
-      </div>
-
     </div>
 
-    <div class="col-25">
-      <div class="container">
-        <h4>Cart
-          <span class="price" style="color:black">
-            <i class="fa fa-shopping-cart"></i>
-            <b>4</b>
-          </span>
-        </h4>
+    <form method="post">
 
-        {{#each products}}
-        <p>
-          <a href="#">{{this.item.title}} จำนวน: {{this.qty}}</a>
-          <span class="price">${{this.price}}</span>
-        </p>
-        {{/each}}
+      <input formaction="/checkout-paypal" class="btn btn-warning" type="submit" value="Checkout with PayPal">
 
-        <hr>
-        <p>Total
-          <span class="price" style="color:black">
-            <b>${{totalPrice}}</b>
-          </span>
-        </p>
-      </div>
+    </form>
+
+  </div>
+
+  <div class="col-25">
+    <div class="container">
+      <h4>Cart
+        <span class="price" style="color:black">
+          <i class="fa fa-shopping-cart"></i>
+          <b>4</b>
+        </span>
+      </h4>
+
+      {{#each products}}
+      <p>
+        <a href="#">{{this.item.title}} จำนวน: {{this.qty}}</a>
+        <span class="price">${{this.price}}</span>
+      </p>
+      {{/each}}
+
+      <hr>
+      <p>Total
+        <span class="price" style="color:black">
+          <b>${{totalPrice}}</b>
+        </span>
+      </p>
     </div>
   </div>
+</div>
+
+<script src="https://js.stripe.com/v2/"></script>
+<script src="/javascripts/shop/checkout.js"></script>

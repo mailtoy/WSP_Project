@@ -20,6 +20,35 @@
     cursor:default;
     margin: 3em 0 3em 0; */
 }
+
+.shop{
+    height: auto;
+    width:  100%;
+}
+.video-fluid{
+    height: auto;
+    width:  100%;
+}
+.carousel-item {
+    background:#FFFFFF;
+    overflow:hidden;
+    margin-bottom:1em;
+    margin-top:1em;
+    padding-left:75px;
+    padding-right:75px;
+     height: auto;
+    width:  100%;
+}
+.carousel-inner  {
+   
+    float: left;
+    margin: 0pt 3px;
+    padding: 2px;
+    height: auto;
+    width:  100%;
+}
+
+
     
 .hovereffect .overlay {
     width:100%;

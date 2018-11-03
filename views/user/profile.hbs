@@ -1,10 +1,10 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/user/profile.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script type="text/javascript" src="/javascripts/shop/index.js"></script> {{#if hasErrors}}
+<script type="text/javascript" src="/javascripts/user/updateProfile.js"></script> {{#if hasErrors}}
 <div class="alert alert-danger">
 	{{# each messages }}
-	<p>{{this}}</p>
+		<p>{{this}}</p>
 	{{/each}}
 </div>
 {{/if}} {{# if login}}
@@ -13,16 +13,19 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-3 center">
 				<span class="profile-picture">
-					<img class="editable img-responsive" alt=" Avatar" id="avatar2" src="https://scontent.fbkk14-1.fna.fbcdn.net/v/t1.0-9/36234502_1885183694873519_1795852863000281088_n.jpg?_nc_cat=104&_nc_ht=scontent.fbkk14-1.fna&oh=d887711ac3f0d471fcde6d1da1d55bc0&oe=5C880FFC">
+					<img class="editable img-responsive" alt="Avatar" id="profile-pic" src="{{ session.user.profilePic }}">
+					{{!-- change profile --}}
+					<div class="chooseFile" hidden>
+						<input name="profilePic" type="file" id="my-file" />
+					</div>
 				</span>
 				<div class="space space-4"></div>
 				<button href="#" class="btn btn-sm btn-block btn-danger" id="editBtn">
-				<i class="ace-icon fa fa-plus-circle bigger-120"></i>
-				<span class="bigger-110">Edit</span>
+					<i class="ace-icon fa fa-plus-circle bigger-120"></i>
+					<span class="bigger-110">Edit</span>
 				</button>
 				<button class="btn btn-sm btn-block btn-success" type="submit" id="saveBtn">
-				<i class="ace-icon fa fa-plus-circle bigger-120"></i>
-				<span class="bigger-110">Save</span>
+					<span class="bigger-110">Save</span>
 				</button>
 			</div>
 			<!-- /.col -->

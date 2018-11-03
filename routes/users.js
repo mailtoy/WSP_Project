@@ -41,13 +41,16 @@ router.post('/profile', function (req, res, next) {
   updUser.city = req.body.city;
   updUser.state = req.body.state;
   updUser.zip = req.body.zip;
-  User.update({ _id: req.session.user.id }, updUser, function (err, done) {
+  updUser.profilePic = req.body.profilePic;
+  User.update({ _id: req.user.id }, updUser, function (err, done) {
     if (err) {
       return console.log("err");
     } else {
       console.log("pass");
       req.session.user = updUser;
-      res.render('user/profile');
+      res.render('user/profile', {
+        title: 'User Profile | Dlaessio'
+      });
     }
   })
 })

@@ -1,13 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var csrf = require('csurf');
 var passport = require('passport');
 var User = require('../models/user');
 var Order = require('../models/order');
 var Cart = require('../models/cart');
-
-var csrfProtection = csrf();
-router.use(csrfProtection);
 
 // Edit profile
 router.get('/profile', isLoggedIn, function (req, res, next) {
@@ -70,7 +66,6 @@ router.use('/', notLoggedIn, function (req, res, next) {
 router.get('/login', function (req, res, next) {
   var messages = req.flash('error');
   res.render('user/login', {
-    csrfToken: req.csrfToken(),
     messages: messages,
     hasErrors: messages.length > 0,
     title: 'Login | Dlaessio'
@@ -95,7 +90,6 @@ router.post('/login', passport.authenticate('local.signin', {
 router.get('/register', function (req, res, next) {
   var messages = req.flash('error');
   res.render('user/regis', {
-    csrfToken: req.csrfToken(),
     messages: messages,
     hasErrors: messages.length > 0,
     title: 'Register | Dlaessio'

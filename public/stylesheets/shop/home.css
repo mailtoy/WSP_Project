@@ -1,12 +1,24 @@
 .hovereffect {
     /* 1280 * 400 */
-    width:431%;
+    width:100%;
     height: auto;
     float:center;
     overflow:hidden;
+    text-align:center;
+    position:relative;
+
+    cursor:default;    
+
+    /* padding-left: 0px; */
+    /* 640 * 400 */
+    /* width:98%;
+    height: auto;
+    float:left;
+    overflow:hidden;
     position:relative;
     text-align:center;
-    cursor:default;    
+    cursor:default;
+    margin: 3em 0 3em 0; */
 }
     
 .hovereffect .overlay {
@@ -19,6 +31,7 @@
     background-color:rgba(0,0,0,0.5);
     -webkit-transition:all .4s ease-in-out;
     transition:all .4s ease-in-out
+
 }
     
 .hovereffect img {

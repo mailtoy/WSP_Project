@@ -216,12 +216,6 @@ router.get('/cancel', function (req, res) {
   return res.redirect('/checkout');
 })
 
-// router.get('/shop', function (req, res) {
-//   Product.find(function (err, docs) {
-//     res.render('shop/shop', { title: 'Dlaessio', products: docs });
-//   });
-// });
-
 router.get('/page/:page', function (req, res, next) {
   var perPage = 6
   var page = req.params.page || 1

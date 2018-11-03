@@ -64,7 +64,7 @@ router.get('/checkout', isLoggedIn, function (req, res, next) {
   var cart = new Cart(req.session.cart.items);
   var errMsg = req.flash('error')[0];
   res.render('shop/epayment', {
-    messages: errMsg, hasErrors: errMsg > 0,
+    messages: errMsg, noError: !errMsg,
     products: cart.generateArray(), totalPrice: cart.totalPrice
   })
 });
@@ -81,7 +81,43 @@ router.get('/cart', function (req, res, next) {
 
 // checkout ธรรมดา
 router.post('/checkout', isLoggedIn, function (req, res, next) {
-  return res.redirect('/');
+  if (!req.session.cart) {
+    return res.redirect('/shopping-cart');
+  }
+  var cart = new Cart(req.session.cart.items);
+
+  var stripe = require("stripe")(
+    "sk_test_TLBrJXM2JwhNMsyZZXJB6rFw"
+  );
+  console.log(req.body.stripeToken)
+
+
+  stripe.charges.create({
+    amount: cart.totalPrice * 100,
+    currency: "usd",
+    source: req.body.stripeToken, // obtained with Stripe.js
+    description: "Test Charge"
+  }, function (err, charge) {
+    if (err) {
+      req.flash('error', err.message);
+      return res.redirect('/checkout');
+    }
+    var order = new Order({
+      user: req.user,
+      cart: cart,
+      address: req.body.address,
+      name: req.body.firstname,
+      paymentId: charge.id
+    });
+    order.save(function (err, result) {
+      if (err) {
+        console.log("err " + err);
+      }
+      req.flash('success', 'Successfully bought product!');
+      req.session.cart = null;
+      res.redirect('/');
+    });
+  });
 }
 );
 

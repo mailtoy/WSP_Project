@@ -12,6 +12,12 @@ body {
     font-family: "Lato", sans-serif;
 }
 
+.pagination.center, .pagination.center ul {
+     float: left;
+     position: relative;
+ }
+ .pagination.center { left: 50%; }
+ .pagination.center ul { left: -50%; } 
 
 
 body {

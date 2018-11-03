@@ -48,9 +48,7 @@ router.post('/profile', function (req, res, next) {
     } else {
       console.log("pass");
       req.session.user = updUser;
-      res.render('user/profile', {
-        title: 'User Profile | Dlaessio'
-      });
+      res.redirect('back');
     }
   })
 })

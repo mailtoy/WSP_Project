@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var Product = require("../models/product.js");
-// var expect = require('chai').expect;
 var should = require('chai').should();
 
 
@@ -16,7 +15,7 @@ describe('Product testing', function () {
         done();
     });
 
-    it('save a product', function (done) {
+    it('save a products', function (done) {
         var products = [
             new Product({
                 title: 'Test Dress1',
@@ -51,7 +50,7 @@ describe('Product testing', function () {
         ];
 
         for (var i = 0; i < products.length; i++) {
-            products[i].save(function (err, result) {
+            products[i].save(function (err) {
                 should.not.exist(err);
             });
         }
@@ -81,6 +80,23 @@ describe('Product testing', function () {
             product[1].price.should.equal(999)
             done();
         });
+    });
+
+    it('update a product', function (done) {
+        Product.update({ title: 'Test Dress1' }, { $set: { title: 'Updated' } }, function (err, product) {
+            should.not.exist(err);
+        })
+        done();
+    });
+
+    it('find a product after update', function (done) {
+        Product.findOne({ title: 'Updated' }, function (err, product) {
+            should.not.exist(err);
+            product.title.should.equal('Updated');
+            product.description.should.equal('Just test1')
+            product.price.should.equal(999)
+        });
+        done()
     });
 
     it('delete a products', function (done) {

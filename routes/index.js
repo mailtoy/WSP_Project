@@ -176,6 +176,8 @@ router.get('/success', (req, res) => {
   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
 
   paypal.payment.execute(paymentId, payerId, function (error, payment) {
+    console.log("**********************")
+    console.log(payment.transactions[0])
     if (error) {
       console.error(JSON.stringify(error));
     } else {

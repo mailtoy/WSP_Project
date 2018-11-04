@@ -64,8 +64,8 @@ describe('Product testing', function () {
             product[0].title.should.equal('Test Dress1');
             product[0].description.should.equal('Just test1')
             product[0].price.should.equal(999)
-            done();
         });
+        done();
     });
 
     it('find a products by price', function (done) {
@@ -78,8 +78,8 @@ describe('Product testing', function () {
             product[1].title.should.equal('Test Dress2');
             product[1].description.should.equal('Just test2')
             product[1].price.should.equal(999)
-            done();
         });
+        done();
     });
 
     it('update a product', function (done) {
@@ -102,8 +102,8 @@ describe('Product testing', function () {
     it('delete a products', function (done) {
         Product.remove({}, function (err) {
             should.not.exist(err);
-            done();
         });
+        done();
     });
 
 });

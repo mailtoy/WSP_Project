@@ -29,8 +29,8 @@ describe('User testing', function () {
 
         account.save(function (error) {
             should.not.exist(error);
-            done();
         });
+        done();
     });
 
     it('encypted/decypted a user\'s password', function (done) {
@@ -46,8 +46,8 @@ describe('User testing', function () {
             should.not.exist(err);
             account.email.should.equal('test@hotmail.com');
             account.password.should.equal('testy')
-            done();
         });
+        done();
     });
 
     it('find a user by firstname', function (done) {
@@ -55,8 +55,8 @@ describe('User testing', function () {
             should.not.exist(err);
             account.email.should.equal('test@hotmail.com');
             account.password.should.equal('testy')
-            done();
         });
+        done();
     });
 
     it('update a user', function (done) {
@@ -71,15 +71,15 @@ describe('User testing', function () {
             should.not.exist(err);
             account.email.should.equal('modified@hotmail.com');
             account.password.should.equal('testy')
-            done();
         });
+        done();
     });
 
     it('delete a user', function (done) {
         User.remove({}, function (err) {
             should.not.exist(err);
-            done();
         });
+        done();
     });
 
 });

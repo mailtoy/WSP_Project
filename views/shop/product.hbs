@@ -53,7 +53,7 @@
 					{{/each}} --}}
 					<select name="size" id="sizeSelction" class="form-control form-control-sm">
 						{{#each product.size_stock}}
-							<option class="size">{{@key}}</option>
+							<option name="size"class="size">{{@key}}</option>
 						{{/each}}
 					</select>
 					{{!-- <span class="size" data-toggle="tooltip" title="xtra small">xs</span>
@@ -68,7 +68,7 @@
 					{{/each}} --}}
 					<select name="color" id="colorSelection" class="form-control form-control-sm">
 						{{#each product.color_stock}}
-							<option class="color" id="color-{{@index}}">{{@key}}</option>
+							<option name="color" class="color" id="color-{{@index}}">{{@key}}</option>
 						{{/each}}
 					</select>
 					{{!-- <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>

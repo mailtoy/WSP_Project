@@ -79,7 +79,6 @@ for (var i = 0; i < products.length; i++) {
         done++;
         if (done === products.length) {
             exit();
-            console.log("done?")
         }
     });
 }

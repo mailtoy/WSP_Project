@@ -1,8 +1,9 @@
 var Product = require('../models/product')
 
 var mongoose = require('mongoose');
+const CONNECTION_URL = process.env.MONGODB_URL || "mongodb://localhost:27017/shopping"
 
-mongoose.connect("mongodb://localhost:27017/shopping", { useNewUrlParser: true });
+mongoose.connect(CONNECTION_URL, { useNewUrlParser: true });
 
 var products = [
     new Product({

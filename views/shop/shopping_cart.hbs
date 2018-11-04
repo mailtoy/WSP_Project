@@ -15,21 +15,28 @@
 					<div class="row">
 						{{#each products}} {{#ifCond qty '>=' 1}}
 						<div class="col-md-3">
-							<img class="img-fluid mx-auto d-block image" src="{{ this.item.imagePath_1 }}">
+							{{#each this.item.color }}
+								{{#if @first}}
+									{{#with this}} 
+										<img class="img-fluid mx-auto d-block image" src="{{ this.[4] }}">
+									{{/with}}
+								{{/if}}
+							{{/each}}
+							{{!-- <img class="img-fluid mx-auto d-block image" src="{{ this.item.imagePath_1 }}"> --}}
 						</div>
 						<div class="col-md-8 info row">
 							<div class="col-md-5 product-name">
 								<div class="product-name">
-									<h6>{{ this.item.title }}</h6>
+									<h5>{{ this.item.title }}</h5>
 									<div class="product-info">
-										<div>Description:
-											<span class="value">Dress</span>
+										<div>Caralog:
+											<span class="value">{{ this.item.catalog }}</span>
 										</div>
 										<div>Color:
-											<span class="value">White, Black</span>
+											<span class="value">{{ this.item.color }}</span>
 										</div>
 										<div>Size:
-											<span class="value">S, M, L</span>
+											<span class="value">{{ this.item.size }}</span>
 										</div>
 									</div>
 								</div>

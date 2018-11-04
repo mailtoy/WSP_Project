@@ -1,20 +1,12 @@
 var express = require('express');
 var router = express.Router();
-<<<<<<< HEAD
-// var csrf = require('csurf');
-=======
->>>>>>> ca89b9b170ce1a12a309d5615a2d151a51fd3b14
+
 var passport = require('passport');
 var User = require('../models/user');
 var Order = require('../models/order');
 var Cart = require('../models/cart');
 
-<<<<<<< HEAD
-// var csrfProtection = csrf();
-  // router.use(csrfProtection);
 
-=======
->>>>>>> ca89b9b170ce1a12a309d5615a2d151a51fd3b14
 // Edit profile
 router.get('/profile', isLoggedIn, function (req, res, next) {
   var messages = req.flash('error');

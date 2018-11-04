@@ -71,9 +71,13 @@ router.get('/checkout', isLoggedIn, function (req, res, next) {
 
 router.get('/cart', function (req, res, next) {
   if (!req.session.cart) {
+    console.log('------------');
+    console.log(req.session.cart);
     return res.render('shop/shopping_cart', { products: null });
   }
   var cart = new Cart(req.session.cart.items);
+  console.log('************');
+  console.log(cart.generateArray());
   res.render('shop/shopping_cart', {
     products: cart.generateArray(), totalPrice: cart.totalPrice
   });
@@ -125,7 +129,7 @@ router.post('/checkout-paypal', isLoggedIn, function (req, res, next) {
   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
   var items = cart.generateArray()
   var items_json = [];
-  // invoke paypal rest api 
+  // invoke paypal rest api
   for (var i = 0; i < items.length; i++) {
     items_json.push({
       name: items[i].item.title,

@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var csrf = require('csurf');
+// var csrf = require('csurf');
 var passport = require('passport');
 var User = require('../models/user');
 var Order = require('../models/order');
 var Cart = require('../models/cart');
 
-var csrfProtection = csrf();
-router.use(csrfProtection);
+// var csrfProtection = csrf();
+  // router.use(csrfProtection);
 
 // Edit profile
 router.get('/profile', isLoggedIn, function (req, res, next) {
@@ -37,7 +37,7 @@ router.get('/profile', isLoggedIn, function (req, res, next) {
   // });
 });
 
-router.post('/profile', function (req, res, next) {
+router.post('/profile', isLoggedIn, function (req, res, next) {
   var updUser = new User(req.session.user ? req.session.user : {});
   updUser.firstName = req.body.firstName;
   updUser.lastName = req.body.lastName;
@@ -45,13 +45,14 @@ router.post('/profile', function (req, res, next) {
   updUser.city = req.body.city;
   updUser.state = req.body.state;
   updUser.zip = req.body.zip;
-  User.update({ _id: req.session.user.id }, updUser, function (err, done) {
+  User.findByIdAndUpdate( req.session.user.id , updUser, function (err, done) {
     if (err) {
       return console.log("err");
     } else {
       console.log("pass");
       req.session.user = updUser;
-      res.render('user/profile');
+      console.log("user : " + updUser);
+      res.redirect('/user/profile');
     }
   })
 })
@@ -66,11 +67,11 @@ router.use('/', notLoggedIn, function (req, res, next) {
   next();
 });
 
-// Login 
+// Login
 router.get('/login', function (req, res, next) {
   var messages = req.flash('error');
   res.render('user/login', {
-    csrfToken: req.csrfToken(),
+    // csrfToken: req.csrfToken(),
     messages: messages,
     hasErrors: messages.length > 0,
     title: 'Login | Dlaessio'
@@ -95,7 +96,7 @@ router.post('/login', passport.authenticate('local.signin', {
 router.get('/register', function (req, res, next) {
   var messages = req.flash('error');
   res.render('user/regis', {
-    csrfToken: req.csrfToken(),
+    // csrfToken: req.csrfToken(),
     messages: messages,
     hasErrors: messages.length > 0,
     title: 'Register | Dlaessio'

@@ -1,16 +1,17 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/user/profile.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script type="text/javascript" src="/javascripts/shop/index.js"></script> {{#if hasErrors}}
-<div class="alert alert-danger">
+<script type="text/javascript" src="/javascripts/shop/index.js"></script>
+{{#if hasErrors}}
+  <div class="alert alert-danger">
     {{# each messages }}
     <p>{{this}}</p>
     {{/each}}
-</div>
+  </div>
 {{/if}} {{# if login}}
 <div id="user-profile-2" class="user-profile tab-content no-border padding-24">
     <div id="home" class="tab-pane in active">
-        <form action="/user/profile" method="get">
+        <form action="/user/profile" method="post">
             <div class="row">
                 <form method="post">
                     <div class="col-xs-12 col-sm-3 center">

@@ -2,8 +2,6 @@ Stripe.setPublishableKey('pk_test_K6SJcPT1w9Lv01gPP8ZhDf9C');
 
 var $form = $('#checkout-form');
 
-console.log("PASSES")
-
 $form.submit(function (event) {
     $('#charge-error').addClass('hidden');
     $form.find('button').prop('disabled', true);
@@ -19,15 +17,12 @@ $form.submit(function (event) {
 
 function stripeResponseHandler(status, response) {
     if (response.error) { // Problem!
-        console.log("PROBLEM")
         // Show the errors on the form
         $('#charge-error').text(response.error.message);
         $('#charge-error').removeClass('hidden');
         $form.find('button').prop('disabled', false); // Re-enable submission
 
     } else { // Token was created!
-
-        console.log("TEST")
         // Get the token ID:
         var token = response.id;
 

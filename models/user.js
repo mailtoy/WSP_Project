@@ -35,6 +35,10 @@ var userSchema = new Schema({
     zip: {
       type: String,
       required: true
+    },
+    profilePic: {
+      type: String,
+      default: '/images/profile-pic-default.png'
     }
 });
 

@@ -1,12 +1,13 @@
 .hovereffect {
     /* 1280 * 400 */
-    width:431%;
+    width:100%;
     height: auto;
     float:center;
     overflow:hidden;
-    position:relative;
     text-align:center;
-    cursor:default;    
+    position:relative;
+
+    cursor:default;  
 }
 
 .shop{
@@ -21,7 +22,7 @@
     background:#FFFFFF;
     overflow:hidden;
     margin-bottom:1em;
-    margin-top:1em;
+    margin-top:3em;
     padding-left:75px;
     padding-right:75px;
      height: auto;
@@ -48,6 +49,7 @@
     background-color:rgba(0,0,0,0.5);
     -webkit-transition:all .4s ease-in-out;
     transition:all .4s ease-in-out
+
 }
     
 .hovereffect img {
@@ -68,7 +70,7 @@
     filter:alpha(opacity=0);
     -webkit-transition:all .2s ease-in-out;
     transition:all .2s ease-in-out;
-    margin: 150px 0 0;
+    margin: 75px 0 50px 0;
     padding:7px 14px;
 }
     
@@ -102,7 +104,6 @@
 
 /* box */
 .hovereffect-season {
-    padding-left: 0px;
     /* 640 * 400 */
     width:98%;
     height: auto;
@@ -111,7 +112,7 @@
     position:relative;
     text-align:center;
     cursor:default;
-    margin: 3em 0 3em 0;
+    margin: 3em 0 0 0;
 }
     
 .hovereffect-season .overlay-season {

@@ -3,48 +3,76 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">	
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-{{!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="/javascripts/shop/product.js"></script>
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
 
-<!-- w3-content defines a container for fixed size centered content, 
-and is wrapped around the whole page content, except for the footer in this example -->
-<div class="w3-content" style="max-width:1600px">
+{{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
 
-{{# if this.product}}
+{{#if this.product}}
 	<div class="container card container-fliud wrapper">
 		<div class="row">
 			<div class="preview col-md-6">
 				<div class="preview-pic tab-content">
-					<div class="tab-pane active" id="pic-1"><img src="{{ product.imagePath_1 }}" /></div>
-					<div class="tab-pane" id="pic-2"><img src="{{ product.imagePath_2 }}" /></div>
-					<div class="tab-pane" id="pic-3"><img src="{{ product.imagePath_3 }}" /></div>
-					<div class="tab-pane" id="pic-4"><img src="{{ product.imagePath_4 }}" /></div>
-					<div class="tab-pane" id="pic-5"><img src="{{ product.imagePath_5 }}" /></div>
+					{{!-- <div class="tab-pane active" id="pic-1"><img src="{{ product.color.[0].[0] }}" /></div> --}}
+					{{#each product.color}}
+						{{#if @first}}
+							{{#each this}} 
+								<div class="tab-pane" id="pic-{{@index}}"><img src="{{ this }}" /></div>
+							{{/each}}
+						{{/if}}
+					{{/each}}
+					{{!-- <div class="tab-pane" id="pic-2"><img src="{{ product.color.[0].[1] }}" /></div>
+					<div class="tab-pane" id="pic-3"><img src="{{ product.color.[0].[2] }}" /></div>
+					<div class="tab-pane" id="pic-4"><img src="{{ product.color.[0].[3] }}" /></div>
+					<div class="tab-pane" id="pic-5"><img src="{{ product.color.[0].[4] }}" /></div> --}}
 				</div>
 				<ul class="preview-thumbnail nav nav-tabs">
-					<li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{ product.imagePath_1 }}" /></a></li>
-					<li><a data-target="#pic-2" data-toggle="tab"><img src="{{ product.imagePath_2 }}" /></a></li>
-					<li><a data-target="#pic-3" data-toggle="tab"><img src="{{ product.imagePath_3 }}" /></a></li>
-					<li><a data-target="#pic-4" data-toggle="tab"><img src="{{ product.imagePath_4 }}" /></a></li>
-					<li><a data-target="#pic-5" data-toggle="tab"><img src="{{ product.imagePath_5 }}" /></a></li>
-				</ul>	
+					{{!-- <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{ product.color.[0].[0] }}" /></a></li> --}}
+					{{#each product.color}}
+						{{#if @first}}
+							{{#each this}} 
+								<li><a data-target="#pic-{{@index}}" data-toggle="tab"><img src="{{ this }}" /></a></li>
+							{{/each}}
+						{{/if}}
+					{{/each}}
+					{{!-- <li><a data-target="#pic-2" data-toggle="tab"><img src="{{ product.color.[0].[1] }}" /></a></li>
+					<li><a data-target="#pic-3" data-toggle="tab"><img src="{{ product.color.[0].[2] }}" /></a></li>
+					<li><a data-target="#pic-4" data-toggle="tab"><img src="{{ product.color.[0].[3] }}" /></a></li>
+					<li><a data-target="#pic-5" data-toggle="tab"><img src="{{ product.color.[0].[4] }}" /></a></li> --}}
+				</ul>
 			</div>
 			<div class="details col-md-6">
 				<h3 class="product-title">{{ product.title }}</h3>
-				<p class="product-description">{{ product.description}}</p>
 				<h4 class="price">current price: <span>฿{{ product.price }}</span></h4>
+				<p class="product-description">{{ product.description}}</p>
 				<h5 class="sizes">sizes:
-					<span class="size" data-toggle="tooltip" title="xtra small">xs</span>
+					{{!-- {{#each product.size}}
+						<span class="size" data-toggle="tooltip">{{@key}}</span>
+					{{/each}} --}}
+					<select name="size" id="sizeSelction" class="form-control form-control-sm">
+						{{#each product.size}}
+							<option class="size">{{@key}}</option>
+						{{/each}}
+					</select>
+					{{!-- <span class="size" data-toggle="tooltip" title="xtra small">xs</span>
 					<span class="size" data-toggle="tooltip" title="small">s</span>
 					<span class="size" data-toggle="tooltip" title="medium">m</span>
 					<span class="size" data-toggle="tooltip" title="large">l</span>
-					<span class="size" data-toggle="tooltip" title="xtra large">xl</span>
+					<span class="size" data-toggle="tooltip" title="xtra large">xl</span> --}}
 				</h5>
 				<h5 class="colors">colors:
-					<span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+					{{!-- {{#each product.color}}
+						<span class="">{{@key}}</span>
+					{{/each}} --}}
+					<select name="color" id="colorSelection" class="form-control form-control-sm">
+						{{#each product.color}}
+							<option class="color" id="color-{{@index}}">{{@key}}</option>
+						{{/each}}
+					</select>
+					{{!-- <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
 					<span class="color green"></span>
-					<span class="color blue"></span>
+					<span class="color blue"></span> --}}
 				</h5>
 				<a class="action" href="/add-to-cart/{{ product._id }}">
 					<input type="submit" value="ADD TO CART">

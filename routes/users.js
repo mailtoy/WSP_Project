@@ -1,14 +1,20 @@
 var express = require('express');
 var router = express.Router();
+<<<<<<< HEAD
 // var csrf = require('csurf');
+=======
+>>>>>>> ca89b9b170ce1a12a309d5615a2d151a51fd3b14
 var passport = require('passport');
 var User = require('../models/user');
 var Order = require('../models/order');
 var Cart = require('../models/cart');
 
+<<<<<<< HEAD
 // var csrfProtection = csrf();
   // router.use(csrfProtection);
 
+=======
+>>>>>>> ca89b9b170ce1a12a309d5615a2d151a51fd3b14
 // Edit profile
 router.get('/profile', isLoggedIn, function (req, res, next) {
   var messages = req.flash('error');
@@ -45,14 +51,14 @@ router.post('/profile', isLoggedIn, function (req, res, next) {
   updUser.city = req.body.city;
   updUser.state = req.body.state;
   updUser.zip = req.body.zip;
-  User.findByIdAndUpdate( req.session.user.id , updUser, function (err, done) {
+  updUser.profilePic = req.body.profilePic;
+  User.update({ _id: req.user.id }, updUser, function (err, done) {
     if (err) {
       return console.log("err");
     } else {
       console.log("pass");
       req.session.user = updUser;
-      console.log("user : " + updUser);
-      res.redirect('/user/profile');
+      res.redirect('back');
     }
   })
 })
@@ -71,7 +77,6 @@ router.use('/', notLoggedIn, function (req, res, next) {
 router.get('/login', function (req, res, next) {
   var messages = req.flash('error');
   res.render('user/login', {
-    // csrfToken: req.csrfToken(),
     messages: messages,
     hasErrors: messages.length > 0,
     title: 'Login | Dlaessio'
@@ -96,7 +101,6 @@ router.post('/login', passport.authenticate('local.signin', {
 router.get('/register', function (req, res, next) {
   var messages = req.flash('error');
   res.render('user/regis', {
-    // csrfToken: req.csrfToken(),
     messages: messages,
     hasErrors: messages.length > 0,
     title: 'Register | Dlaessio'

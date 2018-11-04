@@ -1,9 +1,5 @@
 .copyrights {
-    margin-top:25px;
-}
-
-.link-btn {
-    margin: 2.5%;
+    margin-top:5px;
 }
 
 .foot {
@@ -19,25 +15,20 @@ footer.container-fluid.text-center.foot {
     border-top: 1px solid #525252;
 }
 
-.white-txt{
-    color: black;
-    font-size: 12.5px;
+.page-footer {
+    font-size: 40%;
 }
 
-a.link {
-    border-radius: 3px 3px 3px 3px;
-    background-color: #000000;
-	color: #eee;
-    padding: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 11px;
+.page-footer .dark-grey-text {
+    font-size: 90%;
 }
 
-a.link:hover {
-    background-color: #4F4F4F;
+.l-link {
+    font-size: 90%;
+    color: #A52A2A;
 }
-
-.footimg {
-    width: 5rem;
+ 
+.footer-copyright {
+	padding-top: 10px;
+	padding-bottom: 10px;
 }

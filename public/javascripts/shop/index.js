@@ -7,22 +7,4 @@ $(document).ready(function(){/* to make sure the script runs after page load */
             $(this).html(short_content+"...")
         }
     });
-    
-    $('#gridCheck').click(function() {
-        if ($(this).is(':checked')) {
-            $('#submitBtn').removeAttr('disabled');
-            $('#submitBtn').css('background-color', '#000000');
-        } else {
-            $('#submitBtn').attr('disabled', 'disabled');
-            $('#submitBtn').css('background-color', '#696969');
-        }
-    });
-    
-    $('#saveBtn').hide();
-    $('#editBtn').click(function() {
-        $('#saveBtn').show();
-        $(this).attr('disabled', 'disabled');
-        var $this = $('.profile-info-value input');
-        $this.is(':disabled') ? $this.prop('disabled', false) : $this.prop('disabled', true);
-    })
 });

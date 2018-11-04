@@ -176,6 +176,8 @@ router.get('/success', (req, res) => {
   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
 
   paypal.payment.execute(paymentId, payerId, function (error, payment) {
+    console.log("**********************")
+    console.log(payment.transactions[0])
     if (error) {
       console.error(JSON.stringify(error));
     } else {
@@ -215,12 +217,6 @@ router.get('/cancel', function (req, res) {
   req.flash('error', 'payment not successful');
   return res.redirect('/checkout');
 })
-
-// router.get('/shop', function (req, res) {
-//   Product.find(function (err, docs) {
-//     res.render('shop/shop', { title: 'Dlaessio', products: docs });
-//   });
-// });
 
 router.get('/page/:page', function (req, res, next) {
   var perPage = 6

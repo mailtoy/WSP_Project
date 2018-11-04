@@ -15,7 +15,7 @@
 					<div class="row">
 						{{#each products}} {{#ifCond qty '>=' 1}}
 						<div class="col-md-3">
-							{{#each this.item.color_stock }}
+							{{#each this.item.color }}
 								{{#if @first}}
 									{{#with this}} 
 										<img class="img-fluid mx-auto d-block image" src="{{ this.[4] }}">
@@ -30,13 +30,13 @@
 									<h5>{{ this.item.title }}</h5>
 									<div class="product-info">
 										<div>Catagory:
-											<span class="value">{{ this.item.catagory }}</span>
+											<span class="value">{{ this.item.catagory }} - {{ this.item.type }}</span>
 										</div>
 										<div>Color:
-											<span class="value">{{ this.item.color }}</span>
+											<span class="value">{{ this.color }}</span>
 										</div>
 										<div>Size:
-											<span class="value">{{ this.item.size }}</span>
+											<span class="value">{{ this.size }}</span>
 										</div>
 									</div>
 								</div>

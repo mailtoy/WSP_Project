@@ -30,12 +30,26 @@ router.get('/add-to-cart-qty/:id/:qty', function (req, res, next) {
   });
 });
 
-router.get('/add-to-cart/:id', function (req, res, next) {
+// router.get('/add-to-cart/:id', function (req, res, next) {
+//   var productId = req.params.id;
+//   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
+//   console.log(req.body.color);
+//   console.log(req.body.size);
+
+//   Product.findById(productId, function (err, product) {
+//     cart.add(product, product.id);
+//     req.session.cart = cart;
+//     // res.redirect('back');
+//   });
+// });
+
+router.post('/add-to-cart/:id', function (req, res, next) {
   var productId = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
-
+  var color = req.body.color;
+  var size = req.body.size;
   Product.findById(productId, function (err, product) {
-    cart.add(product, product.id);
+    cart.add(product, product.id, color, size);
     req.session.cart = cart;
     res.redirect('back');
   });

@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/user/profile.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="/javascripts/shop/index.js"></script> {{#if hasErrors}}
 <div class="alert alert-danger">
 	{{# each messages }}
@@ -8,7 +9,14 @@
 	{{/each}}
 </div>
 {{/if}} {{# if login}}
-<div id="user-profile-2" class="user-profile tab-content no-border padding-24">
+
+<div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button" onclick="openTab('Profile')">Profile</button>
+  <button class="w3-bar-item w3-button" onclick="openTab('Orders')">Orders</button>
+</div>
+
+<div id="Profile" class="w3-container user">
+  <div id="user-profile-2" class="user-profile tab-content no-border padding-24">
 	<form action="/user/profile" method="get">
 		<div class="row">
 			<form method="post">
@@ -86,11 +94,15 @@
 		<!-- /.row -->
 	</form>
 </div>
+</div>
+
 {{# each orders }}
+<div id="Orders" class="w3-container user" style="display:none">
+  
 <div class="panel panel-default" style="margin-top:2%; padding:2%">
 	<p>Payment ID: {{paymentId}}</p>
-	<p>ที่อยู่: {{this.address}}</p>
-	<p>ผู้รับ: {{name}}</p>
+	<p>Location: {{this.address}}</p>
+	<p>Receiver: {{name}}</p>
 	<div class="panel-body">
 		<ul class="list-group">
 			{{# each this.items }}
@@ -106,3 +118,22 @@
 	</div>
 </div>
 {{/each}} {{/if}}
+</div>
+
+{{!-- ex.tab --}}
+{{!-- <div id="Tokyo" class="w3-container city" style="display:none">
+  <h2>Tokyo</h2>
+  <p>Tokyo is the capital of Japan.</p>
+</div> --}}
+
+<script>
+function openTab(user) {
+    var i;
+    var x = document.getElementsByClassName("user");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    document.getElementById(user).style.display = "block";  
+}
+</script>
+

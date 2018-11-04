@@ -1,13 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var csrf = require('csurf');
 var passport = require('passport');
 var User = require('../models/user');
 var Order = require('../models/order');
 var Cart = require('../models/cart');
-
-var csrfProtection = csrf();
-router.use(csrfProtection);
 
 // Edit profile
 router.get('/profile', isLoggedIn, function (req, res, next) {
@@ -45,13 +41,14 @@ router.post('/profile', function (req, res, next) {
   updUser.city = req.body.city;
   updUser.state = req.body.state;
   updUser.zip = req.body.zip;
-  User.update({ _id: req.session.user.id }, updUser, function (err, done) {
+  updUser.profilePic = req.body.profilePic;
+  User.update({ _id: req.user.id }, updUser, function (err, done) {
     if (err) {
       return console.log("err");
     } else {
       console.log("pass");
       req.session.user = updUser;
-      res.render('user/profile');
+      res.redirect('back');
     }
   })
 })
@@ -70,7 +67,6 @@ router.use('/', notLoggedIn, function (req, res, next) {
 router.get('/login', function (req, res, next) {
   var messages = req.flash('error');
   res.render('user/login', {
-    csrfToken: req.csrfToken(),
     messages: messages,
     hasErrors: messages.length > 0,
     title: 'Login | Dlaessio'
@@ -95,7 +91,6 @@ router.post('/login', passport.authenticate('local.signin', {
 router.get('/register', function (req, res, next) {
   var messages = req.flash('error');
   res.render('user/regis', {
-    csrfToken: req.csrfToken(),
     messages: messages,
     hasErrors: messages.length > 0,
     title: 'Register | Dlaessio'

@@ -3,14 +3,14 @@ var Schema = mongoose.Schema;
 
 var schema = new Schema({
     concept: { type: String, required: true },
-    catagoty: { type: String, required: true },
+    catagory: { type: String, required: true },
     type: { type: String, required: true },
     title: { type: String, required: true },
     description: { type: String, required: true },
     detail: { type: String, required: true },
     price: { type: Number, required: true },
-    color: { type: String, required: true },
-    size: { type: String, required: true },
+    color: { type: String },
+    size: { type: String },
     color_stock: { type: Object, required: true },
     size_stock: { type: Object, required: true }
 })

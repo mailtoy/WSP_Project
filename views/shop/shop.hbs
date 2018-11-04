@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="/stylesheets/shop/shop.css">
 
 <body>
@@ -116,7 +115,16 @@
     {{#each products }}
     <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-            <img src="{{ imagePath_1 }}">
+            {{!-- {{#with this.color}}
+                <img src="{{ this.[0].[0] }}">
+            {{/with}} --}}
+            {{#each this.color }}
+				{{#if @first}}
+					{{#with this}} 
+						<img src="{{ this.[0] }}">
+					{{/with}}
+				{{/if}}
+			{{/each}}
             <div class="caption">
                 <a href="/product/{{_id}}" class="title">{{ title }}
                     <a>
@@ -127,6 +135,7 @@
     </div>
     {{/each}}
 </div>
+
 <div class="pagination center">
     <ul class="pagination">
         {{#paginate pagination type="first"}}

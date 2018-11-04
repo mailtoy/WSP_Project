@@ -17,7 +17,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 			<div class="preview col-md-6">
 				<div class="preview-pic tab-content">
 					{{!-- <div class="tab-pane active" id="pic-1"><img src="{{ product.color.[0].[0] }}" /></div> --}}
-					{{#each product.color }}
+					{{#each product.color}}
 						{{#if @first}}
 							{{#each this}} 
 								<div class="tab-pane" id="pic-{{@index}}"><img src="{{ this }}" /></div>
@@ -31,7 +31,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 				</div>
 				<ul class="preview-thumbnail nav nav-tabs">
 					{{!-- <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{ product.color.[0].[0] }}" /></a></li> --}}
-					{{#each product.color }}
+					{{#each product.color}}
 						{{#if @first}}
 							{{#each this}} 
 								<li><a data-target="#pic-{{@index}}" data-toggle="tab"><img src="{{ this }}" /></a></li>
@@ -49,9 +49,14 @@ and is wrapped around the whole page content, except for the footer in this exam
 				<h4 class="price">current price: <span>฿{{ product.price }}</span></h4>
 				<p class="product-description">{{ product.description}}</p>
 				<h5 class="sizes">sizes:
-					{{#each product.size}}
+					{{!-- {{#each product.size}}
 						<span class="size" data-toggle="tooltip">{{@key}}</span>
-					{{/each}}
+					{{/each}} --}}
+					<select name="size" id="sizeSelction" class="form-control form-control-sm">
+						{{#each product.size}}
+							<option class="size">{{@key}}</option>
+						{{/each}}
+					</select>
 					{{!-- <span class="size" data-toggle="tooltip" title="xtra small">xs</span>
 					<span class="size" data-toggle="tooltip" title="small">s</span>
 					<span class="size" data-toggle="tooltip" title="medium">m</span>
@@ -59,9 +64,14 @@ and is wrapped around the whole page content, except for the footer in this exam
 					<span class="size" data-toggle="tooltip" title="xtra large">xl</span> --}}
 				</h5>
 				<h5 class="colors">colors:
-					{{#each product.color}}
+					{{!-- {{#each product.color}}
 						<span class="">{{@key}}</span>
-					{{/each}}
+					{{/each}} --}}
+					<select name="color" id="colorSelection" class="form-control form-control-sm">
+						{{#each product.color}}
+							<option class="color" id="color-{{@index}}">{{@key}}</option>
+						{{/each}}
+					</select>
 					{{!-- <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
 					<span class="color green"></span>
 					<span class="color blue"></span> --}}

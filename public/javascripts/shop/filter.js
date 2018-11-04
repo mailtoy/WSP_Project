@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
 
     $('#filterBtn').hide();
@@ -13,13 +15,20 @@ $(document).ready(function () {
         //     console.log($(this).find('form-check-input:checked'))
         //     // console.log($(this).find('label').text());
         // })
-
-        $.each($("input[class='form-check-input']:checked"), function(){            
-            console.log($(this).val());
+        var info = []
+        $.each($("input[class='form-check-input']:checked"), function () {
+            info.push($(this).val())
+            // console.log($(this).val());
         });
+        $.ajax({
+            type: "GET",
+            data: { filter: info },
+            url: "/page/1",
+        });
+        console.log(info)
     })
 
-    
+
 
 
     $(".form-check-label").each(function () {

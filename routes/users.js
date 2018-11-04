@@ -33,7 +33,7 @@ router.get('/profile', isLoggedIn, function (req, res, next) {
   // });
 });
 
-router.post('/profile', function (req, res, next) {
+router.post('/profile', isLoggedIn, function (req, res, next) {
   var updUser = new User(req.session.user ? req.session.user : {});
   updUser.firstName = req.body.firstName;
   updUser.lastName = req.body.lastName;
@@ -63,7 +63,7 @@ router.use('/', notLoggedIn, function (req, res, next) {
   next();
 });
 
-// Login 
+// Login
 router.get('/login', function (req, res, next) {
   var messages = req.flash('error');
   res.render('user/login', {

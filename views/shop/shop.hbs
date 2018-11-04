@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
 <link rel="stylesheet" href="/stylesheets/shop/shop.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/javascripts/shop/filter.js"></script>
 
 
@@ -179,7 +180,7 @@
                     </ul>
                 </li>
 
-                <button type="button" class="btn btn-lg btn-block" id="filterBtn" >Filter now!  </button>
+                <button type="button" class="btn btn-lg btn-block" id="filterBtn">Filter now! </button>
 
 
 
@@ -204,7 +205,7 @@
             {{!-- {{#with this.color}}
             <img src="{{ this.[0].[0] }}">
             {{/with}} --}}
-            {{#each this.color }}
+            {{#each this.color_stock }}
             {{#if @first}}
             {{#with this}}
             <img src="{{ this.[0] }}">
@@ -215,7 +216,7 @@
                 <a href="/product/{{_id}}" class="title">{{ title }}
                     <a>
                         <p class="price">฿{{ price }}</p>
-                        <a href="/add-to-cart/{{_id}}" role="button">Add to cart</a>
+                        {{!-- <a href="/add-to-cart/{{_id}}" role="button">Add to cart</a> --}}
             </div>
         </div>
     </div>

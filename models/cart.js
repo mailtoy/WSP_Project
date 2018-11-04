@@ -10,10 +10,10 @@ module.exports = function Cart(initItems) {
         }
     }
 
-    this.add = function (item, id) {
+    this.add = function (item, id, color, size) {
         var storedItem = this.items[id];
         if (!storedItem) {
-            storedItem = this.items[id] = { id: id, qty: 0, item: item, price: 0 };
+            storedItem = this.items[id] = { id: id, qty: 0, item: item, price: 0, color: color, size: size };
         }
         storedItem.qty++;
         storedItem.price = storedItem.item.price * storedItem.qty;
@@ -41,7 +41,6 @@ module.exports = function Cart(initItems) {
         this.totalPrice -= storedItem.price;
         this.items[id] = null
     }
-
 
     this.generateArray = function () {
         var arr = [];

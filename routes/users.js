@@ -1,11 +1,9 @@
 var express = require('express');
 var router = express.Router();
-
 var passport = require('passport');
 var User = require('../models/user');
 var Order = require('../models/order');
 var Cart = require('../models/cart');
-
 
 // Edit profile
 router.get('/profile', isLoggedIn, function (req, res, next) {

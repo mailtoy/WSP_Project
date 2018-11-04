@@ -13,16 +13,4 @@ router.get('/:id', function(req, res) {
     })
 });
 
-router.get('/add-to-cart/:id', function (req, res, next) {
-    var productId = req.params.id;
-    var cart = new Cart(req.session.cart ? req.session.cart.items : {});
-  
-    Product.findById(productId, function (err, product) {
-      cart.add(product, product.id);
-      req.session.cart = cart;
-      console.log(req.session.cart);
-      res.redirect('/:id');
-    });
-});
-
 module.exports = router;

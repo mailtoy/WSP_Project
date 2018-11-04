@@ -31,8 +31,6 @@ router.get('/add-to-cart-qty/:id/:qty', function (req, res, next) {
 });
 
 router.get('/add-to-cart/:id', function (req, res, next) {
-  console.log("TEST")
-
   var productId = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
 

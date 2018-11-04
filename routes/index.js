@@ -143,8 +143,8 @@ router.post('/checkout-paypal', isLoggedIn, function (req, res, next) {
       "payment_method": "paypal"
     },
     "redirect_urls": {
-      "return_url": "/success",
-      "cancel_url": "/cancel"
+      "return_url": "https://alesso.herokuapp.com/success",
+      "cancel_url": "https://alesso.herokuapp.com/cancel"
     },
     "transactions": [{
       "item_list": {
@@ -178,8 +178,6 @@ router.get('/success', (req, res) => {
   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
 
   paypal.payment.execute(paymentId, payerId, function (error, payment) {
-    console.log("**********************")
-    console.log(payment.transactions[0])
     if (error) {
       console.error(JSON.stringify(error));
     } else {

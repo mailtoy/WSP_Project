@@ -45,11 +45,11 @@
 								<label for="quantity">Quantity:</label>
 								<input class="quantity" type="number" value="{{ this.qty }}" min="1" class="form-control quantity-input" field='{{ this.id }}'>
 							</div>
-							<span>$</span>
+							<span>฿</span>
 							<span class="eachPrice" id="updates_{{ this.id }}">{{ this.price }}</span>
 
 							<div class="col-md-3 price">
-								<span class="price">$ </span>
+								<span class="price">฿ </span>
 								<span id="perPrice_{{ this.id }}">{{ this.item.price }}</span>
 							</div>
 						</div>
@@ -63,22 +63,22 @@
 				<h3>Summary</h3>
 				<div class="summary-item">
 					<span class="text">Subtotal</span>
-					<span class="price">$</span>
+					<span class="price">฿</span>
 					<span id="subtotal" class="price">{{ totalPrice }}</span>
 				</div>
 				<div class="summary-item">
 					<span class="text">Discount</span>
-					<span class="price">$</span>
+					<span class="price">฿</span>
 					<span class="price">0</span>
 				</div>
 				<div class="summary-item">
 					<span class="text">Shipping</span>
-					<span class="price">$</span>
+					<span class="price">฿</span>
 					<span class="price">0</span>
 				</div>
 				<div class="summary-item">
 					<span class="text">Total</span>
-					<span class="price">$</span>
+					<span class="price">฿</span>
 					<span id="total" class="price">{{ totalPrice }}</span>
 				</div>
 				<input type="submit" class="checkout" value="Checkout">

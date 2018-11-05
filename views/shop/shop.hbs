@@ -177,6 +177,7 @@
         </div>
     </div>
 
+
     <div class="pagination center">
         <ul class="pagination">
             {{#paginate pagination type="first"}}
@@ -189,7 +190,7 @@
             </li>
             {{/paginate}} {{#paginate pagination type="middle" limit="7"}}
             <li {{#if active}} class="page-item active" {{/if}}>
-                <a class="page-link" href="{{n}}">{{n}}</a>
+                <a class="page-link" href="{{n}}">{{number}}</a>
             </li>
             {{/paginate}} {{#paginate pagination type="next"}}
             <li {{#if disabled}} class="page-item disabled" {{/if}}>

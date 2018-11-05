@@ -121,6 +121,7 @@ router.get('/:department/:category/:subcategory/page/:page', function (req, res,
                 }
             })
         })
+        
         .skip((perPage * page) - perPage)
         .limit(perPage)
         .exec(function (err, products) {

@@ -244,7 +244,7 @@ router.get('/page/:page', filter, function (req, res, next) {
           products: products,
           pagination: {
             page: page,       // The current page the user is on
-            pageCount: Math.ceil(count / perPage)  // The total number of available pages
+            pageCount: Math.ceil(count / perPage),  // The total number of available pages
           }
         })
       })
@@ -285,10 +285,11 @@ function filter(req, res, next) {
   var perPage = 6
   var page = req.params.page || 1
 
+  // console.log("URL: " + "?" + req.originalUrl.split('?')[1]);
+
   if (req.query.filter) {
-    // console.log(req.query.filter)
     var array = []
-    var checked_box = {}
+    // var checked_box = {}
     var numberOfMatching = 0;
     for (var i in req.query.filter) {
       for (var j in req.query.filter[i])
@@ -318,7 +319,8 @@ function filter(req, res, next) {
         products: array.slice(skip, limit),
         pagination: {
           page: page, // The current page the user is on
-          pageCount: Math.ceil(array.length / perPage)  // The total number of available pages
+          pageCount: Math.ceil(array.length / perPage),  // The total number of available pages
+          params: "?" + req.originalUrl.split('?')[1].toString()
         },
         filter: req.query.filter
       })

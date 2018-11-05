@@ -36,9 +36,9 @@
 				</div>
 				<!-- /.col -->
 				<div class="col-xs-12 col-sm-9" style="width:400px">
-					<h3 class="overrided-h3">
+					{{!-- <h3 class="overrided-h3">
 					<span class="middle black">{{ session.user.firstName }}</span>
-					</h3>
+					</h3> --}}
 					<div class="profile-user-info">
 						<div class="profile-info-row">
 							<div class="profile-info-name">Email</div>
@@ -94,13 +94,14 @@
 		</form>
 	</div>
 </div>
-{{# each orders }}
 <div id="Orders" class="w3-auto user od" style="display:none">
+{{# each orders }}
 
 	<div class="panel panel-default" style="margin-top:2%; padding:2%">
 		<p>Payment ID: {{paymentId}}</p>
 		<p>Location: {{this.address}}</p>
 		<p>Receiver: {{name}}</p>
+		{{!-- <p>Date: {{}}</p> --}}
 		<div class="panel-body">
 			<ul class="list-group">
 				{{# each this.items }}
@@ -115,8 +116,9 @@
 			<strong>Total Price: ${{ this.cart.totalPrice }}</strong>
 		</div>
 	</div>
-	{{/each}} {{/if}}
+{{/each}} {{/if}}	
 </div>
+
 {{!-- ex.tab --}}
 {{!-- <div id="Tokyo" class="w3-container city" style="display:none">
 	<h2>Tokyo</h2>

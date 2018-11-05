@@ -219,23 +219,32 @@ router.get('/cancel', function (req, res) {
 router.get('/page/:page', function (req, res, next) {
   var perPage = 6
   var page = req.params.page || 1
+
+  var pageCount = 0
+  var return_products = []
+
+  // count total pages.
+  Product.count().exec(function (err, count) {
+    if (err) return next(err)
+    pageCount = count
+  })
+  
   Product
     .find({})
     .skip((perPage * page) - perPage)
     .limit(perPage)
     .exec(function (err, products) {
-      Product.count().exec(function (err, count) {
-        if (err) return next(err)
-        res.render('shop/shop', {
-          title: 'Dalessio',
-          products: products,
-          pagination: {
-            page: page,       // The current page the user is on
-            pageCount: Math.ceil(count / perPage)  // The total number of available pages
-          }
-        })
-      })
+      return_products = products
     })
+
+  res.render('shop/shop', {
+    title: 'Dalessio',
+    products: return_products,
+    pagination: {
+      page: page,       // The current page the user is on
+      pageCount: Math.ceil(pageCount / perPage)  // The total number of available pages
+    }
+  })
 });
 
 router.get('/cart', function (req, res) {

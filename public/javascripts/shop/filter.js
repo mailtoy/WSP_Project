@@ -15,10 +15,37 @@ $(document).ready(function () {
         //     console.log($(this).find('form-check-input:checked'))
         //     // console.log($(this).find('label').text());
         // })
-        var info = []
-        $.each($("input[class='form-check-input']:checked"), function () {
-            info.push($(this).val())
-            // console.log($(this).val());
+        var info = {}
+        info["concept"] = []
+        info["category"] = []
+        info["type"] = []
+        info["size_stock"] = []
+        info["color_stock"] = []
+        info["order"] = []
+
+        $.each($("input[name='concept']:checked"), function () {
+            if ($(this).val())
+                info["concept"].push($(this).val())
+        });
+        $.each($("input[name='category']:checked"), function () {
+            if ($(this).val())
+                info["category"].push($(this).val())
+        });
+        $.each($("input[name='type']:checked"), function () {
+            if ($(this).val())
+                info["type"].push($(this).val())
+        });
+        $.each($("input[name='size']:checked"), function () {
+            if ($(this).val())
+                info["size_stock"].push($(this).val())
+        });
+        $.each($("input[name='color']:checked"), function () {
+            if ($(this).val())
+                info["color_stock"].push($(this).val())
+        });
+        $.each($("input[name='order']:checked"), function () {
+            if ($(this).val())
+                info["order"].push($(this).val())
         });
         $.ajax({
             type: "GET",
@@ -27,9 +54,6 @@ $(document).ready(function () {
         });
         console.log(info)
     })
-
-
-
 
     $(".form-check-label").each(function () {
         var currentElement = $(this);

@@ -31,6 +31,14 @@ handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
     }
 });
 
+handlebars.registerHelper('toLowerCase', function(str) {
+    return str.toLowerCase();
+});
+
+handlebars.registerHelper('toUpperCase', function(str) {
+    return str.toUpperCase();
+});
+
 // handlebars.registerHelper('assign', function (varName, varValue, options) {
 //     if (!options.data.root) {
 //         options.data.root = {};

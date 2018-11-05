@@ -1,252 +1,240 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
 <link rel="stylesheet" href="/stylesheets/shop/shop.css">
 <script type="text/javascript" src="/javascripts/shop/shop.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript" src="/javascripts/shop/filter.js"></script>
+
 
 <body>
-    <div class="col-sm-3">
-        <ul class="navbar-left">
-            <label class="category">LADIES</label><br>
-            <li><a href="#" class="subcategory">VIEW ALL</a></li><br>
+    {{#if this.categories }}
+        <div class="col-sm-3">
+            <ul class="navbar-left">
+                <label class="category">{{toUpperCase this.department}}</label><br>
+                <li><a href="#" class="subcategory">VIEW ALL</a></li><br>
+                <label class="category">SHOP BY CATEGORY</label><br>
+                <label id="chaps">
+                {{#each categories}}
+                    <li class="subcategory"><a href="/product/ladies/{{toLowerCase @key}}/page/1" class="subcategory">{{toUpperCase @key}}</a>
+                        <ul class="assignments">
+                            {{#each this}}
+                                    <li><a href="{{this}}" class="subcategory">{{toUpperCase @key}}</a></li>
+                            {{/each}}
+                        </ul> 
+                    </li>
+                {{/each}}
+            </label>
+            </ul>   
+        </div>
+    {{/if}}
 
-            <label class="category">SHOP BY CATEGORY</label><br>
-            <label id="chaps">
-            <li class="subcategory"><a href="#" class="subcategory">DRESSES</a>
-                <ul class="assignments hide">
-                <li><a href="#" class="subcategory">SHORT DRESSES</a></li>
-                <li><a href="#" class="subcategory">MIDI DRESSES</a></li>
-                <li><a href="#" class="subcategory">MAXI DRESSES</a></li>
-                </ul>
-            </li>
-            <li class="subcategory"><a href="#" class="subcategory">TOPS</a>
-                <ul class="assignments hide">
-                <li><a href="#" class="subcategory">BODY</a></li>
-                <li><a href="#" class="subcategory">VEST</a></li>
-                </ul>
-            </li>
-            <li class="subcategory"><a href="#" class="subcategory">TROUSERS</a>
-                <ul class="assignments hide">
-                <li><a href="#" class="subcategory">SLIM</a></li>
-                <li><a href="#" class="subcategory">FLARE</a></li>
-                </ul>
-            </li>
-            <li class="subcategory"><a href="#" class="subcategory">SKIRTS</a>
-                <ul class="assignments hide">
-                <li><a href="#" class="subcategory">SHORT SKIRTS</a></li>
-                <li><a href="#" class="subcategory">MIDI SKIRTS</a></li>
-                </ul>
-            </li>
-            <li class="subcategory"><a href="#" class="subcategory">SHORTS</a>
-                <ul class="assignments hide">
-                <li><a href="#" class="subcategory">DENIM SHORTS</a></li>
-                </ul>
-            </li>
-        </label>
-        </ul>   
+    {{#each filter}}
+    {{#each this}}
+    {{this}}
+    {{/each}}
+    {{/each}}
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+
+
+
+            <ul class="nav sidebar-nav">
+
+                <li class="sidebar-brand">
+                    <a href="#"> Filter </a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Size<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <div class="form-check">
+                                <input name="size" class="form-check-input" type="checkbox" value="S" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    S
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input name="size" class="form-check-input" type="checkbox" value="M" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    M
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input name="size" class="form-check-input" type="checkbox" value="L" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    L
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input name="size" class="form-check-input" type="checkbox" value="XL" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    XL
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Color<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <div class="form-check">
+                                <input name="color" class="form-check-input" type="checkbox" value="White" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    White
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input name="color" class="form-check-input" type="checkbox" value="Black" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Black
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input name="color" class="form-check-input" type="checkbox" value="Pink" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Pink
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input name="color" class="form-check-input" type="checkbox" value="Gray" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Gray
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Order by<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <div class="form-check">
+                                <input name="order" class="form-check-input" type="checkbox" value="Low price" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Low price
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input name="order" class="form-check-input" type="checkbox" value="High price" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    High price
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+                <button type="button" class="btn btn-lg btn-block" id="filterBtn">Filter now! </button>
+
+
+
+            </ul>
+        </nav>
+
+
+        <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+        </button>
     </div>
-
-<div id="wrapper">
-    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-        <ul class="nav sidebar-nav">
-            <li class="sidebar-brand">
-                <label class="filterHead">Filter</label><br>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Concept<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-						<input type="checkbox" checked="checked">
- 						<label class="check">New Arrival</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">Summer</label><br>
-						<input type="checkbox" checked="checked">
- 						<label class="check">Winter</label><br>
-						<input type="checkbox" checked="checked">
- 						<label class="check">Autumn</label><br>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Category<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-						<input type="checkbox" checked="checked">
- 						<label class="check">Ladies</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">Men</label><br>
-						<input type="checkbox" checked="checked">
- 						<label class="check">Kids</label><br>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="dropdown">
-            	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Type<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                	<li>
-						<input type="checkbox" checked="checked">
- 						<label class="check">Dress</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">Pant</label><br>
-						<input type="checkbox" checked="checked">
- 						<label class="check">T-shirt</label><br>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Size<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-						<input type="checkbox" checked="checked">
- 						<label class="check">S</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">M</label><br>
-						<input type="checkbox" checked="checked">
- 						<label class="check">L</label><br>
-						<input type="checkbox" checked="checked">
- 						<label class="check">XL</label><br>
-                    </li>
-                </ul>
-            </li>
-
-        	<li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Color<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-						<input type="checkbox" checked="checked">
-						<label class="check">White</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">Black</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">Pink</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">Gray</label><br>
-                    </li>
-        		</ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Order by<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-						<input type="checkbox" checked="checked">
-						<label class="check">Low price</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">High price</label><br>
-                    </li>
-                </ul>
-            </li>
-
-
-        </ul>
-    </nav>
-
-        
-    <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
-        <span class="hamb-top"></span>
-    	<span class="hamb-middle"></span>
-		<span class="hamb-bottom"></span>
-    </button>
-
-</div>
-
 </body>
 
 <div class="col-sm-9">
 
-{{!-- product --}}
-<div class="row">
-    {{#each products }}
-    <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-            {{!-- {{#with this.color}}
-                <img src="{{ this.[0].[0] }}">
-            {{/with}} --}}
-            <a href="/product/{{_id}}">
-                {{#each this.color }}
-                    {{#if @first}}
+    {{!-- product --}}
+    <div class="row">
+        <div class="products">
+            {{#each products }}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a href="/product/{{_id}}">
+                        {{#each this.color }}
+                        {{#if @first}}
                         {{#with this}}
                         <div class="pic">
                             <img id="thumbnail" src="{{ this.[0] }}" class="image">
                             <div class="overlay">
                                 <img id="thumbnail" src="{{ this.[3] }}" class="image2">
                             </div>
-                        </div>
-            </a>
-                            
-                                
+                        </div>          
                         {{/with}}
                     {{/if}}
-                {{/each}}
-            </a>
-            <div class="caption">
-                <a href="/product/{{_id}}" class="title">{{ title }}</a>
-                <p class="price">฿{{ price }}</p>
+                    {{/each}}
+                    </a>
+                    <div class="caption">
+                        <a href="/product/{{_id}}" class="title">{{ title }}</a>
+                        <p class="price">฿{{ price }}</p>
+                    </div>
+                </div>
             </div>
+            {{/each}}
         </div>
     </div>
-    {{/each}}
-</div>
 
-<div class="pagination center">
-    <ul class="pagination">
-        {{#paginate pagination type="first"}}
-        <li {{#if disabled}}class="page-item disabled" {{/if}}>
-            <a class="page-link" href="{{n}}">First</a>
-        </li>
-        {{/paginate}} {{#paginate pagination type="previous"}}
-        <li {{#if disabled}}class="page-item disabled" {{/if}}>
-            <a class="page-link" href="{{n}}">Prev</a>
-        </li>
-        {{/paginate}} {{#paginate pagination type="middle" limit="7"}}
-        <li {{#if active}}class="page-item active" {{/if}}>
-            <a class="page-link" href="{{n}}">{{n}}</a>
-        </li>
-        {{/paginate}} {{#paginate pagination type="next"}}
-        <li {{#if disabled}}class="page-item disabled" {{/if}}>
-            <a class="page-link" href="{{n}}">Next</a>
-        </li>
-        {{/paginate}} {{#paginate pagination type="last"}}
-        <li {{#if disabled}}class="page-item disabled" {{/if}}>
-            <a class="page-link" href="{{n}}">Last</a>
-        </li>
-        {{/paginate}}
-    </ul>
-</div>
+    <div class="pagination center">
+        <ul class="pagination">
+            {{#paginate pagination type="first"}}
+            <li {{#if disabled}} class="page-item disabled" {{/if}}>
+                <a class="page-link" href="{{n}}">First</a>
+            </li>
+            {{/paginate}} {{#paginate pagination type="previous"}}
+            <li {{#if disabled}} class="page-item disabled" {{/if}}>
+                <a class="page-link" href="{{n}}">Prev</a>
+            </li>
+            {{/paginate}} {{#paginate pagination type="middle" limit="7"}}
+            <li {{#if active}} class="page-item active" {{/if}}>
+                <a class="page-link" href="{{n}}">{{n}}</a>
+            </li>
+            {{/paginate}} {{#paginate pagination type="next"}}
+            <li {{#if disabled}} class="page-item disabled" {{/if}}>
+                <a class="page-link" href="{{n}}">Next</a>
+            </li>
+            {{/paginate}} {{#paginate pagination type="last"}}
+            <li {{#if disabled}} class="page-item disabled" {{/if}}>
+                <a class="page-link" href="{{n}}">Last</a>
+            </li>
+            {{/paginate}}
+        </ul>
+    </div>
 </div>
 
 <script type="text/javascript">
-$(document).ready(function () {
-  var trigger = $('.hamburger'),
-      overlay = $('.overlay'),
-     isClosed = false;
+    $(document).ready(function () {
+        var trigger = $('.hamburger'),
+            overlay = $('.overlay'),
+            isClosed = false;
 
-    trigger.click(function () {
-      hamburger_cross();      
+        trigger.click(function () {
+            hamburger_cross();
+        });
+
+        function hamburger_cross() {
+
+            if (isClosed == true) {
+                overlay.hide();
+                trigger.removeClass('is-open');
+                trigger.addClass('is-closed');
+                isClosed = false;
+            } else {
+                overlay.show();
+                trigger.removeClass('is-closed');
+                trigger.addClass('is-open');
+                isClosed = true;
+            }
+        }
+
+        $('[data-toggle="offcanvas"]').click(function () {
+            $('#wrapper').toggleClass('toggled');
+        });
     });
 
-    function hamburger_cross() {
-
-      if (isClosed == true) {          
-        overlay.hide();
-        trigger.removeClass('is-open');
-        trigger.addClass('is-closed');
-        isClosed = false;
-      } else {   
-        overlay.show();
-        trigger.removeClass('is-closed');
-        trigger.addClass('is-open');
-        isClosed = true;
-      }
-  }
-  
-  $('[data-toggle="offcanvas"]').click(function () {
-        $('#wrapper').toggleClass('toggled');
-  });  
-});
-
-$("#chaps > li").click(function() {
-  $(this).find("ul.assignments").toggleClass('hide');
-}); 
+    $("#chaps > li").click(function () {
+        $(this).find("ul.assignments").toggleClass('hide');
+    }); 
 </script>

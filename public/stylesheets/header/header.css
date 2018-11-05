@@ -49,6 +49,7 @@
 
 .ladies-btn:hover + .sub-menu, .men-btn:hover + .sub-menu, .kids-btn:hover + .sub-menu {
     display: block;
+    list-style-type: none;
 }
 
 .line-style{
@@ -76,4 +77,17 @@ svg {
     position: absolute;
     z-index: 2;
     background-color: white;
+}
+
+.ladies-btn{
+    list-style-type: none;
+}
+
+.subcategory{
+    color: black;
+    font-weight: normal;
+}
+
+.dropdown{
+    list-style-type: none;
 }

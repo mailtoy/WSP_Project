@@ -27,17 +27,17 @@
 					</span>
 					<div class="space space-4"></div>
 					<button href="#" class="btn btn-sm btn-block btn-danger" id="editBtn">
-					<i class="ace-icon fa fa-plus-circle bigger-120"></i>
-					<span class="bigger-110">Edit</span>
+						<i class="ace-icon fa fa-plus-circle bigger-120"></i>
+						<span class="bigger-110">Edit</span>
 					</button>
 					<button class="btn btn-sm btn-block btn-success" type="submit" id="saveBtn">
-					<span class="bigger-110">Save</span>
+						<span class="bigger-110">Save</span>
 					</button>
 				</div>
 				<!-- /.col -->
 				<div class="col-xs-12 col-sm-9" style="width:400px">
 					{{!-- <h3 class="overrided-h3">
-					<span class="middle black">{{ session.user.firstName }}</span>
+						<span class="middle black">{{ session.user.firstName }}</span>
 					</h3> --}}
 					<div class="profile-user-info">
 						<div class="profile-info-row">
@@ -95,8 +95,7 @@
 	</div>
 </div>
 <div id="Orders" class="w3-auto user od" style="display:none">
-{{# each orders }}
-
+	{{# each orders }}
 	<div class="panel panel-default" style="margin-top:2%; padding:2%">
 		<p>Payment ID: {{paymentId}}</p>
 		<p>Location: {{this.address}}</p>
@@ -116,7 +115,7 @@
 			<strong>Total Price: ${{ this.cart.totalPrice }}</strong>
 		</div>
 	</div>
-{{/each}} {{/if}}	
+	{{/each}} {{/if}}
 </div>
 
 {{!-- ex.tab --}}
@@ -125,12 +124,12 @@
 	<p>Tokyo is the capital of Japan.</p>
 </div> --}}
 <script>
-function openTab(user) {
-var i;
-var x = document.getElementsByClassName("user");
-for (i = 0; i < x.length; i++) {
-x[i].style.display = "none";
-}
-document.getElementById(user).style.display = "block";
-}
+	function openTab(user) {
+		var i;
+		var x = document.getElementsByClassName("user");
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";
+		}
+		document.getElementById(user).style.display = "block";
+	}
 </script>

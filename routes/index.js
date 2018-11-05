@@ -296,6 +296,8 @@ function filter(req, res, next) {
       // checked_box[req.query.filter[i][j]] = true
     }
 
+    console.log("Number of match: " + numberOfMatching)
+
 
     console.log(req.query.filter)
     Product.find({}, function (err, product) {
@@ -312,7 +314,7 @@ function filter(req, res, next) {
             }
           }
         }
-        if (count == numberOfMatching) 
+        if (count == numberOfMatching)
           array.push(product[index])
       }
       var skip = (perPage * page) - perPage

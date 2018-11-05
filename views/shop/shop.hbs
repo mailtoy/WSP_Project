@@ -20,91 +20,9 @@
 
 
             <ul class="nav sidebar-nav">
+                
                 <li class="sidebar-brand">
                     <a href="#"> Filter </a>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Concept<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <div class="form-check">
-                                <input name="concept" class="form-check-input" type="checkbox" value="New Arrival" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    New Arrival
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input name="concept" class="form-check-input" type="checkbox" value="Summer" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Summer
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input name="concept" class="form-check-input" type="checkbox" value="Winter" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Winter
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input name="concept" class="form-check-input" type="checkbox" value="Autumn" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Autumn
-                                </label>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Catagory<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <div class="form-check">
-                                <input name="category" class="form-check-input" type="checkbox" value="Ladies" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Ladies
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input name="category" class="form-check-input" type="checkbox" value="Men" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Men
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input name="category" class="form-check-input" type="checkbox" value="Kids" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Kids
-                                </label>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Type<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <div class="form-check">
-                                <input name="type" class="form-check-input" type="checkbox" value="Dress" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Dress
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input name="type" class="form-check-input" type="checkbox" value="Pant" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Pant
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input name="type" class="form-check-input" type="checkbox" value="T-shirt" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    T-shirt
-                                </label>
-                            </div>
-                        </li>
-                    </ul>
                 </li>
 
                 <li class="dropdown">
@@ -208,6 +126,8 @@
     </div>
 </body>
 
+<div class="col-sm-9">
+
 {{!-- product --}}
 <div class="row">
     <div class="products">
@@ -217,10 +137,18 @@
                 <a href="/product/{{_id}}">
                     {{#each this.color }}
                     {{#if @first}}
-                    {{#with this}}
-                    <img id="thumbnail" src="{{ this.[0] }}"></a>
-                {{/with}}
-                {{/if}}
+                        {{#with this}}
+                        <div class="pic">
+                            <img id="thumbnail" src="{{ this.[0] }}" class="image">
+                            <div class="overlay">
+                                <img id="thumbnail" src="{{ this.[3] }}" class="image2">
+                            </div>
+                        </div>
+            </a>
+                            
+                                
+                        {{/with}}
+                    {{/if}}
                 {{/each}}
                 </a>
                 <div class="caption">
@@ -258,10 +186,7 @@
         {{/paginate}}
     </ul>
 </div>
-
-
-
-
+</div>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -273,23 +198,27 @@
             hamburger_cross();
         });
 
-        function hamburger_cross() {
+    function hamburger_cross() {
 
-            if (isClosed == true) {
-                overlay.hide();
-                trigger.removeClass('is-open');
-                trigger.addClass('is-closed');
-                isClosed = false;
-            } else {
-                overlay.show();
-                trigger.removeClass('is-closed');
-                trigger.addClass('is-open');
-                isClosed = true;
-            }
-        }
+      if (isClosed == true) {          
+        overlay.hide();
+        trigger.removeClass('is-open');
+        trigger.addClass('is-closed');
+        isClosed = false;
+      } else {   
+        overlay.show();
+        trigger.removeClass('is-closed');
+        trigger.addClass('is-open');
+        isClosed = true;
+      }
+  }
+  
+  $('[data-toggle="offcanvas"]').click(function () {
+        $('#wrapper').toggleClass('toggled');
+  });  
+});
 
-        $('[data-toggle="offcanvas"]').click(function () {
-            $('#wrapper').toggleClass('toggled');
-        });
-    });
+$("#chaps > li").click(function() {
+  $(this).find("ul.assignments").toggleClass('hide');
+}); 
 </script>

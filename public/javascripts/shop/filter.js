@@ -45,7 +45,9 @@ $(document).ready(function () {
         $.ajax({
             type: "GET",
             data: { filter: info },
-            beforeSend: function() {
+            url: "/page/1",
+            success: function(data) {
+                // $('.products').html(jQuery(data).find('.products').html()); 
                 window.location = this.url
             }
         });

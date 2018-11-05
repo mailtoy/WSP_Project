@@ -16,7 +16,7 @@ body {
      float: left;
      position: relative;
  }
- .pagination.center { left: 50%; }
+ .pagination.center { left: 33%; }
  .pagination.center ul { left: -50%; } 
 
 

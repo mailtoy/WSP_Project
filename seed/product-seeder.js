@@ -14,8 +14,8 @@ var products = [
         description: "Short, fitted top in ribbed cotton jersey with short sleeves.",
         detail: "95% cotton, 5% elastane. Machine wash at 30˚",
         price: "399",
-        color: "",
-        size: "",
+        // color: "",
+        // size: "",
         color_stock: {
             "Dark Yellow": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_951d46e2aab072a22e4bf088faf9e4fe1f9b154f.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -46,8 +46,8 @@ var products = [
         description: "Jumper in a soft rib knit with a small stand-up collar and cut-out section at the front. Long sleeves with wrapover sections on the shoulders.",
         detail: "60% polyester, 37% viscose, 3% elastane. Machine wash at 40˚",
         price: "499",
-        color: "",
-        size: "",
+        // color: "",
+        // size: "",
         color_stock: {
             "Black": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_45068ab2c981daee35aef8b87787a0c0dc1e056f.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",

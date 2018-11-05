@@ -123,6 +123,8 @@
 	margin-top: 20px;
 }
 
+input[step="0"]::-webkit-inner-spin-button { -webkit-appearance: none;}
+
 input[type="submit"]{
 	border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -144,21 +146,20 @@ input[type="submit"]:hover {
 @media (min-width: 768px) {
 	.shopping-cart .items .product .info {
 		padding-top: 25px;
-		text-align: left; 
+		text-align: left;
 	}
 
 	.shopping-cart .items .product .info .price {
 		font-weight: bold;
 		font-size: 22px;
-		top: 17px; 
+		top: 17px;
 	}
 
 	.shopping-cart .items .product .info .quantity {
-		text-align: center; 
+		text-align: center;
 	}
 	.shopping-cart .items .product .info .quantity .quantity-input {
 		padding: 4px 10px;
-		text-align: center; 
+		text-align: center;
 	}
 }
-

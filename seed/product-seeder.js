@@ -6,9 +6,9 @@ mongoose.connect("mongodb://localhost:27017/shopping", { useNewUrlParser: true }
 
 var products = [
     new Product({
-        concept: "Summer",
-        category: "Ladies",
-        type: "Tops",
+        department: "Ladies",
+        category: "Tops",
+        subcategory: "Cropped Tops",
         title: "Ribbed top",
         description: "Short, fitted top in ribbed cotton jersey with short sleeves.",
         detail: "95% cotton, 5% elastane. Machine wash at 30˚",

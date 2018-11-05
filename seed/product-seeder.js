@@ -6,8 +6,8 @@ mongoose.connect("mongodb://localhost:27017/shopping", { useNewUrlParser: true }
 
 var products = [
     new Product({
-        department: "Ladies",
-        category: "Tops",
+        department: "ladies",
+        category: "tops",
         subcategory: "Cropped Tops",
         title: "Ribbed top",
         description: "Short, fitted top in ribbed cotton jersey with short sleeves.",

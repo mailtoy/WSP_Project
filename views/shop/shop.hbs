@@ -8,6 +8,26 @@
 
 
 <body>
+    {{#if this.categories }}
+        <div class="col-sm-3">
+            <ul class="navbar-left">
+                <label class="category">{{toUpperCase this.department}}</label><br>
+                <li><a href="#" class="subcategory">VIEW ALL</a></li><br>
+                <label class="category">SHOP BY CATEGORY</label><br>
+                <label id="chaps">
+                {{#each categories}}
+                    <li class="subcategory"><a href="/product/ladies/{{toLowerCase @key}}/page/1" class="subcategory">{{toUpperCase @key}}</a>
+                        <ul class="assignments">
+                            {{#each this}}
+                                    <li><a href="{{this}}" class="subcategory">{{toUpperCase @key}}</a></li>
+                            {{/each}}
+                        </ul> 
+                    </li>
+                {{/each}}
+            </label>
+            </ul>   
+        </div>
+    {{/if}}
 
     {{#each filter}}
     {{#each this}}
@@ -122,7 +142,6 @@
             <span class="hamb-middle"></span>
             <span class="hamb-bottom"></span>
         </button>
-
     </div>
 </body>
 
@@ -143,11 +162,8 @@
                             <div class="overlay">
                                 <img id="thumbnail" src="{{ this.[3] }}" class="image2">
                             </div>
-                        </div>
-                    </a>
-
-
-                    {{/with}}
+                        </div>          
+                        {{/with}}
                     {{/if}}
                     {{/each}}
                     </a>

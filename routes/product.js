@@ -50,8 +50,6 @@ router.get('/:department/:category/page/:page', function (req, res, next) {
         .limit(perPage)
         .exec(function (err, products) {
             Product.count().exec(function (err, count) {
-                console.log(req.params.department)
-                console.log(req.params.category)
                 if (err) return next(err)
                 res.render('shop/shop', {
                     title: category.capitalize() + ' - '+ department.toUpperCase() + ' | Dalessio',
@@ -72,7 +70,6 @@ router.get('/:department/:category/:subcategory/page/:page', function (req, res,
     var category = req.params.category;
     var subcategory;
     var subcategoryList = []
-
     Product
         .find({ department: department, category: category }, function(err, products) {
             products.forEach(function(product) {
@@ -85,16 +82,13 @@ router.get('/:department/:category/:subcategory/page/:page', function (req, res,
         .skip((perPage * page) - perPage)
         .limit(perPage)
         .exec(function (err, products) {
-            Product.count().exec(function (err, count) {
-                if (err) return next(err)
-                res.render('shop/shop', {
-                    title: subcategory + ' - '+ department.toUpperCase() + ' | Dalessio',
-                    products: subcategoryList,
-                    pagination: {
-                    page: page,       // The current page the user is on
-                    pageCount: Math.ceil(count / perPage)  // The total number of available pages
-                }
-            })
+            res.render('shop/shop', {
+                title: subcategory + ' - '+ department.toUpperCase() + ' | Dalessio',
+                products: subcategoryList,
+                pagination: {
+                page: page,       // The current page the user is on
+                pageCount: Math.ceil(subcategoryList.length / perPage)  // The total number of available pages
+            }
         })
     })
 });

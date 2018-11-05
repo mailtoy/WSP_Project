@@ -275,7 +275,7 @@ var products = [
     // ladies - dresses - midi dresses
     new Product({
         department: "ladies",
-        category: "tops",
+        category: "dresses",
         subcategory: "Midi Dresses",
         title: "Smocked dress",
         description: "Calf-length dress in an airy, patterned weave with a round neck and an opening with a concealed button at the back of the neck. Long sleeves with smocking at the cuffs, and a smocked seam at the waist. Lined skirt.",
@@ -298,7 +298,7 @@ var products = [
     }),
     new Product({
         department: "ladies",
-        category: "tops",
+        category: "dresses",
         subcategory: "Midi Dresses",
         title: "Calf-length shirt dress",
         description: "WILLIAM MORRIS & CO. x H&M. Calf-length dress in a patterned viscose weave with a collar, buttons down the front and long sleeves with buttoned cuffs. Unlined.",
@@ -321,7 +321,7 @@ var products = [
     }),
     new Product({
         department: "ladies",
-        category: "tops",
+        category: "dresses",
         subcategory: "Midi Dresses",
         title: "Off-the-shoulder dress",
         description: "Calf-length, fitted, off-the-shoulder dress in a rib knit with cap sleeves.",
@@ -344,7 +344,7 @@ var products = [
     }),
     new Product({
         department: "ladies",
-        category: "tops",
+        category: "dresses",
         subcategory: "Midi Dresses",
         title: "V-neck dress",
         description: "Long jersey dress with a deep V-neck, long sleeves, seam at the waist with a decorative tie detail and a flared skirt. Unlined.",
@@ -367,7 +367,7 @@ var products = [
     }),
     new Product({
         department: "ladies",
-        category: "tops",
+        category: "dresses",
         subcategory: "Midi Dresses",
         title: "Pleated dress",
         description: "Calf-length, A-line dress in jersey crêpe with pleats front and back. Round neck with an opening at the top that fastens with a concealed hook-and-eye fastener, long raglan sleeves and concealed pockets in the side seams.",
@@ -396,7 +396,7 @@ var products = [
     }),
     new Product({
         department: "ladies",
-        category: "tops",
+        category: "dresses",
         subcategory: "Midi Dresses",
         title: "V-neck dress",
         description: "V-neck dress in woven fabric with dropped shoulders and short, wide sleeves. Seam at the waist with a tapered bodice, and a rounded hem. Longer at the back. Unlined.",
@@ -425,7 +425,7 @@ var products = [
     }),
     new Product({
         department: "ladies",
-        category: "tops",
+        category: "dresses",
         subcategory: "Midi Dresses",
         title: "Calf-length lace dress",
         description: "Calf-length lace dress with an opening and concealed button at the back of the neck. Long sleeves with elasticated cuffs, an elasticated seam at the waist and a gently flared skirt with a scalloped edge. Partly lined.",
@@ -448,7 +448,7 @@ var products = [
     }),
     new Product({
         department: "ladies",
-        category: "tops",
+        category: "dresses",
         subcategory: "Midi Dresses",
         title: "Shirt dress",
         description: "Calf-length dress in woven fabric made from a Tencel® lyocell blend with a collar and concealed buttons down the front. Long sleeves with buttoned cuffs, chest pockets and side pockets with a flap. Detachable tie belt at the waist. Unlined.",
@@ -471,7 +471,7 @@ var products = [
     }),
     new Product({
         department: "ladies",
-        category: "tops",
+        category: "dresses",
         subcategory: "Midi Dresses",
         title: "Dress with appliqués",
         description: "Sleeveless, calf-length dress in lace with chiffon appliqués, a V-neck and narrow, adjustable shoulder straps. Gathered seam at the waist, zip at the back and a gently flared skirt. Jersey lining.",
@@ -501,7 +501,7 @@ var products = [
     // ladies - dresses - bodycon
     new Product({
         department: "ladies",
-        category: "tops",
+        category: "dresses",
         subcategory: "Bodycon",
         title: "Fitted lace dress",
         description: "Fitted, long-sleeved dress in lace with a scalloped, stand-up collar, buttons at the back of the neck and scalloped edges at the cuffs and hem. Partly lined.",
@@ -524,7 +524,7 @@ var products = [
     }),
     new Product({
         department: "ladies",
-        category: "tops",
+        category: "dresses",
         subcategory: "Bodycon",
         title: "Fitted dress",
         description: "Short, fitted jersey dress with a wide V-neck front and back and long sleeves.",
@@ -547,7 +547,7 @@ var products = [
     }),
     new Product({
         department: "ladies",
-        category: "tops",
+        category: "dresses",
         subcategory: "Bodycon",
         title: "Ribbed dress",
         description: "Fitted dress in a soft rib knit with a V-neck front and back and long raglan sleeves.",
@@ -576,7 +576,7 @@ var products = [
     }),
     new Product({
         department: "ladies",
-        category: "tops",
+        category: "dresses",
         subcategory: "Bodycon",
         title: "V-neck dress",
         description: "Short, fitted dress in stretch jersey with a V-neck, narrow, adjustable shoulder straps and a wrapover front with ties at one side. Unlined.",
@@ -605,7 +605,7 @@ var products = [
     }),
     new Product({
         department: "ladies",
-        category: "tops",
+        category: "dresses",
         subcategory: "Bodycon",
         title: "Fitted dress",
         description: "Long-sleeved dress in a short, fitted style.",
@@ -628,8 +628,8 @@ var products = [
     }),
     // new Product({
     //     department: "ladies",
-    //     category: "tops",
-    //     subcategory: "Cropped Tops",
+    //     category: "dresses",
+    //     subcategory: "Cropped dresses",
     //     title: "Ribbed top",
     //     description: "Short, fitted top in ribbed cotton jersey with short sleeves.",
     //     detail: "95% cotton, 5% elastane. Machine wash at 30˚",

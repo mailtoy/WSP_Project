@@ -20,7 +20,7 @@
 
 
             <ul class="nav sidebar-nav">
-                
+
                 <li class="sidebar-brand">
                     <a href="#"> Filter </a>
                 </li>
@@ -128,15 +128,15 @@
 
 <div class="col-sm-9">
 
-{{!-- product --}}
-<div class="row">
-    <div class="products">
-        {{#each products }}
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <a href="/product/{{_id}}">
-                    {{#each this.color }}
-                    {{#if @first}}
+    {{!-- product --}}
+    <div class="row">
+        <div class="products">
+            {{#each products }}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a href="/product/{{_id}}">
+                        {{#each this.color }}
+                        {{#if @first}}
                         {{#with this}}
                         <div class="pic">
                             <img id="thumbnail" src="{{ this.[0] }}" class="image">
@@ -144,48 +144,48 @@
                                 <img id="thumbnail" src="{{ this.[3] }}" class="image2">
                             </div>
                         </div>
-            </a>
-                            
-                                
-                        {{/with}}
+                    </a>
+
+
+                    {{/with}}
                     {{/if}}
-                {{/each}}
-                </a>
-                <div class="caption">
-                    <a href="/product/{{_id}}" class="title">{{ title }}</a>
-                    <p class="price">฿{{ price }}</p>
+                    {{/each}}
+                    </a>
+                    <div class="caption">
+                        <a href="/product/{{_id}}" class="title">{{ title }}</a>
+                        <p class="price">฿{{ price }}</p>
+                    </div>
                 </div>
             </div>
+            {{/each}}
         </div>
-        {{/each}}
     </div>
-</div>
 
-<div class="pagination center">
-    <ul class="pagination">
-        {{#paginate pagination type="first"}}
-        <li {{#if disabled}} class="page-item disabled" {{/if}}>
-            <a class="page-link" href="{{n}}">First</a>
-        </li>
-        {{/paginate}} {{#paginate pagination type="previous"}}
-        <li {{#if disabled}} class="page-item disabled" {{/if}}>
-            <a class="page-link" href="{{n}}">Prev</a>
-        </li>
-        {{/paginate}} {{#paginate pagination type="middle" limit="7"}}
-        <li {{#if active}} class="page-item active" {{/if}}>
-            <a class="page-link" href="{{n}}">{{n}}</a>
-        </li>
-        {{/paginate}} {{#paginate pagination type="next"}}
-        <li {{#if disabled}} class="page-item disabled" {{/if}}>
-            <a class="page-link" href="{{n}}">Next</a>
-        </li>
-        {{/paginate}} {{#paginate pagination type="last"}}
-        <li {{#if disabled}} class="page-item disabled" {{/if}}>
-            <a class="page-link" href="{{n}}">Last</a>
-        </li>
-        {{/paginate}}
-    </ul>
-</div>
+    <div class="pagination center">
+        <ul class="pagination">
+            {{#paginate pagination type="first"}}
+            <li {{#if disabled}} class="page-item disabled" {{/if}}>
+                <a class="page-link" href="{{n}}">First</a>
+            </li>
+            {{/paginate}} {{#paginate pagination type="previous"}}
+            <li {{#if disabled}} class="page-item disabled" {{/if}}>
+                <a class="page-link" href="{{n}}">Prev</a>
+            </li>
+            {{/paginate}} {{#paginate pagination type="middle" limit="7"}}
+            <li {{#if active}} class="page-item active" {{/if}}>
+                <a class="page-link" href="{{n}}">{{n}}</a>
+            </li>
+            {{/paginate}} {{#paginate pagination type="next"}}
+            <li {{#if disabled}} class="page-item disabled" {{/if}}>
+                <a class="page-link" href="{{n}}">Next</a>
+            </li>
+            {{/paginate}} {{#paginate pagination type="last"}}
+            <li {{#if disabled}} class="page-item disabled" {{/if}}>
+                <a class="page-link" href="{{n}}">Last</a>
+            </li>
+            {{/paginate}}
+        </ul>
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -198,27 +198,27 @@
             hamburger_cross();
         });
 
-    function hamburger_cross() {
+        function hamburger_cross() {
 
-      if (isClosed == true) {          
-        overlay.hide();
-        trigger.removeClass('is-open');
-        trigger.addClass('is-closed');
-        isClosed = false;
-      } else {   
-        overlay.show();
-        trigger.removeClass('is-closed');
-        trigger.addClass('is-open');
-        isClosed = true;
-      }
-  }
-  
-  $('[data-toggle="offcanvas"]').click(function () {
-        $('#wrapper').toggleClass('toggled');
-  });  
-});
+            if (isClosed == true) {
+                overlay.hide();
+                trigger.removeClass('is-open');
+                trigger.addClass('is-closed');
+                isClosed = false;
+            } else {
+                overlay.show();
+                trigger.removeClass('is-closed');
+                trigger.addClass('is-open');
+                isClosed = true;
+            }
+        }
 
-$("#chaps > li").click(function() {
-  $(this).find("ul.assignments").toggleClass('hide');
-}); 
+        $('[data-toggle="offcanvas"]').click(function () {
+            $('#wrapper').toggleClass('toggled');
+        });
+    });
+
+    $("#chaps > li").click(function () {
+        $(this).find("ul.assignments").toggleClass('hide');
+    }); 
 </script>

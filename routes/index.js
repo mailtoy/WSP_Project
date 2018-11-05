@@ -287,27 +287,20 @@ function filter(req, res, next) {
 
   if (req.query.filter) {
     // console.log(req.query.filter)
-    var array = []
-    var checked_box = {}
-    var numberOfMatching = 0;
-    for (var i in req.query.filter) {
-      for (var j in req.query.filter[i])
-        numberOfMatching++
-      // checked_box[req.query.filter[i][j]] = true
-    }
-
-    console.log("Number of match: " + numberOfMatching)
-
-
-    console.log(req.query.filter)
+    // var array = []
+    // var checked_box = {}
+    // var numberOfMatching = 0;
+    // for (var i in req.query.filter) {
+    //   for (var j in req.query.filter[i])
+    //     numberOfMatching++
+    //   // checked_box[req.query.filter[i][j]] = true
+    // }
     Product.find({}, function (err, product) {
       for (var index in product) {
         var count = 0
         for (var quary_key in req.query.filter) {
-          if (typeof product[index][quary_key] === 'object') {
-            if (product[index][quary_key][req.query.filter[quary_key]] !== undefined) {
+          if (typeof product[index][quary_key] === 'object' && product[index][quary_key][req.query.filter[quary_key]] !== undefined) {
               count++
-            }
           } else {
             if (req.query.filter[quary_key].includes(product[index][quary_key])) {
               count++

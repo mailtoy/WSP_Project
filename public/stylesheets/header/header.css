@@ -57,12 +57,6 @@
   stroke-width:3;
 }
 
-.responsive-images {
-    width: 100%;
-    height: auto;
-    margin-bottom: 2%;
-}
-
 svg {
     padding-bottom: 20px;
 }
@@ -90,4 +84,23 @@ svg {
 
 .dropdown{
     list-style-type: none;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+    max-width: 323px;
+}
+
+.logo-wrap{
+    text-align: center;
+}
+
+.logo {
+    background: no-repeat center center;
+    margin: 0 auto;
+    height: 108px;
+    width: 323px;
+    display: block;
+    cursor: pointer;
 }

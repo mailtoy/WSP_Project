@@ -4,182 +4,148 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <body>
-    <div class="col-sm-3">
-        <ul class="navbar-left">
-            <label class="category">LADIES</label><br>
-            <li><a href="#" class="subcategory">VIEW ALL</a></li><br>
+    {{#if this.categories }}
+        <div class="col-sm-3">
+            <ul class="navbar-left">
+                <label class="category">{{toUpperCase this.department}}</label><br>
+                <li><a href="#" class="subcategory">VIEW ALL</a></li><br>
+                <label class="category">SHOP BY CATEGORY</label><br>
+                <label id="chaps">
+                {{#each categories}}
+                    <li class="subcategory"><a href="/product/ladies/{{toLowerCase @key}}/page/1" class="subcategory">{{toUpperCase @key}}</a>
+                        <ul class="assignments hide">
+                            {{#each this}}
+                                    <li><a href="{{this}}" class="subcategory">{{toUpperCase @key}}</a></li>
+                            {{/each}}
+                        </ul> 
+                    </li>
+                {{/each}}
+            </label>
+            </ul>   
+        </div>
+    {{/if}}
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <label class="filterHead">Filter</label><br>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Concept<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">New Arrival</label><br>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">Summer</label><br>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">Winter</label><br>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">Autumn</label><br>
+                        </li>
+                    </ul>
+                </li>
 
-            <label class="category">SHOP BY CATEGORY</label><br>
-            <label id="chaps">
-            <li class="subcategory"><a href="#" class="subcategory">DRESSES</a>
-                <ul class="assignments hide">
-                <li><a href="#" class="subcategory">SHORT DRESSES</a></li>
-                <li><a href="#" class="subcategory">MIDI DRESSES</a></li>
-                <li><a href="#" class="subcategory">MAXI DRESSES</a></li>
-                </ul>
-            </li>
-            <li class="subcategory"><a href="#" class="subcategory">TOPS</a>
-                <ul class="assignments hide">
-                <li><a href="#" class="subcategory">BODY</a></li>
-                <li><a href="#" class="subcategory">VEST</a></li>
-                </ul>
-            </li>
-            <li class="subcategory"><a href="#" class="subcategory">TROUSERS</a>
-                <ul class="assignments hide">
-                <li><a href="#" class="subcategory">SLIM</a></li>
-                <li><a href="#" class="subcategory">FLARE</a></li>
-                </ul>
-            </li>
-            <li class="subcategory"><a href="#" class="subcategory">SKIRTS</a>
-                <ul class="assignments hide">
-                <li><a href="#" class="subcategory">SHORT SKIRTS</a></li>
-                <li><a href="#" class="subcategory">MIDI SKIRTS</a></li>
-                </ul>
-            </li>
-            <li class="subcategory"><a href="#" class="subcategory">SHORTS</a>
-                <ul class="assignments hide">
-                <li><a href="#" class="subcategory">DENIM SHORTS</a></li>
-                </ul>
-            </li>
-        </label>
-        </ul>   
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Category<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">Ladies</label><br>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">Men</label><br>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">Kids</label><br>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Type<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">Dress</label><br>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">Pant</label><br>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">T-shirt</label><br>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Size<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">S</label><br>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">M</label><br>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">L</label><br>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">XL</label><br>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Color<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">White</label><br>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">Black</label><br>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">Pink</label><br>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">Gray</label><br>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Order by<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">Low price</label><br>
+                            <input type="checkbox" checked="checked">
+                            <label class="check">High price</label><br>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+        </button>
     </div>
-
-<div id="wrapper">
-    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-        <ul class="nav sidebar-nav">
-            <li class="sidebar-brand">
-                <label class="filterHead">Filter</label><br>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Concept<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-						<input type="checkbox" checked="checked">
- 						<label class="check">New Arrival</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">Summer</label><br>
-						<input type="checkbox" checked="checked">
- 						<label class="check">Winter</label><br>
-						<input type="checkbox" checked="checked">
- 						<label class="check">Autumn</label><br>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Category<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-						<input type="checkbox" checked="checked">
- 						<label class="check">Ladies</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">Men</label><br>
-						<input type="checkbox" checked="checked">
- 						<label class="check">Kids</label><br>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="dropdown">
-            	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Type<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                	<li>
-						<input type="checkbox" checked="checked">
- 						<label class="check">Dress</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">Pant</label><br>
-						<input type="checkbox" checked="checked">
- 						<label class="check">T-shirt</label><br>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Size<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-						<input type="checkbox" checked="checked">
- 						<label class="check">S</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">M</label><br>
-						<input type="checkbox" checked="checked">
- 						<label class="check">L</label><br>
-						<input type="checkbox" checked="checked">
- 						<label class="check">XL</label><br>
-                    </li>
-                </ul>
-            </li>
-
-        	<li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Color<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-						<input type="checkbox" checked="checked">
-						<label class="check">White</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">Black</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">Pink</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">Gray</label><br>
-                    </li>
-        		</ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Order by<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-						<input type="checkbox" checked="checked">
-						<label class="check">Low price</label><br>
-						<input type="checkbox" checked="checked">
-						<label class="check">High price</label><br>
-                    </li>
-                </ul>
-            </li>
-
-
-        </ul>
-    </nav>
-
-        
-    <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
-        <span class="hamb-top"></span>
-    	<span class="hamb-middle"></span>
-		<span class="hamb-bottom"></span>
-    </button>
-
-</div>
-
 </body>
 
 <div class="col-sm-9">
-
-{{!-- product --}}
-<div class="row">
-    {{#each products }}
-    <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-            {{!-- {{#with this.color}}
-                <img src="{{ this.[0].[0] }}">
-            {{/with}} --}}
-            <a href="/product/{{_id}}">
-                {{#each this.color }}
-                    {{#if @first}}
-                        {{#with this}}
-                        <div class="pic">
-                            <img id="thumbnail" src="{{ this.[0] }}" class="image">
-                            <div class="overlay">
-                                <img id="thumbnail" src="{{ this.[3] }}" class="image2">
-                            </div>
-                        </div>
-            </a>
-                            
-                                
-                        {{/with}}
-                    {{/if}}
-                {{/each}}
-            </a>
+    {{!-- product --}}
+    <div class="row">
+        {{#each products }}
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <a href="/product/{{_id}}">
+                    {{#each this.color }}
+                        {{#if @first}}
+                            {{#with this}}
+                                <div class="pic">
+                                    <img id="thumbnail" src="{{ this.[0] }}" class="image">
+                                        <div class="overlay">
+                                            <img id="thumbnail" src="{{ this.[3] }}" class="image2">
+                                        </div>
+                                </div> 
+                            {{/with}}
+                        {{/if}}
+                    {{/each}}
+                </a>
             <div class="caption">
                 <a href="/product/{{_id}}" class="title">{{ title }}</a>
                 <p class="price">฿{{ price }}</p>

@@ -318,10 +318,24 @@ html { height: 100%;}
 }
 
 
-
 /*small/medium side display*/
 @media (min-width: 768px) {
     .check{
         color: white;
     }
+}
+
+.navbar-left{
+    list-style-type: none;
+    color: black;
+}
+
+.category{
+    color: #A52A2A;
+    font-size: 2.5ch;
+}
+
+.subcategory{
+    color: black;
+    font-weight: normal;
 }

@@ -34,38 +34,7 @@ var products = [
             "L": "100",
             "XL": "50"
         }
-    }),
-    new Product({
-        concept: "Summer",
-        category: "Ladies",
-        type: "Tops",
-        title: "Ribbed jumper",
-        description: "Jumper in a soft rib knit with a small stand-up collar and cut-out section at the front. Long sleeves with wrapover sections on the shoulders.",
-        detail: "60% polyester, 37% viscose, 3% elastane. Machine wash at 40˚",
-        price: "499",
-        color: {
-            "Black": [
-                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_45068ab2c981daee35aef8b87787a0c0dc1e056f.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
-                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_7b4ebd675ed879bf936ad5362f81acb358186307.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
-                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_cfeefab596d58b8520aca61e9cc6b269c775f4c3.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
-                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_22bc5a606d046c209a656c40111ca90cc890d2ac.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
-                "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200687335%20002%2099%20425afe3adc021aa5ff66bf364ba98e5640fec86a.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"
-            ],
-            "Red": [
-                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_4cb7f61ba19b289a0f815454496207e3a6ad698b.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
-                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_332c125d7771a9e037284cacca427932a43d51bd.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BXL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
-                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_01d07082c7904fa0052fcc5213843d3df95280d3.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
-                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_3782e8bc92df48bc0f14b80ed200e482b6fb6989.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BXL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
-                "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200687335%20001%2099%209b5e0baece12c302370fcdfaa9d9fdae1e533489.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"
-            ]
-        },
-        size: {
-            "S": "50",
-            "M": "100",
-            "L": "100",
-            "XL": "50"
-        }
-    }),
+    })
 ];
 
 var done = 0;

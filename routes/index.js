@@ -30,12 +30,26 @@ router.get('/add-to-cart-qty/:id/:qty', function (req, res, next) {
   });
 });
 
-router.get('/add-to-cart/:id', function (req, res, next) {
+// router.get('/add-to-cart/:id', function (req, res, next) {
+//   var productId = req.params.id;
+//   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
+//   console.log(req.body.color);
+//   console.log(req.body.size);
+
+//   Product.findById(productId, function (err, product) {
+//     cart.add(product, product.id);
+//     req.session.cart = cart;
+//     // res.redirect('back');
+//   });
+// });
+
+router.post('/add-to-cart/:id', function (req, res, next) {
   var productId = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
-
+  var color = req.body.color;
+  var size = req.body.size;
   Product.findById(productId, function (err, product) {
-    cart.add(product, product.id);
+    cart.add(product, product.id, color, size);
     req.session.cart = cart;
     res.redirect('back');
   });
@@ -71,9 +85,13 @@ router.get('/checkout', isLoggedIn, function (req, res, next) {
 
 router.get('/cart', function (req, res, next) {
   if (!req.session.cart) {
+    console.log('------------');
+    console.log(req.session.cart);
     return res.render('shop/shopping_cart', { products: null });
   }
   var cart = new Cart(req.session.cart.items);
+  console.log('************');
+  console.log(cart.generateArray());
   res.render('shop/shopping_cart', {
     products: cart.generateArray(), totalPrice: cart.totalPrice
   });
@@ -125,7 +143,7 @@ router.post('/checkout-paypal', isLoggedIn, function (req, res, next) {
   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
   var items = cart.generateArray()
   var items_json = [];
-  // invoke paypal rest api 
+  // invoke paypal rest api
   for (var i = 0; i < items.length; i++) {
     items_json.push({
       name: items[i].item.title,
@@ -246,6 +264,20 @@ router.get('/page/:page', function (req, res, next) {
     }
   })
 });
+
+// router.get('/product/:category', function(req, res, next) {
+//   Product.find(function(err, products) {
+//       var category = []
+//       products.forEach(function(product) {
+//           if (req.params.category == product.category.toLowerCase()) {
+//               category.push(product)
+//           }
+//       })
+//       res.render('shop/shop', {
+//           products: category
+//       })
+//   })
+// })
 
 router.get('/cart', function (req, res) {
   res.render('shop/shopping_cart')

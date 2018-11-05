@@ -15,10 +15,10 @@
 					<div class="row">
 						{{#each products}} {{#ifCond qty '>=' 1}}
 						<div class="col-md-3">
-							{{#each this.item.color_stock }}
+							{{#each this.item.color }}
 								{{#if @first}}
-									{{#with this}} 
-										<img class="img-fluid mx-auto d-block image" src="{{ this.[4] }}">
+									{{#with this}}
+										<img class="img-fluid mx-auto d-block image" src="{{ this.[0] }}">
 									{{/with}}
 								{{/if}}
 							{{/each}}
@@ -29,14 +29,14 @@
 								<div class="product-name">
 									<h5>{{ this.item.title }}</h5>
 									<div class="product-info">
-										<div>Catagory:
-											<span class="value">{{ this.item.catagory }}</span>
+										<div>Category:
+											<span class="value">{{ this.item.category }} - {{ this.item.subcategory }}</span>
 										</div>
 										<div>Color:
-											<span class="value">{{ this.item.color }}</span>
+											<span class="value">{{ this.color }}</span>
 										</div>
 										<div>Size:
-											<span class="value">{{ this.item.size }}</span>
+											<span class="value">{{ this.size }}</span>
 										</div>
 									</div>
 								</div>
@@ -80,6 +80,86 @@
 					<span class="text">Total</span>
 					<span class="price">฿</span>
 					<span id="total" class="price">{{ totalPrice }}</span>
+				</div>
+				<input type="submit" class="checkout" value="Checkout">
+			</div>
+		</div>
+	</section>
+</main>
+{{else}}
+<main class="page">
+	<section class="shopping-cart dark container content row">
+		<div class="col-md-12 col-lg-8">
+			<div class="items">
+				<div class="product">
+					<div class="row">
+						<!-- {{#each products}} -->
+						<!-- {{#ifCond qty '<=' 0}} -->
+						<div class="col-md-3">
+							<!-- {{#each this.item.color }}
+								{{#if @first}}
+									{{#with this}}
+										<img class="img-fluid mx-auto d-block image" src="{{ this.[4] }}">
+									{{/with}}
+								{{/if}}
+							{{/each}} -->
+						</div>
+						<div class="col-md-8 info row">
+							<div class="col-md-5 product-name">
+								<div class="product-name">
+									<span class="text">No items</span>
+									<div class="product-info">
+										<div>Category:
+											<span class="value">-</span>
+										</div>
+										<div>Color:
+											<span class="value">-</span>
+										</div>
+										<div>Size:
+											<span class="value">-</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<label for="quantity">Quantity:</label>
+								<span class="value">฿0</span>
+								<input class="quantity" type="number" value="0" min="0" class="form-control quantity-input">
+							</div>
+							<span>฿0</span>
+
+							<div class="col-md-3 price">
+								<span class="price">฿ 0</span>
+							</div>
+						</div>
+						<!-- {{/ifCond}} -->
+						<!-- {{/each}} -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12 col-lg-4">
+			<div class="summary">
+				<h3>Summary</h3>
+				<div class="summary-item">
+					<span class="text">Subtotal</span>
+					<span class="price">฿</span>
+					<span id="subtotal" class="price">0</span>
+				</div>
+				<div class="summary-item">
+					<span class="text">Discount</span>
+					<span class="price">฿</span>
+					<span class="price">0</span>
+				</div>
+				<div class="summary-item">
+					<span class="text">Shipping</span>
+					<span class="price">฿</span>
+					<span class="price">0</span>
+				</div>
+				<div class="summary-item">
+					<span class="text">Total</span>
+					<span class="price">฿</span>
+					<span id="total" class="price">0</span>
 				</div>
 				<input type="submit" class="checkout" value="Checkout">
 			</div>

@@ -8,34 +8,33 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
-
 {{#if this.product}}
 	<div class="container card container-fliud wrapper">
 		<div class="row">
 			<div class="preview col-md-6">
 				<div class="preview-pic tab-content">
-					{{!-- <div class="tab-pane active" id="pic-1"><img src="{{ product.color.[0].[0] }}" /></div> --}}
-					{{#each product.color_stock}}
+					{{#each product.color}}
 						{{#if @first}}
 							{{#each this}} 
 								<div class="tab-pane" id="pic-{{@index}}"><img src="{{ this }}" /></div>
 							{{/each}}
 						{{/if}}
 					{{/each}}
+					{{!-- <div class="tab-pane active" id="pic-1"><img src="{{ product.color.[0].[0] }}" /></div> --}}
 					{{!-- <div class="tab-pane" id="pic-2"><img src="{{ product.color.[0].[1] }}" /></div>
 					<div class="tab-pane" id="pic-3"><img src="{{ product.color.[0].[2] }}" /></div>
 					<div class="tab-pane" id="pic-4"><img src="{{ product.color.[0].[3] }}" /></div>
 					<div class="tab-pane" id="pic-5"><img src="{{ product.color.[0].[4] }}" /></div> --}}
 				</div>
 				<ul class="preview-thumbnail nav nav-tabs">
-					{{!-- <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{ product.color.[0].[0] }}" /></a></li> --}}
-					{{#each product.color_stock}}
+					{{#each product.color}}
 						{{#if @first}}
 							{{#each this}} 
 								<li><a data-target="#pic-{{@index}}" data-toggle="tab"><img src="{{ this }}" /></a></li>
 							{{/each}}
 						{{/if}}
 					{{/each}}
+					{{!-- <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{ product.color.[0].[0] }}" /></a></li> --}}
 					{{!-- <li><a data-target="#pic-2" data-toggle="tab"><img src="{{ product.color.[0].[1] }}" /></a></li>
 					<li><a data-target="#pic-3" data-toggle="tab"><img src="{{ product.color.[0].[2] }}" /></a></li>
 					<li><a data-target="#pic-4" data-toggle="tab"><img src="{{ product.color.[0].[3] }}" /></a></li>
@@ -47,37 +46,39 @@
 				<h4 class="price">current price: <span>฿{{ product.price }}</span></h4>
 				<p class="product-description">Description: {{ product.description }}</p>
 				<p class="product-detail">Detail: {{ product.detail }}</p>
-				<h5 class="sizes">sizes:
-					{{!-- {{#each product.size}}
-						<span class="size" data-toggle="tooltip">{{@key}}</span>
-					{{/each}} --}}
-					<select name="size" id="sizeSelction" class="form-control form-control-sm">
-						{{#each product.size_stock}}
-							<option name="size"class="size">{{@key}}</option>
-						{{/each}}
-					</select>
-					{{!-- <span class="size" data-toggle="tooltip" title="xtra small">xs</span>
-					<span class="size" data-toggle="tooltip" title="small">s</span>
-					<span class="size" data-toggle="tooltip" title="medium">m</span>
-					<span class="size" data-toggle="tooltip" title="large">l</span>
-					<span class="size" data-toggle="tooltip" title="xtra large">xl</span> --}}
-				</h5>
-				<h5 class="colors">colors:
-					{{!-- {{#each product.color}}
-						<span class="">{{@key}}</span>
-					{{/each}} --}}
-					<select name="color" id="colorSelection" class="form-control form-control-sm">
-						{{#each product.color_stock}}
-							<option name="color" class="color" id="color-{{@index}}">{{@key}}</option>
-						{{/each}}
-					</select>
-					{{!-- <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
-					<span class="color green"></span>
-					<span class="color blue"></span> --}}
-				</h5>
-				<a class="action" href="/add-to-cart/{{ product._id }}">
-					<input type="submit" value="ADD TO CART">
-				</a>
+				<form method="post" action="/add-to-cart/{{ product._id }}" >
+					<h5 class="sizes">sizes:
+						<select name="size" id="sizeSelection" class="form-control form-control-sm">
+							{{#each product.size}}
+								<option class="size">{{@key}}</option>
+							{{/each}}
+						</select>
+						{{!-- {{#each product.size}}
+							<span class="size" data-toggle="tooltip">{{@key}}</span>
+						{{/each}} --}}
+						{{!-- <span class="size" data-toggle="tooltip" title="xtra small">xs</span>
+						<span class="size" data-toggle="tooltip" title="small">s</span>
+						<span class="size" data-toggle="tooltip" title="medium">m</span>
+						<span class="size" data-toggle="tooltip" title="large">l</span>
+						<span class="size" data-toggle="tooltip" title="xtra large">xl</span> --}}
+					</h5>
+					<h5 class="colors">colors:
+						<select name="color" id="colorSelection" class="form-control form-control-sm">
+							{{#each product.color}}
+								<option class="color" id="color-{{@index}}">{{@key}}</option>
+							{{/each}}
+						</select>
+						{{!-- {{#each product.color}}
+							<span class="">{{@key}}</span>
+						{{/each}} --}}
+						{{!-- <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+						<span class="color green"></span>
+						<span class="color blue"></span> --}}
+					</h5>
+					<a class="action" href="/add-to-cart/{{ product._id }}">
+						<input type="submit" value="ADD TO CART">
+					</a>
+				</form>
 			</div>
 		</div>
 	</div>

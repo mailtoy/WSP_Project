@@ -2,9 +2,9 @@ var mongoose = require('mongoose')
 var Schema = mongoose.Schema;
 
 var schema = new Schema({
-    concept: { type: String, required: true },
+    department: { type: String, required: true },
     category: { type: String, required: true },
-    type: { type: String, required: true },
+    subcategory: { type: String, required: true },
     title: { type: String, required: true },
     description: { type: String, required: true },
     detail: { type: String, required: true },

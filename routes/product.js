@@ -13,4 +13,33 @@ router.get('/:id', function(req, res) {
     })
 });
 
+router.get('/:department/page/:page', function (req, res, next) {
+    var perPage = 6
+    var page = req.params.page || 1
+    var department = []
+    Product
+        .find(function(err, products) {
+            products.forEach(function(product) {
+                if (req.params.department == product.department.toLowerCase()) {
+                    department.push(product)
+                }
+            })
+        })
+        .skip((perPage * page) - perPage)
+        .limit(perPage)
+        .exec(function (err, products) {
+            Product.count().exec(function (err, count) {
+                if (err) return next(err)
+                res.render('shop/shop', {
+                    title: 'Dalessio',
+                    products: department,
+                    pagination: {
+                    page: page,       // The current page the user is on
+                    pageCount: Math.ceil(count / perPage)  // The total number of available pages
+                }
+            })
+        })
+    })
+});
+
 module.exports = router;

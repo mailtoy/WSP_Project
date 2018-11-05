@@ -346,3 +346,9 @@ html { height: 100%;}
     font-weight: normal;
     padding-left : 10px;
 }
+
+.check{
+    padding-left : 10px;
+    font-weight: normal;
+    color: white;
+}

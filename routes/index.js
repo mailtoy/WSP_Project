@@ -258,6 +258,20 @@ router.get('/page/:page', function (req, res, next) {
     })
 });
 
+// router.get('/product/:category', function(req, res, next) {
+//   Product.find(function(err, products) {
+//       var category = []
+//       products.forEach(function(product) {
+//           if (req.params.category == product.category.toLowerCase()) {
+//               category.push(product)
+//           }
+//       })
+//       res.render('shop/shop', {
+//           products: category
+//       })
+//   })
+// })
+
 router.get('/cart', function (req, res) {
   res.render('shop/shopping_cart')
 });

@@ -18,7 +18,7 @@
 							{{#each this.item.color }}
 								{{#if @first}}
 									{{#with this}} 
-										<img class="img-fluid mx-auto d-block image" src="{{ this.[4] }}">
+										<img class="img-fluid mx-auto d-block image" src="{{ this.[0] }}">
 									{{/with}}
 								{{/if}}
 							{{/each}}
@@ -30,7 +30,7 @@
 									<h5>{{ this.item.title }}</h5>
 									<div class="product-info">
 										<div>Category:
-											<span class="value">{{ this.item.category }} - {{ this.item.type }}</span>
+											<span class="value">{{ this.item.category }} - {{ this.item.subcategory }}</span>
 										</div>
 										<div>Color:
 											<span class="value">{{ this.color }}</span>

@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="/stylesheets/shop/shop.css">
 <script type="text/javascript" src="/javascripts/shop/shop.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <body>
     <div class="col-sm-3">
@@ -166,7 +167,15 @@
                 {{#each this.color }}
                     {{#if @first}}
                         {{#with this}}
-                            <img id="thumbnail" src="{{ this.[0] }}"></a>
+                        <div class="pic">
+                            <img id="thumbnail" src="{{ this.[0] }}" class="image">
+                            <div class="overlay">
+                                <img id="thumbnail" src="{{ this.[3] }}" class="image2">
+                            </div>
+                        </div>
+            </a>
+                            
+                                
                         {{/with}}
                     {{/if}}
                 {{/each}}

@@ -7,7 +7,7 @@ mongoose.connect("mongodb://localhost:27017/shopping", { useNewUrlParser: true }
 var products = [
     new Product({
         concept: "Summer",
-        catagory: "Ladies",
+        category: "Ladies",
         type: "Tops",
         title: "Ribbed top",
         description: "Short, fitted top in ribbed cotton jersey with short sleeves.",
@@ -37,7 +37,7 @@ var products = [
     }),
     new Product({
         concept: "Summer",
-        catagory: "Ladies",
+        category: "Ladies",
         type: "Tops",
         title: "Ribbed jumper",
         description: "Jumper in a soft rib knit with a small stand-up collar and cut-out section at the front. Long sleeves with wrapover sections on the shoulders.",

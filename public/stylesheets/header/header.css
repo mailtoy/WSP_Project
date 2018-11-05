@@ -82,3 +82,12 @@ svg {
 .ladies-btn{
     list-style-type: none;
 }
+
+.subcategory{
+    color: black;
+    font-weight: normal;
+}
+
+.dropdown{
+    list-style-type: none;
+}

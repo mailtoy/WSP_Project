@@ -1,11 +1,13 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+{{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> --}}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="/stylesheets/shop/shopping_cart.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+{{!-- <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> --}}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/javascripts/shop/cart_update.js"></script>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 {{# if this.products }}
 <main class="page">
@@ -19,11 +21,11 @@
 							{{#each this.item.color }}
 								{{#if @first}}
 									{{#with this}}
-										<img class="img-fluid mx-auto d-block image" src="{{ this.[0] }}">
+										<img class="img-responsive" src="{{ this.[0] }}">
 									{{/with}}
 								{{/if}}
 							{{/each}}
-							{{!-- <img class="img-fluid mx-auto d-block image" src="{{ this.item.imagePath_1 }}"> --}}
+							<img class="img-responsive" src="{{ this.item.imagePath_1 }}">
 						</div>
 						<div class="col-md-8 info row">
 							<div class="col-md-5 product-name">
@@ -50,8 +52,10 @@
 							<span class="eachPrice" id="updates_{{ this.id }}">{{ this.price }}</span>
 
 							<div class="col-md-3 price">
+								<br>
 								<span class="price">฿ </span>
 								<span id="perPrice_{{ this.id }}">{{ this.item.price }}</span>
+								<br><br><br><br><br>
 							</div>
 						</div>
 						{{/ifCond}} {{/each}}

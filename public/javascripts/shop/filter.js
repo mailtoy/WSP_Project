@@ -10,26 +10,27 @@ $(document).ready(function () {
     });
 
     $('#filterBtn').click(function () {
+        console.log("CLICKED")
         var info = {}
-        info["concept"] = []
-        info["category"] = []
-        info["type"] = []
+        // info["concept"] = []
+        // info["category"] = []
+        // info["type"] = []
         info["size"] = []
         info["color"] = []
         info["order"] = []
 
-        $.each($("input[name='concept']:checked"), function () {
-            if ($(this).val())
-                info["concept"].push($(this).val())
-        });
-        $.each($("input[name='category']:checked"), function () {
-            if ($(this).val())
-                info["category"].push($(this).val())
-        });
-        $.each($("input[name='type']:checked"), function () {
-            if ($(this).val())
-                info["type"].push($(this).val())
-        });
+        // $.each($("input[name='concept']:checked"), function () {
+        //     if ($(this).val())
+        //         info["concept"].push($(this).val())
+        // });
+        // $.each($("input[name='category']:checked"), function () {
+        //     if ($(this).val())
+        //         info["category"].push($(this).val())
+        // });
+        // $.each($("input[name='type']:checked"), function () {
+        //     if ($(this).val())
+        //         info["type"].push($(this).val())
+        // });
         $.each($("input[name='size']:checked"), function () {
             if ($(this).val())
                 info["size"].push($(this).val())
@@ -45,8 +46,8 @@ $(document).ready(function () {
         $.ajax({
             type: "GET",
             data: { filter: info },
-            url: "/page/1",
-            success: function(data) {
+            url: window.location.href,
+            success: function (data) {
                 // $('.products').html(jQuery(data).find('.products').html()); 
                 window.location = this.url
             }

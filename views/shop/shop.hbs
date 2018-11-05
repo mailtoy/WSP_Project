@@ -9,31 +9,35 @@
 
 <body>
     {{#if this.categories }}
-        <div class="col-sm-3">
-            <ul class="navbar-left">
-                <label class="category">{{toUpperCase this.department}}</label><br>
-                <li><a href="#" class="subcategory">VIEW ALL</a></li><br>
-                <label class="category">SHOP BY CATEGORY</label><br>
-                <label id="chaps">
+    <div class="col-sm-3">
+        <ul class="navbar-left">
+            <label class="category">{{toUpperCase this.department}}</label><br>
+            <li><a href="#" class="subcategory">VIEW ALL</a></li><br>
+            <label class="category">SHOP BY CATEGORY</label><br>
+            <label id="chaps">
                 {{#each categories}}
-                    <li class="subcategory"><a href="/product/ladies/{{toLowerCase @key}}/page/1" class="subcategory">{{toUpperCase @key}}</a>
-                        <ul class="assignments">
-                            {{#each this}}
-                                    <li><a href="{{this}}" class="subcategory">{{toUpperCase @key}}</a></li>
-                            {{/each}}
-                        </ul> 
-                    </li>
+                <li class="subcategory"><a href="/product/ladies/{{toLowerCase @key}}/page/1" class="subcategory">{{toUpperCase
+                        @key}}</a>
+                    <ul class="assignments">
+                        {{#each this}}
+                        <li><a href="{{this}}" class="subcategory">{{toUpperCase @key}}</a></li>
+                        {{/each}}
+                    </ul>
+                </li>
                 {{/each}}
             </label>
-            </ul>   
-        </div>
+        </ul>
+    </div>
     {{/if}}
 
     {{#each filter}}
-    {{#each this}}
-    {{this}}
+    <h3>
+        {{#each this}}
+        {{this}}
+        {{/each}}
+    </h3>
     {{/each}}
-    {{/each}}
+
     <div id="wrapper">
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
 
@@ -162,10 +166,10 @@
                             <div class="overlay">
                                 <img id="thumbnail" src="{{ this.[3] }}" class="image2">
                             </div>
-                        </div>          
+                        </div>
                         {{/with}}
-                    {{/if}}
-                    {{/each}}
+                        {{/if}}
+                        {{/each}}
                     </a>
                     <div class="caption">
                         <a href="/product/{{_id}}" class="title">{{ title }}</a>

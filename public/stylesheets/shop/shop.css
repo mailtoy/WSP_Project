@@ -60,7 +60,7 @@ body {
      float: left;
      position: relative;
  }
- .pagination.center { left: 50%; }
+ .pagination.center { left: 33%; }
  .pagination.center ul { left: -50%; } 
 
 
@@ -362,10 +362,37 @@ html { height: 100%;}
 }*/
 
 
-
 /*small/medium side display*/
 @media (min-width: 768px) {
     .check{
         color: white;
     }
+}
+
+.navbar-left{
+    list-style-type: none;
+    color: black;
+}
+
+.category{
+    color: #A52A2A;
+    font-size: 2.5ch;
+}
+
+.subcategory{
+    color: black;
+    font-weight: normal;
+}
+
+.filterHead{
+    color: white;
+    font-size: 2.5ch;
+    font-weight: normal;
+    padding-left : 10px;
+}
+
+.check{
+    padding-left : 10px;
+    font-weight: normal;
+    color: white;
 }

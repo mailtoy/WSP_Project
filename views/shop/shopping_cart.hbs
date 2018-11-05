@@ -90,50 +90,39 @@
 <main class="page">
 	<section class="shopping-cart dark container content row">
 		<div class="col-md-12 col-lg-8">
+			<div class="col-md-3">
+			</div>
+			<div class="col-md-8 info row">
+				<div class="col-md-5 product-name">
+					<div class="product-name">
+						<span class="text">No items</span>
+						<div class="product-info">
+							<div>Category:
+								<span class="value">-</span>
+							</div>
+							<div>Color:
+								<span class="value">-</span>
+							</div>
+							<div>Size:
+								<span class="value">-</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<label for="quantity">Quantity:</label>
+					<input class="quantity" type="text" value="0" readonly="value"
+								 style="text-align:center;" class="form-control quantity-input">
+				</div>
+				<span>฿0</span>
+
+				<div class="col-md-3 price">
+					<span class="price">฿ 0</span>
+				</div>
+			</div>
 			<div class="items">
 				<div class="product">
 					<div class="row">
-						<!-- {{#each products}} -->
-						<!-- {{#ifCond qty '<=' 0}} -->
-						<div class="col-md-3">
-							<!-- {{#each this.item.color }}
-								{{#if @first}}
-									{{#with this}}
-										<img class="img-fluid mx-auto d-block image" src="{{ this.[4] }}">
-									{{/with}}
-								{{/if}}
-							{{/each}} -->
-						</div>
-						<div class="col-md-8 info row">
-							<div class="col-md-5 product-name">
-								<div class="product-name">
-									<span class="text">No items</span>
-									<div class="product-info">
-										<div>Category:
-											<span class="value">-</span>
-										</div>
-										<div>Color:
-											<span class="value">-</span>
-										</div>
-										<div>Size:
-											<span class="value">-</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<label for="quantity">Quantity:</label>
-								<span class="value">฿0</span>
-								<input class="quantity" type="number" value="0" min="0" class="form-control quantity-input">
-							</div>
-							<span>฿0</span>
-
-							<div class="col-md-3 price">
-								<span class="price">฿ 0</span>
-							</div>
-						</div>
-						<!-- {{/ifCond}} -->
-						<!-- {{/each}} -->
 					</div>
 				</div>
 			</div>
@@ -161,7 +150,6 @@
 					<span class="price">฿</span>
 					<span id="total" class="price">0</span>
 				</div>
-				<input type="submit" class="checkout" value="Checkout">
 			</div>
 		</div>
 	</section>

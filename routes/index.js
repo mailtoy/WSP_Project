@@ -85,13 +85,13 @@ router.get('/checkout', isLoggedIn, function (req, res, next) {
 
 router.get('/cart', function (req, res, next) {
   if (!req.session.cart) {
-    console.log('------------');
-    console.log(req.session.cart);
+    // console.log('------------');
+    // console.log(req.session.cart);
     return res.render('shop/shopping_cart', { products: null });
   }
   var cart = new Cart(req.session.cart.items);
-  console.log('************');
-  console.log(cart.generateArray());
+  // console.log('************');
+  // console.log(cart.generateArray());
   res.render('shop/shopping_cart', {
     products: cart.generateArray(), totalPrice: cart.totalPrice
   });

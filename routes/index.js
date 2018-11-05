@@ -229,40 +229,28 @@ router.get('/success', (req, res) => {
   });
 });
 
-router.get('/cancel', function (req, res) {
-  req.flash('error', 'payment not successful');
-  return res.redirect('/checkout');
-})
-
-router.get('/page/:page', function (req, res, next) {
+router.get('/page/:page', filter, function (req, res, next) {
   var perPage = 6
   var page = req.params.page || 1
-
-  var pageCount = 0
-  var return_products = []
-
-  // count total pages.
-  Product.count().exec(function (err, count) {
-    if (err) return next(err)
-    pageCount = count
-  })
-  
   Product
     .find({})
     .skip((perPage * page) - perPage)
     .limit(perPage)
     .exec(function (err, products) {
-      return_products = products
+      Product.count().exec(function (err, count) {
+        if (err) return next(err)
+        res.render('shop/shop', {
+          title: 'Dalessio',
+          products: products,
+          pagination: {
+            page: page,       // The current page the user is on
+            pageCount: Math.ceil(count / perPage)  // The total number of available pages
+          }
+        })
+      })
     })
 
-  res.render('shop/shop', {
-    title: 'Dalessio',
-    products: return_products,
-    pagination: {
-      page: page,       // The current page the user is on
-      pageCount: Math.ceil(pageCount / perPage)  // The total number of available pages
-    }
-  })
+
 });
 
 // router.get('/product/:category', function(req, res, next) {
@@ -291,4 +279,56 @@ function isLoggedIn(req, res, next) {
   }
   req.session.oldUrl = req.url;
   res.redirect('/user/login');
+}
+
+function filter(req, res, next) {
+  var perPage = 6
+  var page = req.params.page || 1
+
+  if (req.query.filter) {
+    // console.log(req.query.filter)
+    var array = []
+    var checked_box = {}
+    var numberOfMatching = 0;
+    for (var i in req.query.filter) {
+      for (var j in req.query.filter[i])
+        numberOfMatching++
+      // checked_box[req.query.filter[i][j]] = true
+    }
+
+
+    console.log(req.query.filter)
+    Product.find({}, function (err, product) {
+      for (var index in product) {
+        var count = 0
+        for (var quary_key in req.query.filter) {
+          if (typeof product[index][quary_key] === 'object') {
+            if (product[index][quary_key][req.query.filter[quary_key]] !== undefined) {
+              count++
+            }
+          } else {
+            if (req.query.filter[quary_key].includes(product[index][quary_key])) {
+              count++
+            }
+          }
+        }
+        if (count == numberOfMatching) 
+          array.push(product[index])
+      }
+      var skip = (perPage * page) - perPage
+      var limit = skip + perPage
+      if (err) return next(err)
+      res.render('shop/shop', {
+        title: 'Dalessio',
+        products: array.slice(skip, limit),
+        pagination: {
+          page: page, // The current page the user is on
+          pageCount: Math.ceil(array.length / perPage)  // The total number of available pages
+        },
+        filter: req.query.filter
+      })
+    });
+  }
+  else
+    next();
 }

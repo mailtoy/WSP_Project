@@ -10,17 +10,12 @@ $(document).ready(function () {
     });
 
     $('#filterBtn').click(function () {
-        // $(".form-check").each(function () {
-        //         // alert($('#defaultCheck1:checked') );
-        //     console.log($(this).find('form-check-input:checked'))
-        //     // console.log($(this).find('label').text());
-        // })
         var info = {}
         info["concept"] = []
         info["category"] = []
         info["type"] = []
-        info["size_stock"] = []
-        info["color_stock"] = []
+        info["size"] = []
+        info["color"] = []
         info["order"] = []
 
         $.each($("input[name='concept']:checked"), function () {
@@ -37,11 +32,11 @@ $(document).ready(function () {
         });
         $.each($("input[name='size']:checked"), function () {
             if ($(this).val())
-                info["size_stock"].push($(this).val())
+                info["size"].push($(this).val())
         });
         $.each($("input[name='color']:checked"), function () {
             if ($(this).val())
-                info["color_stock"].push($(this).val())
+                info["color"].push($(this).val())
         });
         $.each($("input[name='order']:checked"), function () {
             if ($(this).val())
@@ -50,16 +45,15 @@ $(document).ready(function () {
         $.ajax({
             type: "GET",
             data: { filter: info },
-            url: "/page/1",
+            beforeSend: function() {
+                window.location = this.url
+            }
         });
-        console.log(info)
     })
 
     $(".form-check-label").each(function () {
         var currentElement = $(this);
-
         var value = currentElement.text(); // if it is an input/select/textarea field
-        // TODO: do something with the value   
         console.log(value)
     });
 

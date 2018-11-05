@@ -17,7 +17,7 @@ describe('Order testing', function () {
         done();
     });
 
-    it('show a order', function (done) {
+    it('save order', function (done) {
         var items = {}
         items['100'] = {
             id: '100',
@@ -35,28 +35,30 @@ describe('Order testing', function () {
             price: 20
         };
 
-        var orders = [
-            new Order({
-                user: new User({
-                    email: 'test@hotmail.com',
-                    password: 'testy',
-                    firstName: 'Mr.Test',
-                    lastName: 'Eiei',
-                    address: 'Somewhere',
-                    city: 'On Earth',
-                    state: 'In the world',
-                    zip: '12345s'
-                }),
-                cart: new Cart(items),
+        var save_order = new Order({
+            user: new User({
+                email: 'test@hotmail.com',
+                password: 'testy',
+                firstName: 'Mr.Test',
+                lastName: 'Eiei',
                 address: 'Somewhere',
-                name: 'Mr.Test',
-                paymentId:'ch_1DSnSMDPJyhEP0e8ndJRdeYK'
-            })
-        ];
+                city: 'On Earth',
+                state: 'In the world',
+                zip: '12345s'
+            }),
+            cart: new Cart(items),
+            address: 'Somewhere',
+            name: 'Mr.Test',
+            paymentId: '123'
+        })
+        save_order.save(function (error) {
+            console.log(error + "EEIE")
+            should.not.exist(error);
+        });
         done();
     });
 
-    it('find a order by name', function (done) {
+    it('find an order by name', function (done) {
         Order.find({ name: 'Mr.Test' }, function (err, order) {
             should.not.exist(err);
             order.length.should.equal(1)
@@ -67,7 +69,7 @@ describe('Order testing', function () {
         done();
     });
 
-    it('find a order by paymentId', function (done) {
+    it('find an order by paymentId', function (done) {
         Order.find({ paymentId: 'ch_1DSnSMDPJyhEP0e8ndJRdeYK' }, function (err, order) {
             should.not.exist(err);
             order.length.should.equal(1)
@@ -78,6 +80,13 @@ describe('Order testing', function () {
         done();
     });
 
+    // it('update order', function (done) {
+    //     Product.update({ title: 'Test Dress1' }, { $set: { title: 'Updated' } }, function (err, product) {
+    //         should.not.exist(err);
+    //     })
+    //     done();
+    // });
+
     it('find a order after update', function (done) {
         Order.findOne({ name: 'Mr.Tester' }, function (err, order) {
             should.not.exist(err);
@@ -87,21 +96,17 @@ describe('Order testing', function () {
         done()
     });
 
-    it('update a order', function (done) {
-        Order.update({ name: 'Mr.Test' }, { $set: { name: 'Mr.Tester' } }, function (err, order) {
-            should.not.exist(err);
-        })
-        done();
-    });
+    // it('update a order', function (done) {
+    //     Order.update({ name: 'Mr.Test' }, { $set: { name: 'Mr.Tester' } }, function (err, order) {
+    //         should.not.exist(err);
+    //     })
+    //     done();
+    // });
 
-    it('delete a order', function (done) {
+    it('delete an order', function (done) {
         Order.remove({}, function (err) {
             should.not.exist(err);
         });
         done();
     });
-
-
-
-
 });

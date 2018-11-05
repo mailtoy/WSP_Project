@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var schema = new Schema({
     concept: { type: String, required: true },
-    catagory: { type: String, required: true },
+    category: { type: String, required: true },
     type: { type: String, required: true },
     title: { type: String, required: true },
     description: { type: String, required: true },

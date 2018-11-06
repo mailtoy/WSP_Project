@@ -1,3 +1,7 @@
+ul {
+    list-style-type: none;
+}
+
 .pic {
   position: relative;
   width: 100%;
@@ -57,12 +61,12 @@ body {
 }
 
 .pagination.center, .pagination.center ul {
-     float: left;
-     position: relative;
- }
- .pagination.center { left: 33%; }
- .pagination.center ul { left: -50%; } 
+    float: left;
+    position: relative;
+}
 
+.pagination.center { left: 33%; }
+.pagination.center ul { left: -50%; } 
 
 body {
     position: relative;

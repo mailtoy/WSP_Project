@@ -1,10 +1,33 @@
 var express = require('express');
 var router = express.Router();
 var Product = require('../models/product');
-var Cart = require('../models/cart')
 
-router.get('/:id', function(req, res) {
-    Product.findById(req.params.id, function(err, product) {
+var categories = {
+    ladies: {
+        "Dresses": {
+            "Short dress": "/product/ladies/dresses/shortdresses/page/1",
+            "Midi dress": "/product/ladies/dresses/mididresses/page/1",
+            "Bodycon": "/product/ladies/dresses/bodycon/page/1",
+        }
+    },
+    men: {
+        "T-shirt": {
+            "Polo": "blah"
+        }
+    },
+    kids: {
+        "T-shirt": {
+            "Polo": "blah"
+        }
+    }
+}
+
+String.prototype.capitalize = function () {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
+router.get('/:id', function (req, res) {
+    Product.findById(req.params.id, function (err, product) {
         if (err) {
             console.log(err);
         } else {
@@ -16,30 +39,133 @@ router.get('/:id', function(req, res) {
 router.get('/:department/page/:page', function (req, res, next) {
     var perPage = 6
     var page = req.params.page || 1
-    var department = []
+    var department = req.params.department;
+    var categoryList = {};
+    var skip = (perPage * page) - perPage
+    var limit = skip + perPage
+    for (var key in categories) {
+        if (key === department) {
+            categoryList = categories[key]
+        }
+    }
     Product
-        .find(function(err, products) {
-            products.forEach(function(product) {
-                if (req.params.department == product.department.toLowerCase()) {
-                    department.push(product)
-                }
-            })
-        })
-        .skip((perPage * page) - perPage)
-        .limit(perPage)
-        .exec(function (err, products) {
-            Product.count().exec(function (err, count) {
-                if (err) return next(err)
-                res.render('shop/shop', {
-                    title: 'Dalessio',
-                    products: department,
-                    pagination: {
+        .find({ department: department }, (function (err, products) {
+            if (req.query.filter)
+                products = filter(req, res, products)
+            res.render('shop/shop', {
+                title: department.toUpperCase() + ' | Dalessio',
+                products: products.slice(skip, limit),
+                department: department,
+                categories: categoryList,
+                pagination: {
                     page: page,       // The current page the user is on
-                    pageCount: Math.ceil(count / perPage)  // The total number of available pages
+                    pageCount: Math.ceil(products.length / perPage),  // The total number of available pages
+                    params: req.query.filter ? "?" + req.originalUrl.split('?')[1] : "",
+                    filter: req.query.filter
+                }
+            })
+        }))
+});
+
+router.get('/:department/:category/page/:page', function (req, res, next) {
+    var perPage = 6
+    var page = req.params.page || 1
+    var department = req.params.department;
+    var category = req.params.category;
+    var categoryList = {};
+    var skip = (perPage * page) - perPage
+    var limit = skip + perPage
+    for (var key in categories) {
+        if (key === department) {
+            categoryList = categories[key]
+        }
+    }
+    Product
+        .find({ department: department, category: category }
+            , function (err, products) {
+                if (req.query.filter)
+                    products = filter(req, res, products)
+                res.render('shop/shop', {
+                    title: category.capitalize() + ' - ' + department.toUpperCase() + ' | Dalessio',
+                    products: products.slice(skip, limit),
+                    department: department,
+                    categories: categoryList,
+                    pagination: {
+                        page: page,       // The current page the user is on
+                        pageCount: Math.ceil(products.length / perPage), // The total number of available pages
+                        params: req.query.filter ? "?" + req.originalUrl.split('?')[1] : "",
+                        filter: req.query.filter
+                    }
+                })
+            })
+});
+
+router.get('/:department/:category/:subcategory/page/:page', function (req, res, next) {
+    var perPage = 6
+    var page = req.params.page || 1
+    var department = req.params.department;
+    var category = req.params.category;
+    var subcategory;
+    var subcategoryList = [];
+    var categoryList = {};
+    var skip = (perPage * page) - perPage
+    var limit = skip + perPage
+    for (var key in categories) {
+        if (key === department) {
+            categoryList = categories[key]
+        }
+    }
+    Product
+        .find({ department: department, category: category }, async function (err, products) {
+            await products.forEach(function (product) {
+                subcategory = product.subcategory;
+                if (req.params.subcategory == subcategory.toLowerCase().replace(/\s/g, '')) {
+                    subcategoryList.push(product)
+                }
+            })
+        }).exec(function () {
+            if (req.query.filter)
+                subcategoryList = filter(req, res, subcategoryList)
+            res.render('shop/shop', {
+                title: subcategory + ' - ' + department.toUpperCase() + ' | Dalessio',
+                products: subcategoryList.slice(skip, limit),
+                department: department,
+                categories: categoryList,
+                pagination: {
+                    page: page,       // The current page the user is on
+                    pageCount: Math.ceil(subcategoryList.length / perPage),  // The total number of available pages
+                    params: req.query.filter ? "?" + req.originalUrl.split('?')[1] : "",
+                    filter: req.query.filter
+
                 }
             })
         })
-    })
-});
+
+})
+
+function filter(req, res, product) {
+    var array = []
+    var numberOfMatching = 0;
+    for (var i in req.query.filter)
+        for (var j in req.query.filter[i])
+            numberOfMatching++
+
+    for (var index in product) {
+        var count = 0
+        for (var quary_key in req.query.filter) {
+            if (typeof product[index][quary_key] === 'object' && product[index][quary_key][req.query.filter[quary_key]] !== undefined) {
+                count++
+            } else {
+                if (req.query.filter[quary_key].includes(product[index][quary_key])) {
+                    count++
+                }
+            }
+        }
+        if (count == numberOfMatching)
+            array.push(product[index])
+    }
+    return array
+}
+
 
 module.exports = router;

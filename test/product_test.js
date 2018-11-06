@@ -63,9 +63,8 @@ describe('Product testing', function () {
             product[0].title.should.equal('Test Dress1');
             product[0].description.should.equal('For test only1')
             product[0].price.should.equal(100)
-            done();
         });
-
+        done();
     });
 
     it('find a products by price', function (done) {

@@ -627,6 +627,132 @@ var products = [
             "XL": "50"
         }
     }),
+    new Product({
+        department: "men",
+        category: "tanktops",
+        subcategory: "Short Sleeves",
+        title: "Printed T-shirt",
+        description: "T-shirt in soft, printed cotton jersey.",
+        detail: "90% cotton, 10% viscose.",
+        price: "499",
+        color: {
+            "Grey Mari": [
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_f1f93522dfe29c59198b6478f8ae30117a75eff8.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_b54f4f1ef5218e38f41446ca255e7251df90915b.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_38043692fd2dd122b69353b99f5524a04ab9d4de.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200621522%20022%2099%209ced5e80a35eb42912ef35c6608fbdb270e08870.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"    
+            ]
+        },
+        size: {
+            "S": "100",
+            "M": "100",
+            "L": "100",
+            "XL": "100"
+        }
+    }),
+    new Product({
+        department: "men",
+        category: "tanktops",
+        subcategory: "Short Sleeves",
+        title: "T-shirt",
+        description: "Jersey T-shirt.",
+        detail: "60% cotton, 40% polyester. Machine wash at 40˚",
+        price: "199",
+        color: {
+            "Dark Blue": [
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_fe2229ff341d16425e1dd398127f5af2e32dcf5d.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_a67850b21e2023560dd38cb37f8dbdcce9295f26.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_261130365fdd2aba2d1488056c08f50f12e8db03.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200636587%20007%2099%2005c0a3d4ace903703786b0b849fc40dc19e6c903.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"    
+            ],
+            "Dark Khaiki Green": [
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_a0e8d0d25d15dfeba3da23c1ddafa02be7424d70.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_ade3d199da48cdd8a66d06b54d3800ddb228dc8f.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_a01a1ceba5747c1918c96256cdee86a94cafbd99.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200636587%20008%2099%20a737b75401ac218f70953a610822a080356b88b2.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"    
+            ]
+        },
+        size: {
+            "S": "100",
+            "M": "100",
+            "L": "100",
+            "XL": "100"
+        }
+    }),
+    new Product({
+        department: "men",
+        category: "tanktops",
+        subcategory: "Short Sleeves",
+        title: "Cotton jersey T-shirt",
+        description: "Straight-cut T-shirt in soft cotton jersey with a rounded hem. Slightly longer at the back.",
+        detail: "100% cotton. Machine wash at 30˚",
+        price: "399",
+        color: {
+            "Black": [
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_2614c6f34183294dbc5f8c15b0e88ba101192a18.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-580%5D%2Csr_y%5B0%5D%2Csr_height%5B15699%5D%2Csr_width%5B13426%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_78041f526a51354ee90e78c7a46fc730a5df7eaf.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-580%5D%2Csr_y%5B0%5D%2Csr_height%5B15699%5D%2Csr_width%5B13426%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_835bca294723d74bf4b74e8ece8f65dcf81fa126.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-580%5D%2Csr_y%5B0%5D%2Csr_height%5B15699%5D%2Csr_width%5B13426%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200598755%20001%2099%2083e1bf22cd2015bc509296ef1e2d5a4d29b70b7a.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"    
+            ],
+            "White": [
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_b8b70baffae5191bfada6c419e06c0d31b347f5f.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_dc0a24d60f7f2153c855058bde324ebc3c30305e.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_efd33fb854ac34764f10504e3fe3a8963d94403e.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200598755%20002%2099%20a61ba3408c2446996c2a52225efa9f10d21b9dc4.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"    
+            ]
+        },
+        size: {
+            "S": "100",
+            "M": "100",
+            "L": "100",
+            "XL": "100"
+        }
+    }),
+    new Product({
+        department: "men",
+        category: "tanktops",
+        subcategory: "Short Sleeves",
+        title: "Cotton piqué.T-shirt",
+        description: "Round-necked T-shirt in sturdy cotton piqué.",
+        detail: "100% cotton. Machine wash at 30˚",
+        price: "599",
+        color: {
+            "White Black Striped": [
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_29857c8dd22730d42295fef527cbccf65494f8f0.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_b16e922b3e08c3aa8805c469391b7372f5810a18.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_a3a6c71602453332d5906d7fccf2c550ecc8cd1a.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200567418%20019%2099%20da7f9cfdece1bcd0d0e79a18a6d0d2962dbc64b0.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"    
+            ]
+        },
+        size: {
+            "S": "100",
+            "M": "100",
+            "L": "100",
+            "XL": "100"
+        }
+    }),new Product({
+        department: "men",
+        category: "tanktops",
+        subcategory: "Short Sleeves",
+        title: "T-shirt with a motif",
+        description: "T-shirt in cotton jersey with a print motif.",
+        detail: "90% cotton, 10% viscose. Machine wash at 30˚",
+        price: "699",
+        color: {
+            "White Mariah Carey": [
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_459bb9b485a393c5a671f669cdbb3df59a3b5c37.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_26a8287c2f7129820e3ae2e4a011aeaa5e52cfeb.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_806c8cf2f29380ccad6c38825d830975e5948e5b.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
+                "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200615038%20033%2099%20a82ccb9c86f29bf6d4d4cc496f732af85efb8b32.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"    
+            ]
+        },
+        size: {
+            "S": "100",
+            "M": "100",
+            "L": "100",
+            "XL": "100"
+        }
+    })
     // new Product({
     //     department: "ladies",
     //     category: "dresses",

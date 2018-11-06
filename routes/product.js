@@ -5,14 +5,15 @@ var Product = require('../models/product');
 var categories = {
     ladies: {
         "Dresses": {
-            "Short dress": "/product/ladies/dresses/shortdresses/page/1",
-            "Midi dress": "/product/ladies/dresses/mididresses/page/1",
+            "Short dresses": "/product/ladies/dresses/shortdresses/page/1",
+            "Midi dresses": "/product/ladies/dresses/mididresses/page/1",
             "Bodycon": "/product/ladies/dresses/bodycon/page/1",
         }
     },
     men: {
-        "T-shirt": {
-            "Polo": "blah"
+        "Tanktops": {
+            "Short sleeves": "/product/men/tanktops/shortsleeves/page/1",
+            "Long sleeves": "/product/men/tanktops/longsleeves/page/1"
         }
     },
     kids: {

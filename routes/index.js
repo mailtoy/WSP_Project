@@ -78,8 +78,10 @@ router.get('/checkout', isLoggedIn, function (req, res, next) {
   var cart = new Cart(req.session.cart.items);
   var errMsg = req.flash('error')[0];
   res.render('shop/epayment', {
+    title: 'Checkout | Dalessio',
     messages: errMsg, noError: !errMsg,
-    products: cart.generateArray(), totalPrice: cart.totalPrice
+    products: cart.generateArray(),
+    totalPrice: cart.totalPrice
   })
 });
 

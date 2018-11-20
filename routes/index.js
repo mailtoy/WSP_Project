@@ -7,6 +7,8 @@ var Cart = require('../models/cart')
 
 var paypal = require('paypal-rest-sdk');
 
+var filter = require('../modules/filter');
+
 paypal.configure({
   'mode': 'sandbox', //sandbox or live
   'client_id': 'AVKlhTfuerwmIg9gE6GD-pI43kbE99kjAGhya9JEhcLZLWFAx2zp7eDelPVz69zm-QWum54d5cbVzhmO',
@@ -113,7 +115,7 @@ router.post('/checkout', isLoggedIn, function (req, res, next) {
 
 
   stripe.charges.create({
-    amount: cart.totalPrice * 100,
+    amount: cart.totalPrice,
     currency: "usd",
     source: req.body.stripeToken, // obtained with Stripe.js
     description: "Test Charge"
@@ -231,43 +233,28 @@ router.get('/success', (req, res) => {
   });
 });
 
-router.get('/page/:page', filter, function (req, res, next) {
+router.get('/page/:page', function (req, res, next) {
   var perPage = 6
   var page = req.params.page || 1
+  var skip = (perPage * page) - perPage
+  var limit = skip + perPage
   Product
     .find({})
-    .skip((perPage * page) - perPage)
-    .limit(perPage)
     .exec(function (err, products) {
-      Product.count().exec(function (err, count) {
-        if (err) return next(err)
-        res.render('shop/shop', {
-          title: 'Dalessio',
-          products: products,
-          pagination: {
-            page: page,       // The current page the user is on
-            pageCount: Math.ceil(count / perPage),  // The total number of available pages
-          }
-        })
+      if (req.query.filter)
+        products = filter(req, res, products)
+      res.render('shop/shop', {
+        title: 'Dalessio',
+        products: products.slice(skip, limit),
+        pagination: {
+          page: page,       // The current page the user is on
+          pageCount: Math.ceil(products.length / perPage),  // The total number of available pages
+          params: req.query.filter ? "?" + req.originalUrl.split('?')[1] : "",
+          filter: req.query.filter
+        }
       })
     })
-
-
 });
-
-// router.get('/product/:category', function(req, res, next) {
-//   Product.find(function(err, products) {
-//       var category = []
-//       products.forEach(function(product) {
-//           if (req.params.category == product.category.toLowerCase()) {
-//               category.push(product)
-//           }
-//       })
-//       res.render('shop/shop', {
-//           products: category
-//       })
-//   })
-// })
 
 router.get('/cart', function (req, res) {
   res.render('shop/shopping_cart')
@@ -283,51 +270,3 @@ function isLoggedIn(req, res, next) {
   res.redirect('/user/login');
 }
 
-function filter(req, res, next) {
-  var perPage = 6
-  var page = req.params.page || 1
-
-  // console.log("URL: " + "?" + req.originalUrl.split('?')[1]);
-
-  if (req.query.filter) {
-    var array = []
-    // var checked_box = {}
-    var numberOfMatching = 0;
-    for (var i in req.query.filter) {
-      for (var j in req.query.filter[i])
-        numberOfMatching++
-      // checked_box[req.query.filter[i][j]] = true
-    }
-    Product.find({}, function (err, product) {
-      for (var index in product) {
-        var count = 0
-        for (var quary_key in req.query.filter) {
-          if (typeof product[index][quary_key] === 'object' && product[index][quary_key][req.query.filter[quary_key]] !== undefined) {
-            count++
-          } else {
-            if (req.query.filter[quary_key].includes(product[index][quary_key])) {
-              count++
-            }
-          }
-        }
-        if (count == numberOfMatching)
-          array.push(product[index])
-      }
-      var skip = (perPage * page) - perPage
-      var limit = skip + perPage
-      if (err) return next(err)
-      res.render('shop/shop', {
-        title: 'Dalessio',
-        products: array.slice(skip, limit),
-        pagination: {
-          page: page, // The current page the user is on
-          pageCount: Math.ceil(array.length / perPage),  // The total number of available pages
-          params: "?" + req.originalUrl.split('?')[1].toString()
-        },
-        filter: req.query.filter
-      })
-    });
-  }
-  else
-    next();
-}

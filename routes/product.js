@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Product = require('../models/product');
+var filter = require('../modules/filter');
 
 var categories = {
     ladies: {
@@ -117,8 +118,8 @@ router.get('/:department/:category/:subcategory/page/:page', function (req, res,
         }
     }
     Product
-        .find({ department: department, category: category }, async function (err, products) {
-            await products.forEach(function (product) {
+        .find({ department: department, category: category }, function (err, products) {
+            products.forEach(function (product) {
                 subcategory = product.subcategory;
                 if (req.params.subcategory == subcategory.toLowerCase().replace(/\s/g, '')) {
                     subcategoryList.push(product)
@@ -137,36 +138,10 @@ router.get('/:department/:category/:subcategory/page/:page', function (req, res,
                     pageCount: Math.ceil(subcategoryList.length / perPage),  // The total number of available pages
                     params: req.query.filter ? "?" + req.originalUrl.split('?')[1] : "",
                     filter: req.query.filter
-
                 }
             })
         })
 
 })
-
-function filter(req, res, product) {
-    var array = []
-    var numberOfMatching = 0;
-    for (var i in req.query.filter)
-        for (var j in req.query.filter[i])
-            numberOfMatching++
-
-    for (var index in product) {
-        var count = 0
-        for (var quary_key in req.query.filter) {
-            if (typeof product[index][quary_key] === 'object' && product[index][quary_key][req.query.filter[quary_key]] !== undefined) {
-                count++
-            } else {
-                if (req.query.filter[quary_key].includes(product[index][quary_key])) {
-                    count++
-                }
-            }
-        }
-        if (count == numberOfMatching)
-            array.push(product[index])
-    }
-    return array
-}
-
 
 module.exports = router;

@@ -38,121 +38,48 @@
     </h3>
     {{/each}}
 
-    <div id="wrapper">
-        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-
-
-
-            <ul class="nav sidebar-nav">
-
-                <li class="sidebar-brand">
-                    <a href="#"> Filter </a>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Size<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <div class="form-check">
-                                <input name="size" class="form-check-input" type="checkbox" value="S" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    S
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input name="size" class="form-check-input" type="checkbox" value="M" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    M
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input name="size" class="form-check-input" type="checkbox" value="L" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    L
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input name="size" class="form-check-input" type="checkbox" value="XL" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    XL
-                                </label>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Color<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <div class="form-check">
-                                <input name="color" class="form-check-input" type="checkbox" value="White" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    White
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input name="color" class="form-check-input" type="checkbox" value="Black" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Black
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input name="color" class="form-check-input" type="checkbox" value="Pink" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Pink
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input name="color" class="form-check-input" type="checkbox" value="Gray" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Gray
-                                </label>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Order by<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <div class="form-check">
-                                <input name="order" class="form-check-input" type="checkbox" value="Low price" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Low price
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input name="order" class="form-check-input" type="checkbox" value="High price" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    High price
-                                </label>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-
-                <button type="button" class="btn btn-lg btn-block" id="filterBtn">Filter now! </button>
-
-
-
-            </ul>
-        </nav>
-
-
-        <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
-            <span class="hamb-top"></span>
-            <span class="hamb-middle"></span>
-            <span class="hamb-bottom"></span>
-        </button>
-    </div>
 </body>
 
 <div class="col-sm-9">
 
     {{!-- product --}}
     <div class="row">
+            <button class="dropbtn">FILTER <span class="caret"></span></button>
+            {{!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">Artist <span class="caret"></span></a> --}}
+            <div class="dropdown-content">
+                <label class="color">COLOR</label><br>
+                <input class="black" type="button"/>
+                <input class="white" type="button"/>
+                <input class="red" type="button"/>
+                <input class="blue" type="button"/>
+                <input class="yellow" type="button"/>
+                <br>
+                <label class="color">SIZE</label><br>
+                <input class="signatureColor" type="button" value="XS"/>
+                <input class="signatureColor" type="button" value="S"/>
+                <input class="signatureColor" type="button" value="M"/>
+                <input class="signatureColor" type="button" value="L"/>
+                <input class="signatureColor" type="button" value="XL"/>
+                <br>
+                <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 95%;">
+                <input class="clearfilter" type="button" value="CLEAR FILTERS"/>
+                <input class="apply" type="button" value="APPLY"/>
+
+
+            </div>
+            <br>
+            
+        <label class="numitem">15 ITEMS</label><br>
+        <div class="custom-select" style="width:200px;">
+            <select>
+                <option value="0">NEW IN</option>
+                <option value="1">BEST MATCH</option>
+                <option value="2">PRICE LOW TO HIGH</option>
+                <option value="3">PRICE HIGH TO LOW</option>
+            </select>
+        </div>
+
+        <br>
         <div class="products">
             {{#each products }}
             <div class="col-sm-6 col-md-4">
@@ -242,4 +169,88 @@
     $("#chaps > li").click(function () {
         $(this).find("ul.assignments").toggleClass('hide');
     }); 
+
+    $(document).ready(function() {
+        $('.dropbtn').click(function() {
+            $('.dropdown-content').slideToggle();
+        });
+    });
+
+/*dropdown custom select*/
+    var x, i, j, selElmnt, a, b, c;
+x = document.getElementsByClassName("custom-select");
+for (i = 0; i < x.length; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  /*for each element, create a new DIV that will act as the selected item:*/
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /*for each element, create a new DIV that will contain the option list:*/
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 0; j < selElmnt.length; j++) {
+    /*for each option in the original select element,
+    create a new DIV that will act as an option item:*/
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /*when an item is clicked, update the original select box,
+        and the selected item:*/
+        var y, i, k, s, h;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < s.length; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            for (k = 0; k < y.length; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+      /*when the select box is clicked, close any other select boxes,
+      and open/close the current select box:*/
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+    });
+}
+function closeAllSelect(elmnt) {
+  /*a function that will close all select boxes in the document,
+  except the current select box:*/
+  var x, y, i, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  for (i = 0; i < y.length; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < x.length; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+/*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+document.addEventListener("click", closeAllSelect);
+
+
+
+
+
 </script>

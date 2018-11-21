@@ -1,36 +1,17 @@
-
-
 $(document).ready(function () {
 
     $('#filterBtn').hide();
 
     $(".form-check").change(function () {
         $('#filterBtn').show();
-        // console.log($(this).find('label').text());
     });
 
     $('#filterBtn').click(function () {
-        console.log("CLICKED")
         var info = {}
-        // info["concept"] = []
-        // info["category"] = []
-        // info["type"] = []
         info["size"] = []
         info["color"] = []
         info["order"] = []
 
-        // $.each($("input[name='concept']:checked"), function () {
-        //     if ($(this).val())
-        //         info["concept"].push($(this).val())
-        // });
-        // $.each($("input[name='category']:checked"), function () {
-        //     if ($(this).val())
-        //         info["category"].push($(this).val())
-        // });
-        // $.each($("input[name='type']:checked"), function () {
-        //     if ($(this).val())
-        //         info["type"].push($(this).val())
-        // });
         $.each($("input[name='size']:checked"), function () {
             if ($(this).val())
                 info["size"].push($(this).val())
@@ -43,12 +24,12 @@ $(document).ready(function () {
             if ($(this).val())
                 info["order"].push($(this).val())
         });
+        var url = pageReset(window.location.href)
         $.ajax({
             type: "GET",
             data: { filter: info },
-            url: window.location.href,
+            url: url,
             success: function (data) {
-                // $('.products').html(jQuery(data).find('.products').html()); 
                 window.location = this.url
             }
         });
@@ -56,8 +37,15 @@ $(document).ready(function () {
 
     $(".form-check-label").each(function () {
         var currentElement = $(this);
-        var value = currentElement.text(); // if it is an input/select/textarea field
-        console.log(value)
+        var value = currentElement.text();
     });
 
 })
+
+
+function pageReset(url) {
+    var splitURL = url.split('/')
+    var currentPage = splitURL[splitURL.length - 1]
+    var newUrl = url.replace(currentPage, "1")
+    return newUrl
+}

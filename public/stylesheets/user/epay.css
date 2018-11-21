@@ -5,12 +5,12 @@
 }
 
 .row {
-
   display: -ms-flexbox; /* IE10 */
   display: flex;
   -ms-flex-wrap: wrap; /* IE10 */
   flex-wrap: wrap;
   margin: 0 -16px;
+  justify-content: center;
 }
 
 .col-25 {
@@ -54,6 +54,14 @@ label {
   font-size: 24px;
 }
 
+.btn-wrapper {
+  justify-content: center;
+}
+
+input.btn {
+  min-width: 300px;
+}
+
 .btn {
   background-color: #000000;
   color: white;
@@ -64,10 +72,13 @@ label {
   border-radius: 3px;
   cursor: pointer;
   font-size: 17px;
+  height: 3.5em;
+  max-width: 300px;
 }
 
 .btn:hover {
-  background-color: #45a049;
+  background-color: #696969;
+  color: white !important;
 }
 
 a {
@@ -81,10 +92,20 @@ span.price {
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
 @media (max-width: 800px) {
-  .row {
+  .row .btn {
     flex-direction: column-reverse;
   }
   .col-25 {
     margin-bottom: 20px;
   }
+}
+
+div.cart {
+  margin: 30px;
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.center {
+	margin: 0 auto;
+	display: table;
 }

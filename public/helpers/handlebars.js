@@ -7,7 +7,7 @@ handlebars.registerHelper('paginate', function (pagination, options) {
     var ret = '';
     var pageCount = Number(pagination.pageCount);
     var page = Number(pagination.page);
-    if(pageCount == 0) return;
+    if (pageCount == 0) return;
     var params = pagination.params || ""
     var limit;
     if (options.hash.limit) limit = +options.hash.limit;
@@ -26,7 +26,7 @@ handlebars.registerHelper('paginate', function (pagination, options) {
                 var start = page - leftCount;
 
                 while (i < limit && i < pageCount) {
-                    newContext = { n: start + params , number: start};
+                    newContext = { n: start + params, number: start };
                     if (start === page) newContext.active = true;
                     ret = ret + options.fn(newContext);
                     start++;
@@ -110,6 +110,8 @@ handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
             return options.inverse(this);
     }
 });
+
+
 
 handlebars.registerHelper('toLowerCase', function (str) {
     return str.toLowerCase();

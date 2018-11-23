@@ -1,47 +1,67 @@
+
 $(document).ready(function () {
-
-    $('#filterBtn').hide();
-
-    $(".form-check").change(function () {
-        $('#filterBtn').show();
-    });
-
-    $('#filterBtn').click(function () {
-        var info = {}
-        info["size"] = []
-        info["color"] = []
-        info["order"] = []
-
-        $.each($("input[name='size']:checked"), function () {
-            if ($(this).val())
-                info["size"].push($(this).val())
-        });
-        $.each($("input[name='color']:checked"), function () {
-            if ($(this).val())
-                info["color"].push($(this).val())
-        });
-        $.each($("input[name='order']:checked"), function () {
-            if ($(this).val())
-                info["order"].push($(this).val())
-        });
-        var url = pageReset(window.location.href)
-        $.ajax({
-            type: "GET",
-            data: { filter: info },
-            url: url,
-            success: function (data) {
-                window.location = this.url
-            }
-        });
+    $.each($("#filtered input[type='hidden']"), function () {
+        $("#" + $(this).val()).show();
     })
 
-    $(".form-check-label").each(function () {
-        var currentElement = $(this);
-        var value = currentElement.text();
+    $.each($(".color-filter .btn"), function () {
+        $($(this)).click(function () {
+            bthClikedFilter(this.id)
+        })
     });
-
+    $.each($(".size-filter .signatureColor"), function () {
+        $($(this)).click(function () {
+            bthClikedFilter(this.id)
+        })
+    });
 })
 
+function bthClikedFilter(color) {
+    $("#filterBtn").show();
+    if ($("#" + color).is(":visible")) {
+        $("#" + color).hide();
+    } else {
+        $("#" + color).show();
+    }
+}
+
+function clearfilter() {
+    $("#filterBtn").show();
+    $.each($(".color-filter .btn"), function () {
+        jQuery(this).hide();
+    });
+    $.each($(".size-filter .signatureColor"), function () {
+        jQuery(this).hide();
+    });
+}
+
+function filter() {
+    var info = {}
+    info["size"] = []
+    info["color"] = []
+
+    $.each($(".color-filter .btn"), function () {
+        if (jQuery(this).is(":visible")) {
+            info["color"].push(this.id)
+        }
+    });
+
+    $.each($(".size-filter .signatureColor"), function () {
+        if (jQuery(this).is(":visible")) {
+            info["size"].push(this.id)
+        }
+    });
+
+    var url = pageReset(window.location.href)
+    $.ajax({
+        type: "GET",
+        data: { filter: info },
+        url: url,
+        success: function (data) {
+            window.location = this.url
+        }
+    });
+}
 
 function pageReset(url) {
     var splitURL = url.split('/')

@@ -175,9 +175,15 @@ body, html { height: 100%;}
 
 }
 
+.darkBth{
+    color: #000000;
+}
+
+
+
 .blue {
     border: 1px outset white;
-    background-color: rgb(23, 23, 94);
+    background-color: rgb(86, 86, 247);
     height:37px;
     width:37px;
     cursor:pointer;    

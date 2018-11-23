@@ -25,12 +25,6 @@ router.get('/profile', isLoggedIn, function (req, res, next) {
       title: 'User Profile | Dlaessio'
     });
   });
-  // var messages = req.flash('error');
-  // res.render('user/profile', {
-  //   messages: messages,
-  //   hasErrors: messages.length > 0,
-  //   title: 'User Profile | Dlaessio'
-  // });
 });
 
 router.post('/profile', isLoggedIn, function (req, res, next) {

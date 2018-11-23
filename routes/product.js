@@ -141,7 +141,6 @@ router.get('/:department/:category/:subcategory/page/:page', function (req, res,
                 }
             })
         })
-
 })
 
 module.exports = router;

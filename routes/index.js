@@ -159,8 +159,8 @@ router.post('/checkout-paypal', isLoggedIn, function (req, res, next) {
       "payment_method": "paypal"
     },
     "redirect_urls": {
-      "return_url": "https://alesso.herokuapp.com/success",
-      "cancel_url": "https://alesso.herokuapp.com/cancel"
+      "return_url": "/success",
+      "cancel_url": "/cancel"
     },
     "transactions": [{
       "item_list": {
@@ -329,3 +329,8 @@ function filter(req, res, next) {
   else
     next();
 }
+
+// admin
+router.get('/admin', function (req, res) {
+  res.render('admin/admin')
+});

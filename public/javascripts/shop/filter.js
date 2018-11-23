@@ -4,16 +4,16 @@ $(document).ready(function () {
         $("#" + $(this).val()).show();
     })
 
-    $.each($(".color-filter .btn"), function () {
-        $($(this)).click(function () {
-            bthClikedFilter(this.id)
-        })
-    });
-    $.each($(".size-filter .signatureColor"), function () {
-        $($(this)).click(function () {
-            bthClikedFilter(this.id)
-        })
-    });
+    // $.each($(".color-filter .btn"), function () {
+    //     $($(this)).click(function () {
+    //         bthClikedFilter(this.id)
+    //     })
+    // });
+    // $.each($(".size-filter .signatureColor"), function () {
+    //     $($(this)).click(function () {
+    //         bthClikedFilter(this.id)
+    //     })
+    // });
 })
 
 function bthClikedFilter(color) {

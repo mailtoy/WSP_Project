@@ -63,8 +63,8 @@ router.get('/:department/page/:page', function (req, res, next) {
                     page: page,       // The current page the user is on
                     pageCount: Math.ceil(products.length / perPage),  // The total number of available pages
                     params: req.query.filter ? "?" + req.originalUrl.split('?')[1] : "",
-                    filter: req.query.filter
-                }
+                },
+                filter: req.query.filter
             })
         }))
 });
@@ -96,8 +96,8 @@ router.get('/:department/:category/page/:page', function (req, res, next) {
                         page: page,       // The current page the user is on
                         pageCount: Math.ceil(products.length / perPage), // The total number of available pages
                         params: req.query.filter ? "?" + req.originalUrl.split('?')[1] : "",
-                        filter: req.query.filter
-                    }
+                    },
+                    filter: req.query.filter
                 })
             })
 });
@@ -137,8 +137,8 @@ router.get('/:department/:category/:subcategory/page/:page', function (req, res,
                     page: page,       // The current page the user is on
                     pageCount: Math.ceil(subcategoryList.length / perPage),  // The total number of available pages
                     params: req.query.filter ? "?" + req.originalUrl.split('?')[1] : "",
-                    filter: req.query.filter
-                }
+                },
+                filter: req.query.filter
             })
         })
 })

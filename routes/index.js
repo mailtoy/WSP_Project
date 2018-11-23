@@ -7,6 +7,8 @@ var Cart = require('../models/cart')
 
 var paypal = require('paypal-rest-sdk');
 
+var filter = require('../modules/filter');
+
 paypal.configure({
   'mode': 'sandbox', //sandbox or live
   'client_id': 'AVKlhTfuerwmIg9gE6GD-pI43kbE99kjAGhya9JEhcLZLWFAx2zp7eDelPVz69zm-QWum54d5cbVzhmO',
@@ -29,19 +31,6 @@ router.get('/add-to-cart-qty/:id/:qty', function (req, res, next) {
     res.send('Added!')
   });
 });
-
-// router.get('/add-to-cart/:id', function (req, res, next) {
-//   var productId = req.params.id;
-//   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
-//   console.log(req.body.color);
-//   console.log(req.body.size);
-
-//   Product.findById(productId, function (err, product) {
-//     cart.add(product, product.id);
-//     req.session.cart = cart;
-//     // res.redirect('back');
-//   });
-// });
 
 router.post('/add-to-cart/:id', function (req, res, next) {
   var productId = req.params.id;
@@ -78,20 +67,18 @@ router.get('/checkout', isLoggedIn, function (req, res, next) {
   var cart = new Cart(req.session.cart.items);
   var errMsg = req.flash('error')[0];
   res.render('shop/epayment', {
+    title: 'Checkout | Dalessio',
     messages: errMsg, noError: !errMsg,
-    products: cart.generateArray(), totalPrice: cart.totalPrice
+    products: cart.generateArray(),
+    totalPrice: cart.totalPrice
   })
 });
 
 router.get('/cart', function (req, res, next) {
   if (!req.session.cart) {
-    // console.log('------------');
-    // console.log(req.session.cart);
     return res.render('shop/shopping_cart', { products: null });
   }
   var cart = new Cart(req.session.cart.items);
-  // console.log('************');
-  // console.log(cart.generateArray());
   res.render('shop/shopping_cart', {
     products: cart.generateArray(), totalPrice: cart.totalPrice
   });
@@ -111,7 +98,7 @@ router.post('/checkout', isLoggedIn, function (req, res, next) {
 
 
   stripe.charges.create({
-    amount: cart.totalPrice * 100,
+    amount: cart.totalPrice,
     currency: "usd",
     source: req.body.stripeToken, // obtained with Stripe.js
     description: "Test Charge"
@@ -229,43 +216,28 @@ router.get('/success', (req, res) => {
   });
 });
 
-router.get('/page/:page', filter, function (req, res, next) {
+router.get('/page/:page', function (req, res, next) {
   var perPage = 6
   var page = req.params.page || 1
+  var skip = (perPage * page) - perPage
+  var limit = skip + perPage
   Product
     .find({})
-    .skip((perPage * page) - perPage)
-    .limit(perPage)
     .exec(function (err, products) {
-      Product.count().exec(function (err, count) {
-        if (err) return next(err)
-        res.render('shop/shop', {
-          title: 'Dalessio',
-          products: products,
-          pagination: {
-            page: page,       // The current page the user is on
-            pageCount: Math.ceil(count / perPage),  // The total number of available pages
-          }
-        })
+      if (req.query.filter)
+        products = filter(req, res, products)
+      res.render('shop/shop', {
+        title: 'Dalessio',
+        products: products.slice(skip, limit),
+        pagination: {
+          page: page,       // The current page the user is on
+          pageCount: Math.ceil(products.length / perPage),  // The total number of available pages
+          params: req.query.filter ? "?" + req.originalUrl.split('?')[1] : "",
+        },
+        filter: req.query.filter
       })
     })
-
-
 });
-
-// router.get('/product/:category', function(req, res, next) {
-//   Product.find(function(err, products) {
-//       var category = []
-//       products.forEach(function(product) {
-//           if (req.params.category == product.category.toLowerCase()) {
-//               category.push(product)
-//           }
-//       })
-//       res.render('shop/shop', {
-//           products: category
-//       })
-//   })
-// })
 
 router.get('/cart', function (req, res) {
   res.render('shop/shopping_cart')
@@ -334,3 +306,4 @@ function filter(req, res, next) {
 router.get('/admin', function (req, res) {
   res.render('admin/admin')
 });
+

@@ -1,6 +1,8 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/user/profile.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="/javascripts/user/updateProfile.js"></script> {{#if hasErrors}}
 <div class="alert alert-danger">
@@ -9,22 +11,43 @@
 	{{/each}}
 </div>
 {{/if}} {{# if login}}
+
+
 <div class="w3-bar w3-black w3-auto" style="width:750px">
 	<button class="w3-bar-item w3-button" onclick="openTab('Profile')">Profile</button>
 	<button class="w3-bar-item w3-button" onclick="openTab('Orders')">Orders</button>
 </div>
+<center>
+	<span class="profile-picture">
+		<img class="editable img-responsive" alt="Avatar" id="profile-pic" style="width:150px;" src="{{ session.user.profilePic }}">
+		<div class="chooseFile" hidden>
+			<form enctype="multipart/form-data" name="fileinfo" action="/user/upload-pic/" method="post">
+				<input name="profilePic" type="file" id="my-file" />
+				<button class="btn btn-sm btn-block btn-success" type="submit">
+					<span class="bigger-110">UPLOAD</span>
+				</button>
+			</form>
+		</div>
+	</span>
+
+</center>
+
+<center>
+	<button class="btn btn-sm btn-primary" id="edit-image">
+		<span class="bigger-110">Change Image</span>
+	</button>
+</center>
+<br>
+
+
 <div id="Profile" class="w3-auto user up" style="width:650px">
+
+
 	<div id="user-profile-2" class="user-profile tab-content no-border padding-24" style="width:650px">
 		<form action="/user/profile" method="post" style="width:650px">
 			<div class="row" style="width:650px">
 				<div class="col-xs-12 col-sm-3 center">
-					<span class="profile-picture">
-						<img class="editable img-responsive" alt="Avatar" id="profile-pic" src="{{ session.user.profilePic }}">
-						{{!-- change profile --}}
-						<div class="chooseFile" hidden>
-							<input name="profilePic" type="file" id="my-file" />
-						</div>
-					</span>
+
 					<div class="space space-4"></div>
 					<button href="#" class="btn btn-sm btn-block btn-danger" id="editBtn">
 						<i class="ace-icon fa fa-plus-circle bigger-120"></i>
@@ -36,7 +59,8 @@
 				</div>
 				<!-- /.col -->
 				<div class="col-xs-12 col-sm-9" style="width:400px">
-					{{!-- <h3 class="overrided-h3">
+					{{!--
+					<h3 class="overrided-h3">
 						<span class="middle black">{{ session.user.firstName }}</span>
 					</h3> --}}
 					<div class="profile-user-info">
@@ -100,7 +124,8 @@
 		<p>Payment ID: {{paymentId}}</p>
 		<p>Location: {{this.address}}</p>
 		<p>Receiver: {{name}}</p>
-		{{!-- <p>Date: {{}}</p> --}}
+		{{!--
+		<p>Date: {{}}</p> --}}
 		<div class="panel-body">
 			<ul class="list-group">
 				{{# each this.items }}
@@ -118,8 +143,8 @@
 	{{/each}} {{/if}}
 </div>
 
-{{!-- ex.tab --}}
-{{!-- <div id="Tokyo" class="w3-container city" style="display:none">
+{{!-- ex.tab --}} {{!--
+<div id="Tokyo" class="w3-container city" style="display:none">
 	<h2>Tokyo</h2>
 	<p>Tokyo is the capital of Japan.</p>
 </div> --}}

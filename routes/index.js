@@ -2,11 +2,8 @@ var express = require('express');
 var router = express.Router();
 var Product = require('../models/product');
 var Order = require('../models/order');
-
 var Cart = require('../models/cart')
-
 var paypal = require('paypal-rest-sdk');
-
 var filter = require('../modules/filter');
 
 paypal.configure({
@@ -20,6 +17,7 @@ router.get('/', function (req, res) {
   var successMsg = req.flash('success')[0];
   res.render('shop/home', { title: 'Dalessio', successMsg: successMsg, noMessages: !successMsg });
 })
+
 
 router.get('/add-to-cart-qty/:id/:qty', function (req, res, next) {
   var productId = req.params.id;
@@ -301,9 +299,4 @@ function filter(req, res, next) {
   else
     next();
 }
-
-// admin
-router.get('/admin', function (req, res) {
-  res.render('admin/admin')
-});
 

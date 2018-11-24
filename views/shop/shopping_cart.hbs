@@ -10,7 +10,7 @@
 <script type="text/javascript" src="/javascripts/shop/cart_update.js"></script>
 
 {{# if this.products }}
-<main class="page">
+	<main class="page">
 	<section class="shopping-cart dark container content row">
 		<div class="col-md-12 col-lg-8">
 			<div class="items">
@@ -18,14 +18,11 @@
 					<div class="row">
 						{{#each products}} {{#ifCond qty '>=' 1}}
 						<div class="col-md-3">
-							{{#each this.item.color }}
-								{{#if @first}}
-									{{#with this}}
-										<img class="img-responsive" src="{{ this.[0] }}">
-									{{/with}}
-								{{/if}}
-							{{/each}}
-							<img class="img-responsive" src="{{ this.item.imagePath_1 }}">
+								{{#each this.item.color}}
+									{{#ifCond @key '==' ../this.color}}
+										<img class="img-responsive" src="{{ this.[0] }}">	
+									{{/ifCond}}
+								{{/each}}
 						</div>
 						<div class="col-md-8 info row">
 							<div class="col-md-5 product-name">
@@ -90,73 +87,73 @@
 			</div>
 		</div>
 	</section>
-</main>
+	</main>
 {{else}}
-<main class="page">
-	<section class="shopping-cart dark container content row">
-		<div class="col-md-12 col-lg-8">
-			<div class="col-md-3">
-			</div>
-			<div class="col-md-8 info row">
-				<div class="col-md-5 product-name">
-					<div class="product-name">
-						<span class="text">No items</span>
-						<div class="product-info">
-							<div>Category:
-								<span class="value">-</span>
-							</div>
-							<div>Color:
-								<span class="value">-</span>
-							</div>
-							<div>Size:
-								<span class="value">-</span>
+	<main class="page">
+		<section class="shopping-cart dark container content row">
+			<div class="col-md-12 col-lg-8">
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-8 info row">
+					<div class="col-md-5 product-name">
+						<div class="product-name">
+							<span class="text">No items</span>
+							<div class="product-info">
+								<div>Category:
+									<span class="value">-</span>
+								</div>
+								<div>Color:
+									<span class="value">-</span>
+								</div>
+								<div>Size:
+									<span class="value">-</span>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-4">
-					<label for="quantity">Quantity:</label>
-					<input class="quantity" type="text" value="0" readonly="value"
-								 style="text-align:center;" class="form-control quantity-input">
-				</div>
-				<span>฿0</span>
+					<div class="col-md-4">
+						<label for="quantity">Quantity:</label>
+						<input class="quantity" type="text" value="0" readonly="value"
+									style="text-align:center;" class="form-control quantity-input">
+					</div>
+					<span>฿0</span>
 
-				<div class="col-md-3 price">
-					<span class="price">฿ 0</span>
+					<div class="col-md-3 price">
+						<span class="price">฿ 0</span>
+					</div>
 				</div>
-			</div>
-			<div class="items">
-				<div class="product">
-					<div class="row">
+				<div class="items">
+					<div class="product">
+						<div class="row">
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-md-12 col-lg-4">
-			<div class="summary">
-				<h3>Summary</h3>
-				<div class="summary-item">
-					<span class="text">Subtotal</span>
-					<span class="price">฿</span>
-					<span id="subtotal" class="price">0</span>
-				</div>
-				<div class="summary-item">
-					<span class="text">Discount</span>
-					<span class="price">฿</span>
-					<span class="price">0</span>
-				</div>
-				<div class="summary-item">
-					<span class="text">Shipping</span>
-					<span class="price">฿</span>
-					<span class="price">0</span>
-				</div>
-				<div class="summary-item">
-					<span class="text">Total</span>
-					<span class="price">฿</span>
-					<span id="total" class="price">0</span>
+			<div class="col-md-12 col-lg-4">
+				<div class="summary">
+					<h3>Summary</h3>
+					<div class="summary-item">
+						<span class="text">Subtotal</span>
+						<span class="price">฿</span>
+						<span id="subtotal" class="price">0</span>
+					</div>
+					<div class="summary-item">
+						<span class="text">Discount</span>
+						<span class="price">฿</span>
+						<span class="price">0</span>
+					</div>
+					<div class="summary-item">
+						<span class="text">Shipping</span>
+						<span class="price">฿</span>
+						<span class="price">0</span>
+					</div>
+					<div class="summary-item">
+						<span class="text">Total</span>
+						<span class="price">฿</span>
+						<span id="total" class="price">0</span>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-</main>
+		</section>
+	</main>
 {{/if}}

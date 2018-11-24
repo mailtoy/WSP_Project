@@ -32,7 +32,7 @@ router.get('/add-to-cart-qty/:id/:qty', function (req, res, next) {
   });
 });
 
-router.post('/add-to-cart/:id', function (req, res, next) {
+router.post('/add-to-cart/:id', isLoggedIn, function (req, res, next) {
   var productId = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
   var color = req.body.color;
@@ -44,21 +44,20 @@ router.post('/add-to-cart/:id', function (req, res, next) {
   });
 });
 
-router.get('/remove-from-cart/:id', function (req, res) {
-  let query = {
-    _id: req.params.id
-  }
-  var cart = new Cart(req.session.cart.items);
-  Product.findById(req.params.id, function (err, product) {
-    Product.remove(query, function (err) {
-      if (err) {
-        console.log(err);
-      }
-      cart.remove(req.params.id);
-      res.redirect('/cart/');
-    })
-  })
-})
+// router.delete('/remove-from-cart/:id', isLoggedIn, function (req, res) {
+//   let query = { _id: req.params.id }
+//   var cart = new Cart(req.session.cart.items);
+//   cart.qty = 0;
+//   Product.findById(req.params.id, function (err, product) {
+//     Product.remove(query, function (err) {
+//       if (err) {
+//         console.log(err);
+//       }
+//       cart.remove(req.params.id);
+//       res.send('Success');
+//     })
+//   })
+// })
 
 router.get('/checkout', isLoggedIn, function (req, res, next) {
   if (!req.session.cart) {
@@ -74,12 +73,13 @@ router.get('/checkout', isLoggedIn, function (req, res, next) {
   })
 });
 
-router.get('/cart', function (req, res, next) {
+router.get('/cart', isLoggedIn, function (req, res, next) {
   if (!req.session.cart) {
     return res.render('shop/shopping_cart', { products: null });
   }
   var cart = new Cart(req.session.cart.items);
   res.render('shop/shopping_cart', {
+    title: 'My Cart | Dalessio',
     products: cart.generateArray(), totalPrice: cart.totalPrice
   });
 });
@@ -237,10 +237,6 @@ router.get('/page/:page', function (req, res, next) {
         filter: req.query.filter
       })
     })
-});
-
-router.get('/cart', function (req, res) {
-  res.render('shop/shopping_cart')
 });
 
 module.exports = router;

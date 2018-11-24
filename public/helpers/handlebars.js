@@ -111,8 +111,6 @@ handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
     }
 });
 
-
-
 handlebars.registerHelper('toLowerCase', function (str) {
     return str.toLowerCase();
 });

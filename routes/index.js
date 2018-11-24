@@ -18,7 +18,7 @@ paypal.configure({
 /* GET home page. */
 router.get('/', function (req, res) {
   var successMsg = req.flash('success')[0];
-  res.render('shop/home', { title: 'Dlaessio', successMsg: successMsg, noMessages: !successMsg });
+  res.render('shop/home', { title: 'Dalessio', successMsg: successMsg, noMessages: !successMsg });
 })
 
 router.get('/add-to-cart-qty/:id/:qty', function (req, res, next) {
@@ -146,8 +146,8 @@ router.post('/checkout-paypal', isLoggedIn, function (req, res, next) {
       "payment_method": "paypal"
     },
     "redirect_urls": {
-      "return_url": "https://alesso.herokuapp.com/success",
-      "cancel_url": "https://alesso.herokuapp.com/cancel"
+      "return_url": "/success",
+      "cancel_url": "/cancel"
     },
     "transactions": [{
       "item_list": {
@@ -252,4 +252,58 @@ function isLoggedIn(req, res, next) {
   req.session.oldUrl = req.url;
   res.redirect('/user/login');
 }
+
+function filter(req, res, next) {
+  var perPage = 6
+  var page = req.params.page || 1
+
+  // console.log("URL: " + "?" + req.originalUrl.split('?')[1]);
+
+  if (req.query.filter) {
+    var array = []
+    // var checked_box = {}
+    var numberOfMatching = 0;
+    for (var i in req.query.filter) {
+      for (var j in req.query.filter[i])
+        numberOfMatching++
+      // checked_box[req.query.filter[i][j]] = true
+    }
+    Product.find({}, function (err, product) {
+      for (var index in product) {
+        var count = 0
+        for (var quary_key in req.query.filter) {
+          if (typeof product[index][quary_key] === 'object' && product[index][quary_key][req.query.filter[quary_key]] !== undefined) {
+            count++
+          } else {
+            if (req.query.filter[quary_key].includes(product[index][quary_key])) {
+              count++
+            }
+          }
+        }
+        if (count == numberOfMatching)
+          array.push(product[index])
+      }
+      var skip = (perPage * page) - perPage
+      var limit = skip + perPage
+      if (err) return next(err)
+      res.render('shop/shop', {
+        title: 'Dalessio',
+        products: array.slice(skip, limit),
+        pagination: {
+          page: page, // The current page the user is on
+          pageCount: Math.ceil(array.length / perPage),  // The total number of available pages
+          params: "?" + req.originalUrl.split('?')[1].toString()
+        },
+        filter: req.query.filter
+      })
+    });
+  }
+  else
+    next();
+}
+
+// admin
+router.get('/admin', function (req, res) {
+  res.render('admin/admin')
+});
 

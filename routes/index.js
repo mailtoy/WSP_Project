@@ -18,7 +18,7 @@ paypal.configure({
 /* GET home page. */
 router.get('/', function (req, res) {
   var successMsg = req.flash('success')[0];
-  res.render('shop/home', { title: 'Dlaessio', successMsg: successMsg, noMessages: !successMsg });
+  res.render('shop/home', { title: 'Dalessio', successMsg: successMsg, noMessages: !successMsg });
 })
 
 router.get('/add-to-cart-qty/:id/:qty', function (req, res, next) {

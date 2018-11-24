@@ -22,7 +22,7 @@ router.get('/profile', isLoggedIn, function (req, res, next) {
       orders: orders,
       messages: messages,
       hasErrors: messages.length > 0,
-      title: 'User Profile | Dlaessio'
+      title: 'User Profile | Dalessio'
     });
   });
 });
@@ -63,7 +63,7 @@ router.get('/login', function (req, res, next) {
   res.render('user/login', {
     messages: messages,
     hasErrors: messages.length > 0,
-    title: 'Login | Dlaessio'
+    title: 'Login | Dalessio'
   })
 });
 
@@ -87,7 +87,7 @@ router.get('/register', function (req, res, next) {
   res.render('user/regis', {
     messages: messages,
     hasErrors: messages.length > 0,
-    title: 'Register | Dlaessio'
+    title: 'Register | Dalessio'
   })
 });
 

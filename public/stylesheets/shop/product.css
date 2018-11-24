@@ -1,5 +1,6 @@
 img {
-  max-width: 100%; }
+  max-width: 100%;
+}
 
 .preview {
   display: -webkit-box;
@@ -179,7 +180,7 @@ img {
     font-weight: bold; }
   
   .checked, .price span {
-    color: #ff9f1a; 
+    color: #A52A2A;
     font-size: 30px;
   }
   

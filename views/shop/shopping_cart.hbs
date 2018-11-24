@@ -53,6 +53,7 @@
 								<span class="price">฿ </span>
 								<span id="perPrice_{{ this.id }}">{{ this.item.price }}</span>
 								<br><br><br><br><br>
+								{{!-- <button class="remove" data-id={{ this.id }}>Remove</button> --}}
 							</div>
 						</div>
 						{{/ifCond}} {{/each}}
@@ -91,43 +92,8 @@
 {{else}}
 	<main class="page">
 		<section class="shopping-cart dark container content row">
-			<div class="col-md-12 col-lg-8">
-				<div class="col-md-3">
-				</div>
-				<div class="col-md-8 info row">
-					<div class="col-md-5 product-name">
-						<div class="product-name">
-							<span class="text">No items</span>
-							<div class="product-info">
-								<div>Category:
-									<span class="value">-</span>
-								</div>
-								<div>Color:
-									<span class="value">-</span>
-								</div>
-								<div>Size:
-									<span class="value">-</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<label for="quantity">Quantity:</label>
-						<input class="quantity" type="text" value="0" readonly="value"
-									style="text-align:center;" class="form-control quantity-input">
-					</div>
-					<span>฿0</span>
-
-					<div class="col-md-3 price">
-						<span class="price">฿ 0</span>
-					</div>
-				</div>
-				<div class="items">
-					<div class="product">
-						<div class="row">
-						</div>
-					</div>
-				</div>
+			<div class="col-md-12 col-lg-8 center">
+				<span>No items in cart!</span>
 			</div>
 			<div class="col-md-12 col-lg-4">
 				<div class="summary">

@@ -34,4 +34,20 @@ jQuery(document).ready(function () {
 
         window.location.href = '/checkout'
     })
+
+    $('.remove').on('click', function(e) {
+        $target = $(e.target);
+        const id = $target.attr('data-id');
+        $.ajax({
+            type: 'DELETE',
+            url: '/remove-from-cart/:'+id,
+            success: function() {
+                 alert('Delete from cart');
+                 window.location.href='/';
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        })
+    })
 })

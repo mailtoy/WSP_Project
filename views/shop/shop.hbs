@@ -4,46 +4,36 @@
 <link rel="stylesheet" href="/stylesheets/shop/shop.css">
 <script type="text/javascript" src="/javascripts/shop/shop.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
 <script type="text/javascript" src="/javascripts/shop/filter.js"></script>
-
 
 <body>
     {{#if this.categories }}
-    <div class="col-sm-3">
-        <ul class="navbar-left">
-            <label class="category">{{toUpperCase this.department}}</label>
-            <br>
-            <li>
-                <a href="#" class="subcategory">VIEW ALL</a>
-            </li>
-            <br>
-            <label class="category">SHOP BY CATEGORY</label>
-            <br>
-            <label id="chaps">
-                {{#each categories}}
-                <li class="subcategory">
-                    <a href="/product/ladies/{{toLowerCase @key}}/page/1" class="subcategory">{{toUpperCase @key}}
-                    </a>
-                    <ul class="assignments">
-                        {{#each this}}
-                        <li>
-                            <a href="{{this}}" class="subcategory">{{toUpperCase @key}}</a>
+        <div class="col-sm-3">
+            <ul class="navbar-left">
+                <label class="category">{{toUpperCase this.department}}</label>
+                <br>
+                <li><a href="#" class="subcategory">VIEW ALL</a></li>
+                <br>
+                <label class="category">SHOP BY CATEGORY</label>
+                <br>
+                <label id="chaps">
+                    {{#each categories}}
+                        <li class="subcategory">
+                            <a href="/product/ladies/{{toLowerCase @key}}/page/1" class="subcategory">{{toUpperCase @key}}</a>
+                            <ul class="assignments">
+                                {{#each this}}
+                                    <li><a href="{{this}}" class="subcategory">{{toUpperCase @key}}</a></li>
+                                {{/each}}
+                            </ul>
                         </li>
-                        {{/each}}
-                    </ul>
-                </li>
-                {{/each}}
-            </label>
-        </ul>
-    </div>
+                    {{/each}}
+                </label>
+            </ul>
+        </div>
     {{/if}}
-
 </body>
 
-
 <div class="col-sm-9">
-
     {{!-- product --}}
     <div class="row">
         <button class="dropbtn">FILTER
@@ -73,10 +63,8 @@
             <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 95%;">
             <input class="clearfilter" id="clearBth" onclick="clearfilter();" type="button" value="CLEAR FILTERS" />
             <input class="apply" style="display:none;" id="filterBtn" onclick="filter()" type="button" value="APPLY" />
-
         </div>
         <br>
-
         <label class="numitem">15 ITEMS</label>
         <br>
 
@@ -105,11 +93,9 @@
                 <option value="3">PRICE HIGH TO LOW</option>
             </select>
         </div> --}}
-
-
         <br>
         <div class="products">
-            {{#each products }}
+            {{#each products}}
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
                     <a href="/product/{{_id}}">
@@ -125,13 +111,17 @@
                     <div class="caption">
                         <a href="/product/{{_id}}" class="title">{{ title }}</a>
                         <p class="price">฿{{ price }}</p>
+                        <div class="colorlist">
+                            {{#each color}}
+                                <input id="colorShow" class="{{toLowerCase @key}}" type="button" title="{{@key}}" disabled/>
+                            {{/each}}
+                        </div>
                     </div>
                 </div>
             </div>
             {{/each}}
         </div>
     </div>
-
 
     <div class="pagination center">
         <ul class="pagination">
@@ -164,8 +154,6 @@
     {{#each filter}} {{#each this}}
     <input type="hidden" value="{{ this }}"> {{/each}} {{/each}}
 </span>
-
-
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -279,9 +267,4 @@
     /*if the user clicks anywhere outside the select box,
     then close all select boxes:*/
     document.addEventListener("click", closeAllSelect);
-
-
-
-
-
 </script>

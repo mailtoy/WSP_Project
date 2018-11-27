@@ -10,40 +10,28 @@
 {{#if this.product}}
 	<div class="container card container-fliud wrapper">
 		<div class="row">
-			<div class="preview col-md-6">
+			<div class="preview col-md-4 col-md-offset-2">
 				<div class="preview-pic tab-content">
 					{{#each product.color}}
-						{{#if @first}}
-							{{#each this}} 
-								<div class="tab-pane" id="pic-{{@index}}"><img src="{{ this }}" /></div>
-							{{/each}}
-						{{/if}}
+						{{#each this}}
+							<div class="tab-pane" id="pic-{{@../key}}-{{@index}}"><img src="{{ this }}" /></div>
+						{{/each}}
 					{{/each}}
-					{{!-- <div class="tab-pane active" id="pic-1"><img src="{{ product.color.[0].[0] }}" /></div> --}}
-					{{!-- <div class="tab-pane" id="pic-2"><img src="{{ product.color.[0].[1] }}" /></div>
-					<div class="tab-pane" id="pic-3"><img src="{{ product.color.[0].[2] }}" /></div>
-					<div class="tab-pane" id="pic-4"><img src="{{ product.color.[0].[3] }}" /></div>
-					<div class="tab-pane" id="pic-5"><img src="{{ product.color.[0].[4] }}" /></div> --}}
 				</div>
 				<ul class="preview-thumbnail nav nav-tabs">
-					{{#each product.color}}
-						{{#if @first}}
-							{{#each this}} 
-								<li><a data-target="#pic-{{@index}}" data-toggle="tab"><img src="{{ this }}" /></a></li>
+					<div class="scrollmenu">
+						{{#each product.color}}
+							{{#each this}}
+								<li><a data-target="#pic-{{@../key}}-{{@index}}" data-toggle="tab"><img src="{{ this }}" /></a></li>
 							{{/each}}
-						{{/if}}
-					{{/each}}
-					{{!-- <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{ product.color.[0].[0] }}" /></a></li> --}}
-					{{!-- <li><a data-target="#pic-2" data-toggle="tab"><img src="{{ product.color.[0].[1] }}" /></a></li>
-					<li><a data-target="#pic-3" data-toggle="tab"><img src="{{ product.color.[0].[2] }}" /></a></li>
-					<li><a data-target="#pic-4" data-toggle="tab"><img src="{{ product.color.[0].[3] }}" /></a></li>
-					<li><a data-target="#pic-5" data-toggle="tab"><img src="{{ product.color.[0].[4] }}" /></a></li> --}}
+						{{/each}}
+					</div>
 				</ul>
 			</div>
-			<div class="details col-md-6">
+			<div class="details col-md-4">
 				<h3 class="product-title">{{ product.title }}</h3>
 				<h4 class="price">
-					<span class="">฿{{ product.price }}</span>
+					<span class="price">฿{{ product.price }}</span>
 				</h4>
 				<h4 class="product-description">DESCRIPTION</h4>
 				<p>{{ product.description }}</p>
@@ -56,14 +44,6 @@
 								<option class="size">{{@key}}</option>
 							{{/each}}
 						</select>
-						{{!-- {{#each product.size}}
-							<span class="size" data-toggle="tooltip">{{@key}}</span>
-						{{/each}} --}}
-						{{!-- <span class="size" data-toggle="tooltip" title="xtra small">xs</span>
-						<span class="size" data-toggle="tooltip" title="small">s</span>
-						<span class="size" data-toggle="tooltip" title="medium">m</span>
-						<span class="size" data-toggle="tooltip" title="large">l</span>
-						<span class="size" data-toggle="tooltip" title="xtra large">xl</span> --}}
 					</h5>
 					<h5 class="colors">colors:
 						<select name="color" id="colorSelection" class="form-control form-control-sm">
@@ -71,12 +51,6 @@
 								<option class="color" id="color-{{@index}}">{{@key}}</option>
 							{{/each}}
 						</select>
-						{{!-- {{#each product.color}}
-							<span class="">{{@key}}</span>
-						{{/each}} --}}
-						{{!-- <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
-						<span class="color green"></span>
-						<span class="color blue"></span> --}}
 					</h5>
 					<a class="action" href="/add-to-cart/{{ product._id }}">
 						<input type="submit" value="ADD TO CART">

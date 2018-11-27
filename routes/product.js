@@ -33,7 +33,10 @@ router.get('/:id', function (req, res) {
         if (err) {
             console.log(err);
         } else {
-            res.render('shop/product', { product: product });
+            res.render('shop/product', {
+                title: product.title + " | Dalessio",
+                product: product
+            });
         }
     })
 });

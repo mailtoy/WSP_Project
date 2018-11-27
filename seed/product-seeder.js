@@ -16,13 +16,13 @@ var products = [
         detail: "88% polyamide, 7% elastane, 5% metallicised fibre. Machine wash at 30˚",
         price: "499",
         color: {
-            "Red Glitter": [
+            "Red": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_0df9d6464a563c7527ad0d6baf1b181243770be3.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_3ae55126de760d70663f5644e316275191963540.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_22b0d07a8d01223fa27014e326d61940238eb417.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200673930%20003%2099%205a6eaab853682452b4f67a05d29b0e3bd88d32f7.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
             ],
-            "Beige Leopard Print": [
+            "Beige": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_fca7114bec8e5482c98bdda49559d4aae21a1ea7.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_3a5696b55451444bf4672009a265c8d3aa84e2b9.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_2dd6167151a14cb9d94fedaa478a713b314d07d7.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -45,7 +45,7 @@ var products = [
         detail: "100% polyester. Machine wash at 30˚",
         price: "1399",
         color: {
-            "Black Patterned": [
+            "Black": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_948a4e6c319a3d047478f77274437b8efc44edfc.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_146fea53997894879f009f28244093622ab923d0.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_9bec1151352ff18c3e72fdb0bf3239c0fba1ff43.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -68,13 +68,13 @@ var products = [
         detail: "100% polyester. Machine wash at 30˚",
         price: "999",
         color: {
-            "Yellow Floral": [
+            "Yellow": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_1942afe679ea16f88752d41dd261d80b90852924.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_8f5a7b96def15a6b2988d7616f693a995353cdc8.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_a88275f60d90ed388b199c46fc367a8ae57fbc59.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200670943%20001%2099%20061b3e28b2d53dd802e6482c316bbd0906b50d4d.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BXL%5D%2Cquality%5BH%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"
             ],
-            "Light Beige Patterned": [
+            "Beige": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_08595bf7348a4ca234ec2f30e9172c382d5cb02f.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_7be4ba6aeee189c1d5dfa894b63ecd03e3714736.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_cda0894ba5479972266c6bdc5d934c609fd5d9eb.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -143,13 +143,13 @@ var products = [
         detail: "100% viscose. Machine wash at 30˚",
         price: "999",
         color: {
-            "Mustard Yellow": [
+            "Yellow": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_c1b708652b29626fff960f3f349b07134d5b6bda.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_6f7ea58cfba2baf1bd3ec66bd79f3ad201015610.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_2650c6db9c1aa7cd06c4a5afbb4f36ed8b2b7173.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200663965%20006%2099%2075957921a8801deaefa6a820330327f0ac18aee4.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"
             ],
-            "Black Floral": [
+            "Black": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_8d4edb3a90015a983c06dc05106e7c2c5354e1d8.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_0ede7235c88b6c71cb012c2d63727aef57abe4f7.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_26da3d614bcc0568fd48790b17db38ffa5581eb7.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -201,13 +201,13 @@ var products = [
         detail: "93% polyester, 7% elastane. Machine wash at 30˚",
         price: "999",
         color: {
-            "Black Velour": [
+            "Black": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_0df443c8e0fec0c628956a0b0fe08dd4d18b17fd.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_58538d51e0d228c2e204f6bd4b479cf9ebe78109.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_f9d6e51f436551825063a8a797061c5824872965.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200633977%20001%2099%2001a38c3820dc6d42393ba999ef1bf255c713a328.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"
             ],
-            "Black Silver-coloured": [
+            "Silver": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_4825ab19f6f1bd665e1269b75eab12907f799b7e.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_0f5eaed1e2ce3673e13e58f10a06ec0d26d6374f.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_7418ac8b42d7649d1366fda56d04d4bddc99de96.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -236,7 +236,7 @@ var products = [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_ac40b90ec8f77cb45858516a710a335f0b2f35d4.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200685468%20001%2099%202822af738d32a3b6e9c31da8c42e5f20e8d5c888.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"
             ],
-            "Burgundy": [
+            "Red": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_b7edaa92b73110f16819f72c28175790259e8a80.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_7a5dba724e6c12d3542645a15e68cbac82929e4a.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_3f55374580facbe10d677a180dcca795fb86634f.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -283,7 +283,7 @@ var products = [
         detail: "100% polyester. Machine wash at 30˚",
         price: "1399",
         color: {
-            "Brown Leopard Print": [
+            "Brown": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_08b1e713dc0482ca36a83630b9ea9633f05c1a63.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_30888d396812df32e285128553984d1d627363c3.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_30473c2a2fbf2a0724676548ca48ecc114d1f03e.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -306,7 +306,7 @@ var products = [
         detail: "100% viscose. Machine wash at 30˚",
         price: "1399",
         color: {
-            "Blue Patterned": [
+            "Blue": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_d6f4b816ed71a8f1304d440336185799ea90f3b1.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_df4404cdbe55868b9fd9bbf77af1c305c8f032e5.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_90d5e3716effee1847bc466020d93f371fad26eb.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -375,7 +375,7 @@ var products = [
         detail: "Calf-length, A-line dress in jersey crêpe with pleats front and back. Round neck with an opening at the top that fastens with a concealed hook-and-eye fastener, long raglan sleeves and concealed pockets in the side seams.",
         price: "1799",
         color: {
-            "Dark Brown": [
+            "Brown": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_d0957350beceac316f75fea11e047a2a1e0e25bc.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_8af028613d03a9e2e9d1ed8af87d61093086b75b.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_16b381acb02c0265709b5042f0bc70e8ad11dc16.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -404,13 +404,13 @@ var products = [
         detail: "100% polyester. Machine wash at 30˚",
         price: "1399",
         color: {
-            "Dark blue": [
+            "Blue": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_9379561a3b515b8a16729b3e2d47636ffaf1e7c8.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_3a20282d0824586c0ceb27f9ce4c373fc37bd768.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_f652947ea92834d4079e79565675cfbdc9092f09.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200670949%20001%2099%20c3e3ddb2bd442d63ba877805a0fb23a903f53c31.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"
             ],
-            "Burgundy Floral": [
+            "Red": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_8897aecabab06ff74eeafcbcb281edddb765767f.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_8e55683b667c3c28f4e3d327a9fe5da6d459b269.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_9208333945db7b56c433ac2c3fa5724192b85e12.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -456,7 +456,7 @@ var products = [
         detail: "90% lyocell, 10% polyester. Machine wash at 30˚",
         price: "1399",
         color: {
-            "Dark Khaki Green": [
+            "Green": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_8ad57eece7940ee7092fbb755d9cceacff334269.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_5a6799a255b3f857027ae012c08338e94f86b434.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_a1404ec46b0eda0305d0e9bae76a6ea7ad05d203.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -532,7 +532,7 @@ var products = [
         detail: "67% polyester, 25% polyamide, 8% elastane. Machine wash at 30˚",
         price: "999",
         color: {
-            "Black Floral": [
+            "Black": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_2ce0b5cd5afda4800f7fa630a48e48ef2324d055.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_0b00d870c2643a59fb79a3c123f25e844171f5c2.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_a7ef43b1751583bd49a39ebdf46416f0f4aeaccc.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -555,13 +555,13 @@ var products = [
         detail: "100% acrylic. Machine wash at 30˚",
         price: "1099",
         color: {
-            "Burgundy": [
+            "Red": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_290d7fdf5ad277998a5aeb2353ac56df12f5acbc.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_56d59671cd99f5626dd04cac8f918fddfe284c87.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_b2b8fa11d2821d3efc01f88b84dc331dfba24141.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200688474%20003%2099%208229cbb32d36b498b56a14731a8ddcf1ca1db6b0.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"
             ],
-            "Vintage Pink": [
+            "Pink": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_a3119c63597c9a3c7d8da17d4e19c3fe06808b82.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_8ac74a73d092f19599d439166f6405a65c65f4aa.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_ef67609a77f074bd26abd6df8c0fc9b6bd3fdfa5.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -636,7 +636,7 @@ var products = [
         detail: "90% cotton, 10% viscose.",
         price: "499",
         color: {
-            "Grey Mari": [
+            "Grey": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_f1f93522dfe29c59198b6478f8ae30117a75eff8.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_b54f4f1ef5218e38f41446ca255e7251df90915b.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_38043692fd2dd122b69353b99f5524a04ab9d4de.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -659,13 +659,13 @@ var products = [
         detail: "60% cotton, 40% polyester. Machine wash at 40˚",
         price: "199",
         color: {
-            "Dark Blue": [
+            "Blue": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_fe2229ff341d16425e1dd398127f5af2e32dcf5d.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_a67850b21e2023560dd38cb37f8dbdcce9295f26.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_261130365fdd2aba2d1488056c08f50f12e8db03.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FH00%200636587%20007%2099%2005c0a3d4ace903703786b0b849fc40dc19e6c903.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"    
             ],
-            "Dark Khaiki Green": [
+            "Green": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_a0e8d0d25d15dfeba3da23c1ddafa02be7424d70.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_ade3d199da48cdd8a66d06b54d3800ddb228dc8f.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_a01a1ceba5747c1918c96256cdee86a94cafbd99.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BM%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -717,7 +717,7 @@ var products = [
         detail: "100% cotton. Machine wash at 30˚",
         price: "599",
         color: {
-            "White Black Striped": [
+            "White": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_29857c8dd22730d42295fef527cbccf65494f8f0.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_b16e922b3e08c3aa8805c469391b7372f5810a18.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_a3a6c71602453332d5906d7fccf2c550ecc8cd1a.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B0%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
@@ -739,7 +739,7 @@ var products = [
         detail: "90% cotton, 10% viscose. Machine wash at 30˚",
         price: "699",
         color: {
-            "White Mariah Carey": [
+            "White": [
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_459bb9b485a393c5a671f669cdbb3df59a3b5c37.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_26a8287c2f7129820e3ae2e4a011aeaa5e52cfeb.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",
                 "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_806c8cf2f29380ccad6c38825d830975e5948e5b.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D",

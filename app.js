@@ -16,6 +16,7 @@ var MongoStore = require('connect-mongo')(session);
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var products = require('./routes/product');
+var admin = require('./routes/admin')
 var exphbs = require('express-handlebars');
 var hbsHelpers = exphbs.create({
     helpers: require("./public/helpers/handlebars.js").helpers,
@@ -64,6 +65,8 @@ app.use
 app.use('/', routes);
 app.use('/user', users);
 app.use('/product', products);
+app.use('/admin', admin);
+
 
 /// catch 404 and forwarding to error handler
 app.use(function (req, res, next) {

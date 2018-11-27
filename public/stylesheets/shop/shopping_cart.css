@@ -163,3 +163,8 @@ input[type="submit"]:hover {
 		text-align: center;
 	}
 }
+
+.center {
+	text-align: center;
+	padding: 10em 0;
+}

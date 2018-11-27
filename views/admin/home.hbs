@@ -1,0 +1,70 @@
+<script type="text/javascript" src="/javascripts/admin/home.js"></script>
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<button class="btn btn-primary" onclick="location.href='/admin/add-product'">
+    <i class="glyphicon glyphicon-plus"></i> Product</button>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">Category</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each products }}
+        <tr>
+
+            <th scope="row">{{@index}}</th>
+            <td>
+                {{#each this.color }} {{#if @first}} {{#with this}}
+                <div class="pic">
+                    <img style=" width:100px" src="{{ this.[0] }}">
+                </div>
+                {{/with}} {{/if}} {{/each}}
+            </td>
+            <td>{{title}}</td>
+            <td>{{category}}</td>
+            <td>{{description}}</td>
+            <td>{{price}}฿</td>
+            <td>
+                <button type="button" onclick="location.href='/admin/product/edit/{{_id}}'" class="btn btn-info">Edit</button>
+                <button type="button" onclick="location.href='/product/{{_id}}'" class="btn btn-success">View</button>
+                <button type="button" onclick="deleteProduct('{{_id}}')" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<div class="pagination center">
+    <ul class="pagination">
+        {{#paginate pagination type="first"}}
+        <li {{#if disabled}} class="page-item disabled" {{/if}}>
+            <a class="page-link" href="{{n}}">First</a>
+        </li>
+        {{/paginate}} {{#paginate pagination type="previous"}}
+        <li {{#if disabled}} class="page-item disabled" {{/if}}>
+            <a class="page-link" href="{{n}}">Prev</a>
+        </li>
+        {{/paginate}} {{#paginate pagination type="middle" limit="7"}}
+        <li {{#if active}} class="page-item active" {{/if}}>
+            <a class="page-link" href="{{n}}">{{number}}</a>
+        </li>
+        {{/paginate}} {{#paginate pagination type="next"}}
+        <li {{#if disabled}} class="page-item disabled" {{/if}}>
+            <a class="page-link" href="{{n}}">Next</a>
+        </li>
+        {{/paginate}} {{#paginate pagination type="last"}}
+        <li {{#if disabled}} class="page-item disabled" {{/if}}>
+            <a class="page-link" href="{{n}}">Last</a>
+        </li>
+        {{/paginate}}
+    </ul>
+</div>

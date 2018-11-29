@@ -41,6 +41,8 @@ function filter() {
         }
     });
 
+    
+
     var url = pageReset(window.location.href)
     $.ajax({
         type: "GET",

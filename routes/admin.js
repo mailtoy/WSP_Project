@@ -22,12 +22,78 @@ router.get('/product/:page', function (req, res) {
         })
 });
 
+router.post('/addProduct', function (req, res) {
+    upload(req, res, function (err) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log(req.files);
+        res.end('Your files uploaded.');
+        console.log('Yep yep!');
+    });
+});
+
 router.get('/add-product/', function (req, res) {
     res.render('admin/addProduct')
 });
 
 router.get('/product/edit/:id', function (req, res) {
-    res.render('admin/editProduct')
+    // Product.findById(req.params.id, function (err, product) {
+    //     currentProduct = product
+    // })
+    var query = req.query.productUpdate
+    if (query) {
+        console.log("IN with " + query.description)
+        var productUpd = new Product();
+        productUpd.title = query.title
+        productUpd.price = query.price
+        productUpd.detail = query.detail
+        productUpd.description = query.description
+        productUpd.color = query.color
+        productUpd.size = query.size
+        Product.findById(req.params.id, function (err, product) {
+            Product.update({ _id: product._id }, productUpd, function (err, done) {
+                if (err) {
+                    console.log(err)
+                    return err;
+                } else {
+                    console.log("pass");
+                    res.redirect('back');
+                }
+            })
+        })
+
+    } else
+        Product.findById(req.params.id, function (err, product) {
+            res.render('admin/editProduct', {
+                title: product.title + " | Dalessio",
+                product: product
+            });
+        })
+});
+
+router.post('/product/edit/:id', function (req, res) {
+    var query = req.query.productUpdate
+    if (query) {
+        console.log("IN")
+
+        var productUpd = new Product();
+        productUpd.title = query.title
+        productUpd.price = query.price
+        productUpd.detail = query.detail
+        productUpd.description = query.description
+        productUpd.color = query.color
+        productUpd.size = query.size
+        Product.update({ _id: req.params.id }, productUpd, function (err, done) {
+            if (err) {
+                return console.log("err");
+            } else {
+                console.log("pass");
+                res.redirect('back');
+            }
+        })
+    }
 });
 
 
@@ -40,7 +106,8 @@ router.get('/product/remove/:id', function (req, res) {
             res.redirect('back');
         })
     })
-
 })
+
+
 
 module.exports = router;

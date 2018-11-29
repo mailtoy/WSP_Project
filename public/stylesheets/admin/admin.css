@@ -1,0 +1,35 @@
+.color {
+    color: #A52A2A;
+    font-size: 1.7ch;
+    width:100%;
+    left: 10;
+    margin: 10px 0px 0px 10px;
+}
+
+.black {
+    border: 1px outset white;
+    background-color: black;
+    height:37px;
+    width:37px;
+    cursor:pointer;
+    margin: 10px 0px 0px 10px;
+}
+
+.white {
+    border: 1px outset black;
+    background-color: white;
+    height:37px;
+    width:37px;
+    cursor:pointer;
+    margin: 10px 0px 0px 10px;
+}
+
+.red {
+    border: 1px outset white;
+    background-color: red;
+    height:37px;
+    width:37px;
+    cursor:pointer;
+    margin: 10px 0px 0px 10px;
+
+}

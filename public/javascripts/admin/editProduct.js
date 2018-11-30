@@ -33,8 +33,8 @@ $(document).ready(function () {
 
         product.title = $('#title').val()
         product.price = $('#price').val()
-        product.detail = $('#detail').text()
-        product.description = $('#description').text()
+        product.detail = $('#detail').val()
+        product.description = $('#description').val()
         product.color = color
         product.size = size
 
@@ -48,6 +48,6 @@ $(document).ready(function () {
             }
         });
 
-      
+
     });
 });

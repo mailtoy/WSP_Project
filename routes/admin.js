@@ -44,25 +44,17 @@ router.get('/product/edit/:id', function (req, res) {
     // })
     var query = req.query.productUpdate
     if (query) {
-        console.log("IN with " + query.description)
-        var productUpd = new Product();
-        productUpd.title = query.title
-        productUpd.price = query.price
-        productUpd.detail = query.detail
-        productUpd.description = query.description
-        productUpd.color = query.color
-        productUpd.size = query.size
         Product.findById(req.params.id, function (err, product) {
-            Product.update({ _id: product._id }, productUpd, function (err, done) {
-                if (err) {
-                    console.log(err)
-                    return err;
-                } else {
-                    console.log("pass");
-                    res.redirect('back');
-                }
-            })
-        })
+            product.title = query.title
+            product.price = query.price
+            product.description = query.description
+            product.detail = query.detail
+            product.color = query.color
+            product.size = query.size
+            product.save(function (err, updatedProduct) {
+                res.redirect('back');
+            });
+        });
 
     } else
         Product.findById(req.params.id, function (err, product) {
@@ -72,30 +64,6 @@ router.get('/product/edit/:id', function (req, res) {
             });
         })
 });
-
-router.post('/product/edit/:id', function (req, res) {
-    var query = req.query.productUpdate
-    if (query) {
-        console.log("IN")
-
-        var productUpd = new Product();
-        productUpd.title = query.title
-        productUpd.price = query.price
-        productUpd.detail = query.detail
-        productUpd.description = query.description
-        productUpd.color = query.color
-        productUpd.size = query.size
-        Product.update({ _id: req.params.id }, productUpd, function (err, done) {
-            if (err) {
-                return console.log("err");
-            } else {
-                console.log("pass");
-                res.redirect('back');
-            }
-        })
-    }
-});
-
 
 router.get('/product/remove/:id', function (req, res) {
     let query = {

@@ -3,12 +3,7 @@ var router = express.Router();
 var User = require('../models/user');
 var Product = require('../models/product');
 
-var mongoose = require('mongoose');
-const CONNECTION_URL = process.env.MONGODB_URL || "mongodb://localhost:27017/shopping"
-
-mongoose.connect(CONNECTION_URL, { useNewUrlParser: true });
-
-router.get('/product/:page', function (req, res) {
+router.get('/product/:page', isAdminLoggedIn, function (req, res) {
     var perPage = 6
     var page = req.params.page || 1
     var skip = (perPage * page) - perPage
@@ -27,11 +22,11 @@ router.get('/product/:page', function (req, res) {
         })
 });
 
-router.get('/add-product/', function (req, res) {
+router.get('/add-product/', isAdminLoggedIn, function (req, res) {
     res.render('admin/addProduct')
 });
 
-router.post('/add-product/', function (req, res) {
+router.post('/add-product/', isAdminLoggedIn, function (req, res) {
     var product = new Product({
         department: req.body.department,
         category: req.body.category,
@@ -53,7 +48,7 @@ router.post('/add-product/', function (req, res) {
     });
 });
 
-router.get('/product/edit/:id', function (req, res) {
+router.get('/product/edit/:id', isAdminLoggedIn, function (req, res) {
     Product.findById(req.params.id, function (err, product) {
         res.render('admin/editProduct', {
             title: product.title + " | Dalessio",
@@ -62,7 +57,7 @@ router.get('/product/edit/:id', function (req, res) {
     })
 });
 
-router.post('/product/edit/:id', function (req, res) {
+router.post('/product/edit/:id', isAdminLoggedIn, function (req, res) {
     Product.findById(req.params.id, function (err, product) {
 
         product.title = req.body.productname
@@ -78,7 +73,7 @@ router.post('/product/edit/:id', function (req, res) {
     });
 });
 
-router.get('/product/remove/:id', function (req, res) {
+router.get('/product/remove/:id', isAdminLoggedIn, function (req, res) {
     let query = {
         _id: req.params.id
     }
@@ -88,6 +83,13 @@ router.get('/product/remove/:id', function (req, res) {
         })
     })
 })
+
+function isAdminLoggedIn(req, res, next) {
+    if (req.isAuthenticated() && req.user.admin) {
+        return next();
+    }
+    res.redirect('/');
+}
 
 
 

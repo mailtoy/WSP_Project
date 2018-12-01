@@ -118,10 +118,3 @@ handlebars.registerHelper('toLowerCase', function (str) {
 handlebars.registerHelper('toUpperCase', function (str) {
     return str.toUpperCase();
 });
-
-// handlebars.registerHelper('assign', function (varName, varValue, options) {
-//     if (!options.data.root) {
-//         options.data.root = {};
-//     }
-//     options.data.root[varName] = varValue;
-// });

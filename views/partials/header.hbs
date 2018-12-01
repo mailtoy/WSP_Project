@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="stylesheets/header/header.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+ crossorigin="anonymous">
 
 <script type="text/javascript" src="/javascripts/shop/index.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -10,15 +11,23 @@
 		<nav class="col-md-12 text-right shift">
 			<ul class="topbar-right">
 				{{# if login }}
-					<li><a href="/user/profile" class="firstName">{{ session.user.firstName }}</a></li>
-					<span class="topbar-left-showMoreLinks"></span>
-					<li><a href="/user/logout" class="loginGroup">Log Out</a></li>
-					<span class="topbar-left-showMoreLinks"></span>
-					<li><a href="/cart">My D'alessio</a></li>
-					<span class="topbar-left-showMoreLinks"></span>
+				<li>
+					<a href="/user/profile" class="firstName">{{ session.user.firstName }}</a>
+				</li>
+				<span class="topbar-left-showMoreLinks"></span>
+				<li>
+					<a href="/user/logout" class="loginGroup">Log Out</a>
+				</li>
+				<span class="topbar-left-showMoreLinks"></span>
+				<li>
+					<a href="/cart">My D'alessio</a>
+				</li>
+				<span class="topbar-left-showMoreLinks"></span>
 				{{ else }}
-					<li><a href="/user/login" class=" loginGroup">Log In</a></li>
-					<span class="topbar-left-showMoreLinks"></span>
+				<li>
+					<a href="/user/login" class=" loginGroup">Log In</a>
+				</li>
+				<span class="topbar-left-showMoreLinks"></span>
 				{{/if}}
 			</ul>
 		</nav>
@@ -35,7 +44,8 @@
 		<span class="topbar-left-showMoreLinks"></span>
 		<a href="/product/kids/page/1">KIDS</a>
 	</nav>
-	{{!-- <svg height="1" width="2000">
+	{{!--
+	<svg height="1" width="2000">
 		<line x1="0" y1="0" x2="2000" y2="0" class="line-style" />
 	</svg> --}}
 </header>

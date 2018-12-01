@@ -9,7 +9,9 @@
         <ul class="navbar-left">
             <label class="category">{{toUpperCase this.department}}</label>
             <br>
-            <li><a href="#" class="subcategory">VIEW ALL</a></li>
+            <li>
+                <a href="#" class="subcategory">VIEW ALL</a>
+            </li>
             <br>
             <label class="category">SHOP BY CATEGORY</label>
             <br>
@@ -19,7 +21,9 @@
                     <a href="/product/ladies/{{toLowerCase @key}}/page/1" class="subcategory">{{toUpperCase @key}}</a>
                     <ul class="assignments">
                         {{#each this}}
-                        <li><a href="{{this}}" class="subcategory">{{toUpperCase @key}}</a></li>
+                        <li>
+                            <a href="{{this}}" class="subcategory">{{toUpperCase @key}}</a>
+                        </li>
                         {{/each}}
                     </ul>
                 </li>
@@ -96,22 +100,21 @@
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
                     <a href="/product/{{_id}}">
-                        {{#each this.color }} {{#if @first}} {{#with this}}
+                        {{#with pics}}
                         <div class="pic">
                             <img id="thumbnail" src="{{ this.[0] }}" class="image">
                             <div class="overlay">
                                 <img id="thumbnail" src="{{ this.[3] }}" class="image2">
                             </div>
                         </div>
-                        {{/with}} {{/if}} {{/each}}
+                        {{/with}}
                     </a>
                     <div class="caption">
                         <a href="/product/{{_id}}" class="title">{{ title }}</a>
                         <p class="price">฿{{ price }}</p>
                         <div class="colorlist">
                             {{#each color}}
-                            <input id="colorShow" class="{{toLowerCase @key}}" type="button" title="{{@key}}" disabled />
-                            {{/each}}
+                            <input id="colorShow" class="{{toLowerCase this}}" type="button" title="{{this}}" disabled /> {{/each}}
                         </div>
                     </div>
                 </div>

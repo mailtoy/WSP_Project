@@ -1,7 +1,6 @@
 image: node:8.9.0
 
 before_script:
-  - git remote -v
   - npm install
 
 cache:
@@ -12,17 +11,17 @@ stages:
   - test
   - deploy
 
-test_jest:
+test_mocha:
   stage: test
   script:
     - npm test
   tags:
     - docker
 
-deploy_ninja:
+deploy_alesso:
   stage: deploy
   script:
-    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/ninja-ecommerce.git
+    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/alesso.git
     - git push heroku master
     - echo "Deployed to production server"
   tags:

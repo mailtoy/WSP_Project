@@ -75,6 +75,8 @@ router.post('/checkout', function (req, res, next) {
   }
   var cart = new Cart(req.session.cart.items);
 
+
+  console.log(req.body.firstname + " IS FIREST NAEM")
   var stripe = require("stripe")(
     "sk_test_TLBrJXM2JwhNMsyZZXJB6rFw"
   );

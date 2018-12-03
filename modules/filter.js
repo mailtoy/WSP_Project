@@ -1,31 +1,26 @@
 function filter(req, res, product) {
     var array = []
-    var allMatched = 0;
-    for (var i in req.query.filter)
-        allMatched += (req.query.filter)[i].length
-        
-    for (var index in product) {
-        var count = 0
-        for (var quary_key in req.query.filter) {
-            for (var filter of req.query.filter[quary_key]) {
-                if (product[index][quary_key][filter] !== undefined) {
-                    count++
-                }
+    for (var index in product) { // each products
+        var firstMatched = typeof req.query.filter["color"] === 'undefined'
+        var secondMatched = typeof req.query.filter["size"] === 'undefined'
+
+        for (var eachFilter in req.query.filter["color"]) { // each filter in set of filter
+            if (product[index]["color"].includes(req.query.filter["color"][eachFilter])) { // check whether product is included or not.
+                firstMatched = true;
+                break;
             }
         }
-        if (count == allMatched)
+
+        for (var eachFilter in req.query.filter["size"]) { // each filter in set of filter
+            if (product[index]["size"].includes(req.query.filter["size"][eachFilter])) { // check whether product is included or not.
+                secondMatched = true;
+                break;
+            }
+        }
+        if (firstMatched && secondMatched)
             array.push(product[index])
     }
     return array
-}
-
-function isSubsetOf(arr1, arr2) {
-    for (let i = 0; i < arr1.length; i++) {
-        if (arr2.indexOf(arr1[i]) == -1) {
-            return false;
-        }
-    }
-    return true;
 }
 
 module.exports = filter;

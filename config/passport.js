@@ -42,7 +42,7 @@ passport.use('local.signup', new LocalStrategy({
 
     User.findOne(
         { 'email': email }
-    ).exec(function(err, user) {
+    ).exec(function (err, user) {
         if (err) {
             return done(err);
         } else if (user) {
@@ -57,6 +57,7 @@ passport.use('local.signup', new LocalStrategy({
         newUser.city = city;
         newUser.state = state;
         newUser.zip = zip;
+        // newUser.admin = true;
         newUser.save(function (err) {
             if (err) {
                 return done(err);
@@ -93,6 +94,7 @@ passport.use('local.signin', new LocalStrategy({
             return done(null, false, { message: 'Wrong password.' });
         }
         req.session.user = user;
+
         return done(null, user);
     });
 }));

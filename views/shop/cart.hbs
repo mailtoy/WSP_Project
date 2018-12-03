@@ -1,33 +1,31 @@
-<link rel="stylesheet" href="/stylesheets/shop/cart.css">
-
-{{# if this.products }}
+<link rel="stylesheet" href="/stylesheets/shop/cart.css"> {{# if this.products }}
 <div class="row">
     <ul class="list-group">
-        {{#each products}}
-            {{#ifCond qty '>=' 1}}
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-1">
-                            <div class="badge">
-                                <a href="/remove-from-cart/{{ this.id }}">-</a>
-                                <span>{{ this.qty }}</span>
-                                <a href="/add-to-cart/{{ this.id }}">+</a>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <img src="{{ this.item.imagePath_1 }}" class="item-img">
-                        </div>
-                        <div class="col-7">
-                            <h3>{{ this.item.title }}</h3>
-                            <span class="label label-success">${{ this.price }}</span>
-                        </div>
-                        <div class="col-2">
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </div>
+        {{#each products}} {{#ifCond qty '>=' 1}}
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-1">
+                    <div class="badge">
+                        <a href="/remove-from-cart/{{ this.id }}">-</a>
+                        <span>{{ this.qty }}</span>
+                        <a href="/add-to-cart/{{ this.id }}">+</a>
                     </div>
-                </li>
-            {{/ifCond}}
-        {{/each}}
+                </div>
+                <div class="col-2">
+                    {{#with this.item.pics }}
+                    <img src="{{ this.[0] }}" class="item-img"> {{/with}}
+
+                </div>
+                <div class="col-7">
+                    <h3>{{ this.item.title }}</h3>
+                    <span class="label label-success">${{ this.price }}</span>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </li>
+        {{/ifCond}} {{/each}}
     </ul>
 </div>
 <div class="row">

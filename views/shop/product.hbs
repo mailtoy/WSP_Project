@@ -1,62 +1,61 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="/stylesheets/shop/product.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">	
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/javascripts/shop/product.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-{{#if this.product}}
-	<div class="container card container-fliud wrapper">
-		<div class="row">
-			<div class="preview col-md-4 col-md-offset-2">
-				<div class="preview-pic tab-content">
-					{{#each product.color}}
-						{{#each this}}
-							<div class="tab-pane" id="pic-{{@../key}}-{{@index}}"><img src="{{ this }}" /></div>
-						{{/each}}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> {{#if this.product}}
+<div class="container card container-fliud wrapper">
+	<div class="row">
+		<div class="preview col-md-4 col-md-offset-2">
+			<div class="preview-pic tab-content">
+				{{#each product.pics}}
+				<div class="tab-pane" id="pic-{{@../key}}-{{@index}}">
+					<img src="{{ this }}" />
+				</div>
+				{{/each}}
+			</div>
+			<ul class="preview-thumbnail nav nav-tabs">
+				<div class="scrollmenu">
+					{{#each product.pics}}
+					<li>
+						<a data-target="#pic-{{@../key}}-{{@index}}" data-toggle="tab">
+							<img src="{{ this }}" />
+						</a>
+					</li>
 					{{/each}}
 				</div>
-				<ul class="preview-thumbnail nav nav-tabs">
-					<div class="scrollmenu">
-						{{#each product.color}}
-							{{#each this}}
-								<li><a data-target="#pic-{{@../key}}-{{@index}}" data-toggle="tab"><img src="{{ this }}" /></a></li>
-							{{/each}}
+			</ul>
+		</div>
+		<div class="details col-md-4">
+			<h3 class="product-title">{{ product.title }}</h3>
+			<h4 class="price">
+				<span class="price">฿{{ product.price }}</span>
+			</h4>
+			<h4 class="product-description">DESCRIPTION</h4>
+			<p>{{ product.description }}</p>
+			<h4 class="product-detail">DETAIL</h4>
+			<p>{{ product.detail }}</p>
+			<form method="post" action="/add-to-cart/{{ product._id }}">
+				<h5 class="sizes">sizes:
+					<select name="size" id="sizeSelection" class="form-control form-control-sm">
+						{{#each product.size}}
+						<option class="size">{{this}}</option>
 						{{/each}}
-					</div>
-				</ul>
-			</div>
-			<div class="details col-md-4">
-				<h3 class="product-title">{{ product.title }}</h3>
-				<h4 class="price">
-					<span class="price">฿{{ product.price }}</span>
-				</h4>
-				<h4 class="product-description">DESCRIPTION</h4>
-				<p>{{ product.description }}</p>
-				<h4 class="product-detail">DETAIL</h4>
-				<p>{{ product.detail }}</p>
-				<form method="post" action="/add-to-cart/{{ product._id }}" >
-					<h5 class="sizes">sizes:
-						<select name="size" id="sizeSelection" class="form-control form-control-sm">
-							{{#each product.size}}
-								<option class="size">{{@key}}</option>
-							{{/each}}
-						</select>
-					</h5>
-					<h5 class="colors">colors:
-						<select name="color" id="colorSelection" class="form-control form-control-sm">
-							{{#each product.color}}
-								<option class="color" id="color-{{@index}}">{{@key}}</option>
-							{{/each}}
-						</select>
-					</h5>
-					<a class="action" href="/add-to-cart/{{ product._id }}">
-						<input type="submit" value="ADD TO CART">
-					</a>
-				</form>
-			</div>
+					</select>
+				</h5>
+				<h5 class="colors">colors:
+					<select name="color" id="colorSelection" class="form-control form-control-sm">
+						{{#each product.color}}
+						<option class="color" id="color-{{@index}}">{{this}}</option>
+						{{/each}}
+					</select>
+				</h5>
+				<a class="action" href="/add-to-cart/{{ product._id }}">
+					<input type="submit" value="ADD TO CART">
+				</a>
+			</form>
 		</div>
 	</div>
+</div>
 {{/if}}

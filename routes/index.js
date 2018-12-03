@@ -30,7 +30,7 @@ router.get('/add-to-cart-qty/:id/:qty', function (req, res, next) {
   });
 });
 
-router.post('/add-to-cart/:id', isLoggedIn, function (req, res, next) {
+router.post('/add-to-cart/:id', function (req, res, next) {
   var productId = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
   var color = req.body.color;
@@ -41,21 +41,6 @@ router.post('/add-to-cart/:id', isLoggedIn, function (req, res, next) {
     res.redirect('back');
   });
 });
-
-// router.delete('/remove-from-cart/:id', isLoggedIn, function (req, res) {
-//   let query = { _id: req.params.id }
-//   var cart = new Cart(req.session.cart.items);
-//   cart.qty = 0;
-//   Product.findById(req.params.id, function (err, product) {
-//     Product.remove(query, function (err) {
-//       if (err) {
-//         console.log(err);
-//       }
-//       cart.remove(req.params.id);
-//       res.send('Success');
-//     })
-//   })
-// })
 
 router.get('/checkout', isLoggedIn, function (req, res, next) {
   if (!req.session.cart) {
@@ -76,6 +61,7 @@ router.get('/cart', isLoggedIn, function (req, res, next) {
     return res.render('shop/shopping_cart', { products: null });
   }
   var cart = new Cart(req.session.cart.items);
+  console.log(cart.generateArray())
   res.render('shop/shopping_cart', {
     title: 'My Cart | Dalessio',
     products: cart.generateArray(), totalPrice: cart.totalPrice
@@ -83,7 +69,7 @@ router.get('/cart', isLoggedIn, function (req, res, next) {
 });
 
 // checkout ธรรมดา
-router.post('/checkout', isLoggedIn, function (req, res, next) {
+router.post('/checkout', function (req, res, next) {
   if (!req.session.cart) {
     return res.redirect('/shopping-cart');
   }
@@ -124,7 +110,7 @@ router.post('/checkout', isLoggedIn, function (req, res, next) {
 }
 );
 
-router.post('/checkout-paypal', isLoggedIn, function (req, res, next) {
+router.post('/checkout-paypal', function (req, res, next) {
   var cart = new Cart(req.session.cart ? req.session.cart.items : {});
   var items = cart.generateArray()
   var items_json = [];

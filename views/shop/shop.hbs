@@ -1,6 +1,3 @@
-{{!--
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous"> --}}
 <link rel="stylesheet" href="/stylesheets/shop/shop.css">
 <script type="text/javascript" src="/javascripts/shop/shop.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -8,28 +5,32 @@
 
 <body>
     {{#if this.categories }}
-        <div class="col-sm-3">
-            <ul class="navbar-left">
-                <label class="category">{{toUpperCase this.department}}</label>
-                <br>
-                <li><a href="#" class="subcategory">VIEW ALL</a></li>
-                <br>
-                <label class="category">SHOP BY CATEGORY</label>
-                <br>
-                <label id="chaps">
-                    {{#each categories}}
-                        <li class="subcategory">
-                            <a href="/product/ladies/{{toLowerCase @key}}/page/1" class="subcategory">{{toUpperCase @key}}</a>
-                            <ul class="assignments">
-                                {{#each this}}
-                                    <li><a href="{{this}}" class="subcategory">{{toUpperCase @key}}</a></li>
-                                {{/each}}
-                            </ul>
+    <div class="col-sm-3">
+        <ul class="navbar-left">
+            <label class="category">{{toUpperCase this.department}}</label>
+            <br>
+            <li>
+                <a href="#" class="subcategory">VIEW ALL</a>
+            </li>
+            <br>
+            <label class="category">SHOP BY CATEGORY</label>
+            <br>
+            <label id="chaps">
+                {{#each categories}}
+                <li class="subcategory">
+                    <a href="/product/ladies/{{toLowerCase @key}}/page/1" class="subcategory">{{toUpperCase @key}}</a>
+                    <ul class="assignments">
+                        {{#each this}}
+                        <li>
+                            <a href="{{this}}" class="subcategory">{{toUpperCase @key}}</a>
                         </li>
-                    {{/each}}
-                </label>
-            </ul>
-        </div>
+                        {{/each}}
+                    </ul>
+                </li>
+                {{/each}}
+            </label>
+        </ul>
+    </div>
     {{/if}}
 </body>
 
@@ -99,22 +100,21 @@
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
                     <a href="/product/{{_id}}">
-                        {{#each this.color }} {{#if @first}} {{#with this}}
+                        {{#with pics}}
                         <div class="pic">
                             <img id="thumbnail" src="{{ this.[0] }}" class="image">
                             <div class="overlay">
                                 <img id="thumbnail" src="{{ this.[3] }}" class="image2">
                             </div>
                         </div>
-                        {{/with}} {{/if}} {{/each}}
+                        {{/with}}
                     </a>
                     <div class="caption">
                         <a href="/product/{{_id}}" class="title">{{ title }}</a>
                         <p class="price">฿{{ price }}</p>
                         <div class="colorlist">
                             {{#each color}}
-                                <input id="colorShow" class="{{toLowerCase @key}}" type="button" title="{{@key}}" disabled/>
-                            {{/each}}
+                            <input id="colorShow" class="{{toLowerCase this}}" type="button" title="{{this}}" disabled /> {{/each}}
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,28 @@
+image: node:8.9.0
+
+before_script:
+  - npm install
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - test
+  - deploy
+
+test_mocha:
+  stage: test
+  script:
+    - npm test
+  tags:
+    - docker
+
+deploy_alesso:
+  stage: deploy
+  script:
+    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/alesso.git
+    - git push heroku master
+    - echo "Deployed to production server"
+  tags:
+    - docker

@@ -117,7 +117,8 @@ function isAdminLoggedIn(req, res, next) {
     if (req.isAuthenticated() && req.user.admin) {
         return next();
     }
-    req.session.oldUrl = "admin" + req.url;
+    req.session.oldUrl = "/admin" + req.url;
+    console.log(req.session.oldUrl)
     res.redirect('/user/login');
 }
 

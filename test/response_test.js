@@ -6,13 +6,13 @@ const app = require('../app')
 
 describe('Response Testing', function () {
     it('should have a status code 200', function (done) {
-        this.timeout(9000);
+        this.timeout(90000);
         request
             .get('http://localhost:3000/')
             .end(function (err, response) {
                 assert.equal(response.status, 200);
-                done();
             });
+        done();
     });
 
     // it('should return product title', function (done) {

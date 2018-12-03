@@ -4,7 +4,7 @@ var User = require('../models/user');
 var Product = require('../models/product');
 var Order = require('../models/order');
 
-router.get('/product/:page', function (req, res) {
+router.get('/product/:page', isAdminLoggedIn, function (req, res) {
     var perPage = 6
     var page = req.params.page || 1
     var skip = (perPage * page) - perPage
@@ -23,66 +23,75 @@ router.get('/product/:page', function (req, res) {
         })
 });
 
-router.post('/addProduct', function (req, res) {
-    upload(req, res, function (err) {
+router.post('/add-product/', isAdminLoggedIn, function (req, res) {
+    var product = new Product({
+        department: req.body.department,
+        category: req.body.category,
+        subcategory: req.body.subcategory,
+        title: req.body.productname,
+        price: req.body.price,
+        description: req.body.description,
+        detail: req.body.detail,
+        color: req.body.color,
+        size: req.body.size,
+        pics: req.body.pics,
+    })
+    product.save(function (err, result) {
         if (err) {
-            console.log(err);
-            return;
+            console.log("err " + err);
         }
-        console.log(req.files);
-        res.end('Your files uploaded.');
-        console.log('Yep yep!');
+        console.log(result)
+        res.redirect('/admin/product/1');
     });
 });
 
-router.get('/add-product/', function (req, res) {
+router.get('/add-product/', isAdminLoggedIn, function (req, res) {
     res.render('admin/addProduct')
 });
 
-router.get('/orders/', function (req, res) {
-    Order.find(function(err,orders){
+router.get('/orders/', isAdminLoggedIn, function (req, res) {
+    Order.find(function (err, orders) {
         res.render('admin/orders', {
             orders: orders
         })
     })
 });
 
-router.get('/users/', function (req, res) {
-  User.find(function(err,users){
-      res.render('admin/users', {
-          users: users
-      })
+router.get('/users/', isAdminLoggedIn, function (req, res) {
+    User.find(function (err, users) {
+        res.render('admin/users', {
+            users: users
+        })
     })
 });
 
-router.get('/product/edit/:id', function (req, res) {
-    // Product.findById(req.params.id, function (err, product) {
-    //     currentProduct = product
-    // })
-    var query = req.query.productUpdate
-    if (query) {
-        Product.findById(req.params.id, function (err, product) {
-            product.title = query.title
-            product.price = query.price
-            product.description = query.description
-            product.detail = query.detail
-            product.color = query.color
-            product.size = query.size
-            product.save(function (err, updatedProduct) {
-                res.redirect('back');
-            });
+router.get('/product/edit/:id', isAdminLoggedIn, function (req, res) {
+    Product.findById(req.params.id, function (err, product) {
+        res.render('admin/editProduct', {
+            title: product.title + " | Dalessio",
+            product: product
         });
-
-    } else
-        Product.findById(req.params.id, function (err, product) {
-            res.render('admin/editProduct', {
-                title: product.title + " | Dalessio",
-                product: product
-            });
-        })
+    })
 });
 
-router.get('/product/remove/:id', function (req, res) {
+router.post('/product/edit/:id', isAdminLoggedIn, function (req, res) {
+    Product.findById(req.params.id, function (err, product) {
+
+        product.title = req.body.productname
+        product.price = req.body.price
+        product.description = req.body.description
+        product.detail = req.body.detail
+        product.color = req.body.color
+        product.size = req.body.size
+        product.pics = req.body.pics
+        product.save(function (err, updatedProduct) {
+            res.redirect('back');
+        });
+    });
+});
+
+
+router.get('/product/remove/:id', isAdminLoggedIn, function (req, res) {
     let query = {
         _id: req.params.id
     }
@@ -93,7 +102,7 @@ router.get('/product/remove/:id', function (req, res) {
     })
 })
 
-router.get('/user/remove/:id', function (req, res) {
+router.get('/user/remove/:id', isAdminLoggedIn, function (req, res) {
     let query = {
         _id: req.params.id
     }
@@ -103,6 +112,13 @@ router.get('/user/remove/:id', function (req, res) {
         })
     })
 })
+
+function isAdminLoggedIn(req, res, next) {
+    if (req.isAuthenticated() && req.user.admin) {
+        return next();
+    }
+    res.redirect('/');
+}
 
 
 

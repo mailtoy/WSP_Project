@@ -19,12 +19,6 @@ $(document).ready(function () {
             size[$(this).val()] = "100"
         })
 
-
-
-        console.log(size)
-        console.log(color)
-
-
         console.log($('#title').val())
         console.log($('#price').val())
 

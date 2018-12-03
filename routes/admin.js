@@ -85,7 +85,7 @@ router.post('/product/edit/:id', isAdminLoggedIn, function (req, res) {
         product.size = req.body.size
         product.pics = req.body.pics
         product.save(function (err, updatedProduct) {
-            res.redirect('back');
+            res.redirect('/admin/product/1');
         });
     });
 });
@@ -117,7 +117,8 @@ function isAdminLoggedIn(req, res, next) {
     if (req.isAuthenticated() && req.user.admin) {
         return next();
     }
-    res.redirect('/');
+    req.session.oldUrl = req.url;
+    res.redirect('/user/login');
 }
 
 

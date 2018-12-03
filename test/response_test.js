@@ -10,16 +10,110 @@ var chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 chai.should();
 
-describe('Response Testing', function () {
-    it('should have a status code 200', function (done) {
-        this.timeout(90000);
+describe('Response Testing', function() {
+    it('GET invalid route', function(done) {
         chai.request(app)
-            .get('')
-            .end(function (err, response) {
-                assert.equal(response.status, 200);
+            .get('/asdsadasd')
+            .end(function (err, res) {
+                assert.equal(res.status, 404);
             });
         done();
     });
+
+    it('GET home', function(done) {
+        chai.request(app)
+            .get('/')
+            .end(function(err, res) {
+                assert.equal(res.status, 200);
+                res.should.be.json;
+                res.body.should.be.a('array');
+            });
+        done();
+    })
+
+    it('GET login', function(done) {
+        chai.request(app)
+            .get('/user/login')
+            .end(function(err, res) {
+                assert.equal(res.status, 200);
+                res.should.be.json;
+                res.body.should.be.a('array');
+            });
+        done();
+    })
+
+    it('GET signin', function(done) {
+        chai.request(app)
+            .get('/user/register')
+            .end(function(err, res) {
+                assert.equal(res.status, 200);
+                res.should.be.json;
+                res.body.should.be.a('array');
+            });
+        done();
+    })
+
+    it('GET ladies', function(done) {
+        chai.request(app)
+            .get('/product/ladies/page/1')
+            .end(function(err, res) {
+                assert.equal(res.status, 200);
+                res.should.be.json;
+                res.body.should.be.a('array');
+            });
+        done();
+    })
+
+    it('GET men', function(done) {
+        chai.request(app)
+            .get('/product/men/page/1')
+            .end(function(err, res) {
+                assert.equal(res.status, 200);
+                res.should.be.json;
+                res.body.should.be.a('array');
+            });
+        done();
+    })
+
+    it('GET kids', function(done) {
+        chai.request(app)
+            .get('/product/kids/page/1')
+            .end(function(err, res) {
+                assert.equal(res.status, 200);
+                res.should.be.json;
+                res.body.should.be.a('array');
+            });
+        done();
+    })
+
+    // it('POST register', function(done) {
+    //     var user = {
+    //         'email': 'test@hotmail.com',
+    //         'password': 'testy',
+    //         'firstName': 'Mr.Test',
+    //         'lastName': 'Eiei',
+    //         'address': 'Somewhere',
+    //         'city': 'On Earth',
+    //         'state': 'In the world',
+    //         'zip': '12345s'
+    //     }
+    //     chai.request(app)
+    //       .post('/user/register')
+    //       .send(user)
+    //       .end(function(err, res){
+    //         assert.equal(res.status, 200);
+    //         // res.should.be.json;
+    //         // res.body.should.be.a('object');
+    //         // res.body.should.have.property('SUCCESS');
+    //         // res.body.SUCCESS.should.be.a('object');
+    //         // res.body.SUCCESS.should.have.property('email');
+    //         // res.body.SUCCESS.should.have.property('password');
+    //         // res.body.SUCCESS.should.have.property('_id');
+    //         // res.body.SUCCESS.name.should.equal('Java');
+    //         // res.body.SUCCESS.lastName.should.equal('Script');
+    //         done();
+    //       });
+    //   });
 
     // it('should return product title', function (done) {
     //     this.timeout(9000);

@@ -4,11 +4,17 @@ const expect = require('chai').expect
 var request = require('superagent');
 const app = require('../app')
 
+var chai = require('chai');
+var chaiHttp = require('chai-http');
+
+chai.use(chaiHttp);
+chai.should();
+
 describe('Response Testing', function () {
     it('should have a status code 200', function (done) {
         this.timeout(90000);
-        request
-            .get('http://localhost:3000/')
+        chai.request(app)
+            .get('')
             .end(function (err, response) {
                 assert.equal(response.status, 200);
             });

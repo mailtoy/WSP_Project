@@ -1,8 +1,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="/javascripts/admin/addProduct.js"></script>
 <link rel="stylesheet" href="/stylesheets/admin/admin.css">
+<script type="text/javascript" src="/javascripts/admin/addProduct.js"></script>
 
 <div class="single-pro-review-area mt-t-30 mg-b-15">
     <div class="container-fluid">
@@ -10,77 +10,89 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h3>Add Product</h3>
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group">
-                                    <input id="title" name="productname" type="text" class="form-control" placeholder="Product Name"
-                                        style="width:330px">
-                                </div>
-                                <div class="form-group">
-                                    <input name="price" id="detail" type="text" class="form-control" placeholder="Price"
-                                        style="width:330px">
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="detail" placeholder="Detail" style="width:330px; height:100px"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="description" placeholder="Description" style="width:330px; height:200px"></textarea>
-                                </div>
+                    <form method="post">
 
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group">
-                                    <span class="color-filter">
 
-                                        <button type="button" class="btn btn-dark" id="blackBth">Black</button>
-                                        <input name='blackInput' id='price' type='text' class='form-control' style='width:330px'>
-                                        {{!--
-                                        <button type="button" style="display:none;" class="btn btn-default" id="White">White</button>
-                                        <button type="button" style="display:none;" class="btn btn-danger" id="Red">Red</button>
-                                        <button type="button" style="display:none;" class="btn btn-primary" id="Blue">Blue</button>
-                                        <button type="button" style="display:none;" class="btn btn-warning" id="Yellow">Yellow</button>
-                                        --}}
-                                    </span>
-                                    <label for="sel1">Select Color</label>
-                                    <select class="form-control" id="color">
-                                        <option>Select color...</option>
-                                        <option>Black</option>
-                                        <option>Red</option>
-                                        <option>White</option>
-                                        <option>Blue</option>
-                                    </select>
-                                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 95%;">
-                                </div>
-                                <div class="form-group">
-                                    {{!-- <span class="size-filter">
-                                        <input class="signatureColor" style="display:none;" type="button" id="XS" value="XS" />
-                                        <input class="signatureColor" style="display:none;" type="button" id="S" value="S" />
-                                        <input class="signatureColor" style="display:none;" type="button" id="M" value="M" />
-                                        <input class="signatureColor" style="display:none;" type="button" id="L" value="L" />
-                                        <input class="signatureColor" style="display:none;" type="button" id="XL" value="XL" />
-                                    </span> --}}
-                                    <label for="sel1">Select Size</label>
-                                    <select class="form-control" id="size">
-                                        <option>Select size...</option>
-                                        <option>S</option>
-                                        <option>M</option>
-                                        <option>X</option>
-                                        <option>XL</option>
-                                    </select>
-                                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 95%;">
-                                </div>
-                            </div>
-                            <br>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="payment-adress">
-                                        <button id="submitBth" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="sel1">Department:</label>
+                                        <select name="department" id="typeOfDepartment" class="form-control">
+                                            <option value="ladies">Ladies</option>
+                                            <option value="men">Men</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="sel1">Category:</label>
+                                        <select name="category" id="typeOfCategory" class="form-control">
+                                            <option value="dresses">Dresses</option>
+
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="sel1">Subcategory:</label>
+                                        <select name="subcategory" id="typeOfSubcategory" class="form-control">
+                                            <option value="short dresses">Short Dresses</option>
+                                            <option value="midi dresses">Midi dresses</option>
+                                            <option value="bodycon">Bodycon</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <input id="title" name="productname" type="text" class="form-control" placeholder="Product Name" style="width:330px">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="price" id="detail" type="text" class="form-control" placeholder="Price" style="width:330px">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="detail" placeholder="Detail" style="width:330px; height:100px"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="description" placeholder="Description" style="width:330px; height:200px"></textarea>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <label>Pictures</label>
+                                    <input type="text" name="pics" placeholder="Image 1..." class="form-control">
+                                    <input type="text" name="pics" placeholder="Image 2..." class="form-control">
+                                    <input type="text" name="pics" placeholder="Image 3..." class="form-control">
+                                    <input type="text" name="pics" placeholder="Image 4..." class="form-control">
+                                    <input type="text" name="pics" placeholder="Image 5..." class="form-control">
+                                    <br>
+
+                                    <label>Size</label>
+                                    <input type="text" name="size" placeholder="Size 1..." class="form-control">
+                                    <input type="text" name="size" placeholder="Size 2..." class="form-control">
+                                    <input type="text" name="size" placeholder="Size 3..." class="form-control">
+                                    <input type="text" name="size" placeholder="Size 4..." class="form-control">
+                                    <input type="text" name="size" placeholder="Size 5..." class="form-control">
+                                    <br>
+
+                                    <label>Color</label>
+                                    <input type="text" name="color" placeholder="Color 1..." class="form-control">
+                                    <input type="text" name="color" placeholder="Color 2..." class="form-control">
+                                    <input type="text" name="color" placeholder="Color 3..." class="form-control">
+                                    <input type="text" name="color" placeholder="Color 4..." class="form-control">
+                                    <input type="text" name="color" placeholder="Color 5..." class="form-control">
+                                    <br>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="payment-adress">
+                                            <button type="submit" id="submitBth" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

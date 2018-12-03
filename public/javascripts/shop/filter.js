@@ -26,8 +26,8 @@ function clearfilter() {
 
 function filter() {
     var info = {}
-    info["size"] = []
-    info["color"] = []
+    info["size"] = new Array()
+    info["color"] = new Array()
 
     $.each($(".color-filter .btn"), function () {
         if (jQuery(this).is(":visible")) {
@@ -41,7 +41,7 @@ function filter() {
         }
     });
 
-    
+
 
     var url = pageReset(window.location.href)
     $.ajax({

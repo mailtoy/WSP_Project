@@ -5,15 +5,15 @@
         <form action="/user/login" method="post">
             <fieldset class="clearfix">
                 {{#if hasErrors}}
-                    <div class="alert alert-danger">
-                        {{# each messages }}
-                        <p>{{this}}</p>
-                        {{/each}}
-                    </div>
+                <div class="alert alert-danger">
+                    {{# each messages }}
+                    <p>{{this}}</p>
+                    {{/each}}
+                </div>
                 {{/if}}
                 <p>
                     <span class="fontawesome-user"></span>
-                    <input class="form-control" type="text" value="Username"  name="email" onBlur="if(this.value == '') this.value = 'Username'"
+                    <input class="form-control" type="text" value="Username" name="email" onBlur="if(this.value == '') this.value = 'Username'"
                         onFocus="if(this.value == 'Username') this.value = ''" required>
                 </p>
                 <p>
@@ -26,7 +26,9 @@
                 </p>
             </fieldset>
         </form>
-        <p>Not a member? <a href="/user/register" class="red">Sign up now</a><span class="fontawesome-arrow-right"></span></p>
+        <p>Not a member?
+            <a href="/user/register" class="red">Sign up now</a>
+            <span class="fontawesome-arrow-right"></span>
+        </p>
     </div>
 </center>
-

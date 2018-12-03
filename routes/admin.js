@@ -52,7 +52,8 @@ router.post('/orders', function (req, res) {
 });
 
 router.get('/orders/', function (req, res) {
-    // Order.find
+    Order
+      .find
     res.render('admin/orders')
 });
 

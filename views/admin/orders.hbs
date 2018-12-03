@@ -13,30 +13,28 @@
 
                 <table class="table">
                     <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Payment ID</th>
-                      <th scope="col">Amount</th>
-                      <th scope="col">Total</th>
-                    </tr>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Payment ID</th>
+                            <th scope="col">Total</th>
+                        </tr>
                     </thead>
 
 
                     <tbody>
-                      {{#each orders}}
-                          <tr>
+                        {{#each orders}}
+                        <tr>
                             <th scope="row">{{offset @index}}</th>
                             <td>{{name}}</td>
                             <td>{{paymentId}}</td>
-                            <td>{{cart.totalQty}}</td>
                             <td>{{cart.totalPrice}}</td>
-                          </tr>
-                      {{/each}}
+                        </tr>
+                        {{/each}}
 
                     </tbody>
 
-                 </table>
+                </table>
 
             </div>
         </div>

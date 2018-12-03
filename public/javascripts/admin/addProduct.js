@@ -15,17 +15,4 @@ $(document).ready(function () {
             $('#typeOfSubcategory').append('<option value="long sleeves">Long sleeves</option>');
         }
     });
-    // $('#typeOfCategory').on('change', function () {
-    //     $('#typeOfSubcategory').html('');
-    //     if ($('#typeOfCategory').val() == "dresses") {
-    //         $('#typeOfSubcategory').append('<option value="short dresses">Short dresses</option>');
-    //         $('#typeOfSubcategory').append('<option value="midi dresses">Dresses</option>');
-    //         $('#typeOfSubcategory').append('<option value="bodycon">Bodycon</option>');
-    //     }
-    //     if ($('#typeOfCategory').val() == "tanktops") {
-    //         $('#typeOfSubcategory').append('<option value="short sleeves">Short sleeves</option>');
-    //         $('#typeOfSubcategory').append('<option value="long sleeves">Long sleeves</option>');
-    //     }
-
-    // });
 })

@@ -37,9 +37,9 @@
             <td>{{description}}</td>
             <td>{{price}}฿</td>
             <td>
-                <button type="button" onclick="location.href='/admin/product/edit/{{_id}}'" class="btn btn-info">Edit</button>
-                <button type="button" onclick="location.href='/product/{{_id}}'" class="btn btn-success">View</button>
-                <button type="button" onclick="deleteProduct('{{_id}}')" class="btn btn-danger">Delete</button>
+                <button type="button" onclick="location.href='/admin/product/edit/{{_id}}'" class="btn btn-info btn-block">Edit</button>
+                <button type="button" onclick="location.href='/product/{{_id}}'" class="btn btn-success btn-block">View</button>
+                <button type="button" onclick="deleteProduct('{{_id}}')" class="btn btn-danger btn-block">Delete</button>
             </td>
         </tr>
         {{/each}}

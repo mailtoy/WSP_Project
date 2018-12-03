@@ -12,7 +12,7 @@ chai.should();
 
 describe('Response Testing', function () {
     it('should have a status code 200', function (done) {
-        this.timeout(90000);
+        this.timeout(900);
         chai.request(app)
             .get('')
             .end(function (err, response) {

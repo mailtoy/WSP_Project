@@ -106,7 +106,7 @@ router.use('/', notLoggedIn, function (req, res, next) {
 });
 
 // Login
-router.get('/login', function (req, res, next) {
+router.get('/login', notLoggedIn, function (req, res, next) {
   var messages = req.flash('error');
   res.render('user/login', {
     messages: messages,

@@ -118,3 +118,8 @@ handlebars.registerHelper('toLowerCase', function (str) {
 handlebars.registerHelper('toUpperCase', function (str) {
     return str.toUpperCase();
 });
+
+handlebars.registerHelper('offset', function (index) {
+    index++;
+    return index;
+});

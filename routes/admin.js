@@ -39,22 +39,20 @@ router.get('/add-product/', function (req, res) {
     res.render('admin/addProduct')
 });
 
-router.post('/orders', function (req, res) {
-    upload(req, res, function (err) {
-        if (err) {
-            console.log(err);
-            return;
-        }
-        console.log(req.files);
-        res.end('Your files uploaded.');
-        console.log('Yep yep!');
-    });
+router.get('/orders/', function (req, res) {
+    Order.find(function(err,orders){
+        res.render('admin/orders', {
+            orders: orders
+        })
+    })
 });
 
-router.get('/orders/', function (req, res) {
-    Order
-      .find
-    res.render('admin/orders')
+router.get('/users/', function (req, res) {
+  User.find(function(err,users){
+      res.render('admin/users', {
+          users: users
+      })
+    })
 });
 
 router.get('/product/edit/:id', function (req, res) {
@@ -90,6 +88,17 @@ router.get('/product/remove/:id', function (req, res) {
     }
     Product.findById(req.params.id, function (err, product) {
         Product.remove(query, function (err) {
+            res.redirect('back');
+        })
+    })
+})
+
+router.get('/user/remove/:id', function (req, res) {
+    let query = {
+        _id: req.params.id
+    }
+    User.findById(req.params.id, function (err, users) {
+        User.remove(query, function (err) {
             res.redirect('back');
         })
     })

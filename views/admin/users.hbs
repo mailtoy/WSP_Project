@@ -1,35 +1,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="/javascripts/admin/orders.js"></script>
+<script type="text/javascript" src="/javascripts/admin/users.js"></script>
 <link rel="stylesheet" href="/stylesheets/admin/admin.css">
 
 <div class="single-pro-review-area mt-t-30 mg-b-15">
     <div class="container-fluid">
         <div class="row" style="margin-top:2%; padding-left:5%; padding-right:5%">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h3>Order</h3>
+                <h3>User</h3>
 
                 <table class="table">
                     <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Payment ID</th>
-                      <th scope="col">Amount</th>
-                      <th scope="col">Total</th>
+                      <th scope="col">First name</th>
+                      <th scope="col">Last name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Action</th>
                     </tr>
                     </thead>
 
 
                     <tbody>
-                      {{#each orders}}
+                      {{#each users}}
                           <tr>
                             <th scope="row">{{offset @index}}</th>
-                            <td>{{name}}</td>
-                            <td>{{paymentId}}</td>
-                            <td>{{cart.totalQty}}</td>
-                            <td>{{cart.totalPrice}}</td>
+                            <td>{{firstName}}</td>
+                            <td>{{lastName}}</td>
+                            <td>{{email}}</td>
+                            <td>{{address}}</td>
+                            <td><button type="button" onclick="deleteUser('{{_id}}')" class="btn btn-danger">Delete</button></td>
                           </tr>
                       {{/each}}
 

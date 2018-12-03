@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 var Product = require('../models/product');
+var Order = require('../models/order');
 
 router.get('/product/:page', function (req, res) {
     var perPage = 6
@@ -36,6 +37,23 @@ router.post('/addProduct', function (req, res) {
 
 router.get('/add-product/', function (req, res) {
     res.render('admin/addProduct')
+});
+
+router.post('/orders', function (req, res) {
+    upload(req, res, function (err) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log(req.files);
+        res.end('Your files uploaded.');
+        console.log('Yep yep!');
+    });
+});
+
+router.get('/orders/', function (req, res) {
+    // Order.find
+    res.render('admin/orders')
 });
 
 router.get('/product/edit/:id', function (req, res) {

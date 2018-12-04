@@ -32,9 +32,9 @@ router.post('/add-product/', isAdminLoggedIn, function (req, res) {
         price: req.body.price,
         description: req.body.description,
         detail: req.body.detail,
-        color: req.body.color,
-        size: req.body.size,
-        pics: req.body.pics,
+        color: (req.body.color).filter(Boolean),
+        size: (req.body.size).filter(Boolean),
+        pics: (req.body.pics).filter(Boolean),
     })
     product.save(function (err, result) {
         if (err) {
